@@ -174,6 +174,10 @@
   .loja-card h3{font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:-.2px}
   .loja-card .l-meta-row{display:flex;align-items:center;gap:5px;margin-top:4px;font-size:12px;color:var(--gray)}
   .loja-card .l-stars{color:var(--gold)}
+  .loja-card.lc-big{grid-column:span 2}
+  .loja-card.lc-big .lc-media{aspect-ratio:2.6/1}
+  .loja-card.lc-big h3{font-size:19px}
+  @media(max-width:560px){.loja-card.lc-big{grid-column:span 1}.loja-card.lc-big .lc-media{aspect-ratio:4/3}}
   .loja-card .l-stars span{color:var(--gray-light);margin-left:2px}
   .loja-card .l-link{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:13px;font-weight:600;color:var(--primary)}
   .lojas-filter{display:flex;gap:8px;flex-wrap:wrap;padding:24px 0 20px}
@@ -947,7 +951,7 @@ function renderLojas(){
     const media = s.logoUrl
       ? `<img class="lc-img" src="${s.logoUrl}" alt="${s.name}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;lc-placeholder&quot;>${s.name}</div>'">`
       : `<div class="lc-placeholder">${s.name}</div>`;
-    return `<div class="loja-card" onclick="goStore('${s.id}')">
+    return `<div class="loja-card${s.top ? " lc-big" : ""}" onclick="goStore('${s.id}')">
       <div class="lc-media" style="background:${s.color}">${media}</div>
       <div class="lc-content">
         <h3>${s.name}</h3>
