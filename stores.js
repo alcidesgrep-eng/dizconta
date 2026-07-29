@@ -566,7 +566,7 @@ const COUPONS = [
    ------------------------------------------------------------ */
 const BANNERS = [
   {
-    image: "",                 // ej: "img/banner-natura.jpg"
+    image: "img/banner-natura.jpg",
     title: "Cupom Natura com até 20% OFF",
     subtitle: "Perfumaria, presentes e muito mais",
     storeId: "natura"
