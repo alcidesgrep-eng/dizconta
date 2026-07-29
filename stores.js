@@ -183,6 +183,7 @@ const CATEGORY_COPY = {
 const STORES = [
   {
     id: "natura", name: "Natura", category: "Beleza", color: "#F25C05", logoText: "natura",
+    logoUrl: "img/logos/natura.png",
     affiliateUrl: "https://www.minhaloja.natura.com/consultoria/valeskavalentina",
     logoDomain: "natura.com.br",   /* dominio para el logo (el link es minhaloja) */
     subidParam: null, cashback: null, rating: { score: 4.8, count: 93 },
@@ -191,6 +192,7 @@ const STORES = [
   },
   {
     id: "olympikus", name: "Olympikus", category: "Esportes", color: "#00B140", logoText: "OLK",
+    logoUrl: "img/logos/olympikus.png",
     affiliateUrl: "https://www.olympikus.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 68 },
     description: "O tênis oficial de quem corre no Brasil. Tecnologia de amortecimento premiada e preço justo — os modelos Corre já bateram recordes em maratonas. Ative a oferta e corra na frente.",
@@ -198,6 +200,7 @@ const STORES = [
   },
   {
     id: "vaidepromo", name: "Vai de Promo", category: "Viagens", color: "#00B5E2", logoText: "Vai de Promo",
+    logoUrl: "img/logos/vaidepromo.png",
     affiliateUrl: "https://www.vaidepromo.com.br/passagens-aereas/?utm_medium=afiliado&pcrid=14162&utm_source=site-blog&pcrtt=dsa",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 54 },
     description: "Passagens aéreas nacionais e internacionais pelo menor preço, com busca em dezenas de companhias ao mesmo tempo. Parcele sua viagem e voe pagando menos do que quem comprou do lado.",
@@ -205,6 +208,7 @@ const STORES = [
   },
   {
     id: "segurospromo", name: "Seguros Promo", category: "Viagens", color: "#12B76A", logoText: "Seguros Promo",
+    logoUrl: "img/logos/segurospromo.png",
     affiliateUrl: "https://www.segurospromo.com.br/?utm_medium=afiliado&pcrid=14162&utm_source=site-blog",
     subidParam: null, cashback: null, rating: { score: 4.8, count: 71 },
     description: "O comparador de seguro viagem nº 1 do Brasil: cote as principais seguradoras em segundos e viaje protegido para Europa, EUA ou qualquer destino — pagando bem menos que no balcão.",
@@ -212,6 +216,7 @@ const STORES = [
   },
   {
     id: "rentcars", name: "Rentcars", category: "Viagens", color: "#5F2EEA", logoText: "rentcars",
+    logoUrl: "img/logos/rentcars.png",
     affiliateUrl: "https://www.rentcars.com/pt-br/?requestorid=10589&utm_source=gabglobalmkt.com.br&utm_medium=afiliado-link",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 63 },
     description: "Aluguel de carros no Brasil e no mundo: compare as maiores locadoras, pague em reais sem IOF e parcele. O jeito inteligente de garantir seu carro na viagem.",
@@ -219,6 +224,7 @@ const STORES = [
   },
   {
     id: "travelbds", name: "Travel BDS", category: "Viagens", color: "#F2740D", logoText: "Travel BDS",
+    logoUrl: "img/logos/travelbds.png",
     affiliateUrl: "https://www.parceirospromo.com.br/partners/affiliate/travel-bds?page=https://travelbds.com&utm_medium=afiliado&pcrid=14162&utm_source=site-blog",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 28 },
     description: "Experiências, passeios e serviços de viagem selecionados para transformar sua próxima trip — reserve com antecedência e economize no destino.",
@@ -226,6 +232,7 @@ const STORES = [
   },
   {
     id: "electrolux", name: "Electrolux", category: "Casa", color: "#041E42", logoText: "Electrolux",
+    logoUrl: "img/logos/electrolux.png",
     affiliateUrl: "https://loja.electrolux.com.br/?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 74 },
     description: "Loja oficial Electrolux: geladeiras, lavadoras, ar-condicionado e eletroportáteis direto da fábrica, com garantia oficial e ofertas que o varejo não tem.",
@@ -233,6 +240,7 @@ const STORES = [
   },
   {
     id: "dji", name: "DJI", category: "Tecnologia", color: "#111111", logoText: "DJI",
+    logoUrl: "img/logos/dji.png",
     affiliateUrl: "https://www.lojadji.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.9, count: 41 },
     description: "Drones, câmeras e estabilizadores da líder mundial. Loja oficial DJI Brasil com garantia local e parcelamento — o jeito seguro de comprar seu Mavic, Mini ou Osmo.",
@@ -240,6 +248,7 @@ const STORES = [
   },
   {
     id: "cobasi", name: "Cobasi", category: "Pets", color: "#00A859", logoText: "cobasi",
+    logoUrl: "img/logos/cobasi.png",
     affiliateUrl: "https://minhaloja.cobasi.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     logoDomain: "cobasi.com.br",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 85 },
@@ -248,6 +257,7 @@ const STORES = [
   },
   {
     id: "underarmour", name: "Under Armour", category: "Esportes", color: "#1D1D1D", logoText: "UA",
+    logoUrl: "img/logos/underarmour.png",
     affiliateUrl: "https://www.underarmour.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 52 },
     description: "A marca dos atletas de alta performance. Camisetas, tênis e acessórios com tecnologia que acompanha treino pesado — no outlet oficial tem peça com metade do preço.",
@@ -255,6 +265,7 @@ const STORES = [
   },
   {
     id: "payot", name: "Payot", category: "Beleza", color: "#B58A3F", logoText: "PAYOT",
+    logoUrl: "img/logos/payot.png",
     affiliateUrl: "https://www.lojapayot.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 38 },
     description: "Dermocosméticos e maquiagem de quem entende de pele há décadas. Qualidade de clínica com preço de farmácia — e ofertas exclusivas pelo link.",
@@ -262,6 +273,7 @@ const STORES = [
   },
   {
     id: "salonline", name: "Salon Line", category: "Beleza", color: "#E91E8C", logoText: "Salon Line",
+    logoUrl: "img/logos/salonline.png",
     affiliateUrl: "https://www.salonline.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.8, count: 112 },
     description: "A marca nº 1 de quem ama cabelo crespo, cacheado e ondulado. Cronograma capilar completo sem pesar no bolso — kits em oferta toda semana.",
@@ -276,6 +288,7 @@ const STORES = [
   },
   {
     id: "amakhaparis", name: "Amakha Paris", category: "Beleza", color: "#C9A227", logoText: "AMAKHA",
+    logoUrl: "img/logos/amakhaparis.png",
     affiliateUrl: "https://www.amakhaparis.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 33 },
     description: "Perfumes de bolso inspirados nas fragrâncias mais desejadas do mundo — por uma fração do preço. Perfeitos para levar na bolsa e renovar ao longo do dia.",
@@ -283,6 +296,7 @@ const STORES = [
   },
   {
     id: "candide", name: "Candide", category: "Brinquedos", color: "#FFC20E", logoText: "candide",
+    logoUrl: "img/logos/candide.png",
     affiliateUrl: "https://www.candide.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 29 },
     description: "Os brinquedos que marcam infância: licenciados oficiais, lançamentos e clássicos com preço direto da distribuidora. Presente certo sem estourar o orçamento.",
@@ -290,6 +304,7 @@ const STORES = [
   },
   {
     id: "funko", name: "Funko", category: "Brinquedos", color: "#1A1A1A", logoText: "funko",
+    logoUrl: "img/logos/funko.png",
     affiliateUrl: "https://www.funko.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.8, count: 57 },
     description: "Loja oficial Funko Brasil: Pop! originais dos seus filmes, séries, animes e games favoritos. Colecionável original, sem risco de réplica — e com oferta ativa.",
@@ -304,6 +319,7 @@ const STORES = [
   },
   {
     id: "mizuno", name: "Mizuno", category: "Esportes", color: "#001489", logoText: "MIZUNO",
+    logoUrl: "img/logos/mizuno.png",
     affiliateUrl: "https://www.mizuno.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 63 },
     description: "Engenharia japonesa nos pés: os tênis de corrida mais duráveis do mercado. Wave Prophecy e Creation no outlet oficial com descontos que raramente aparecem.",
@@ -311,6 +327,7 @@ const STORES = [
   },
   {
     id: "seculus", name: "Seculus", category: "Relógios", color: "#00205B", logoText: "SECULUS",
+    logoUrl: "img/logos/seculus.png",
     affiliateUrl: "https://www.seculus.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 24 },
     description: "Relógios com design brasileiro e garantia de fábrica. Modelos clássicos e esportivos que valorizam qualquer visual — direto da loja oficial.",
