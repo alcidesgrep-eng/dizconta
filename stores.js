@@ -335,6 +335,7 @@ const STORES = [
   },
   {
     id: "fossil", name: "Fossil", category: "Relógios", color: "#5C4033", logoText: "FOSSIL",
+    logoUrl: "img/logos/fossil.png",
     affiliateUrl: "https://www.fossil.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 48 },
     description: "O relógio americano que virou clássico. Smartwatches, couro legítimo e design atemporal — na loja oficial tem oferta que a vitrine do shopping não mostra.",
@@ -349,6 +350,7 @@ const STORES = [
   },
   {
     id: "foreverliss", name: "Forever Liss", category: "Beleza", color: "#6A1B9A", logoText: "Forever Liss",
+    logoUrl: "img/logos/foreverliss.png",
     affiliateUrl: "https://www.foreverliss.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 96 },
     description: "Tratamento capilar profissional para fazer em casa: máscaras, progressivas e kits completos com preço de fábrica. Cabelo de salão sem preço de salão.",
@@ -356,6 +358,7 @@ const STORES = [
   },
   {
     id: "probel", name: "Probel", category: "Casa", color: "#16325C", logoText: "PROBEL",
+    logoUrl: "img/logos/probel.png",
     affiliateUrl: "https://www.probel.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 36 },
     description: "Colchões e camas box de quem fabrica sono bom há mais de 60 anos. Compre direto da fábrica, sem intermediário — seu sono agradece e seu bolso também.",
@@ -363,6 +366,7 @@ const STORES = [
   },
   {
     id: "gamaitaly", name: "Gama Italy", category: "Beleza", color: "#C90016", logoText: "GA.MA",
+    logoUrl: "img/logos/gamaitaly.png",
     affiliateUrl: "https://www.gamaitaly.com.br/?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 44 },
     description: "Secadores, chapinhas e modeladores profissionais usados em salão. Tecnologia italiana que protege o fio — com ofertas de outlet na loja oficial.",
@@ -370,6 +374,7 @@ const STORES = [
   },
   {
     id: "technos", name: "Technos", category: "Relógios", color: "#0033A0", logoText: "TECHNOS",
+    logoUrl: "img/logos/technos.png",
     affiliateUrl: "https://www.technos.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 58 },
     description: "A marca de relógios mais vendida do Brasil. Do executivo ao esportivo, com resistência à água e garantia oficial — ofertas exclusivas ativando pelo link.",
@@ -377,6 +382,7 @@ const STORES = [
   },
   {
     id: "eurorelogios", name: "Euro Relógios", category: "Relógios", color: "#8E44AD", logoText: "EURO",
+    logoUrl: "img/logos/eurorelogios.png",
     affiliateUrl: "https://www.eurorelogios.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 26 },
     description: "Relógios femininos com design de joia. Dourados, rosé e prata para elevar qualquer look — com preço de oferta que parece erro (mas não é).",
@@ -384,6 +390,7 @@ const STORES = [
   },
   {
     id: "rigolim", name: "Rigolim", category: "Casa", color: "#1F6FB2", logoText: "RIGOLIM",
+    logoUrl: "img/logos/rigolim.png",
     affiliateUrl: "https://www.rigolim.com.br?parceiro=9016&am=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 22 },
     description: "Climatização e conforto para sua casa: ar-condicionado das melhores marcas com instalação e preço direto do distribuidor.",
@@ -391,6 +398,7 @@ const STORES = [
   },
   {
     id: "nacasachinatem", name: "Na Casa China Tem", category: "Casa", color: "#E02020", logoText: "NCCT",
+    logoUrl: "img/logos/nacasachinatem.png",
     affiliateUrl: "https://www.nacasachinatem.com.br?parceiro=9306&am=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 30 },
     description: "Os achadinhos virais que todo mundo procura: utilidades, organização e gadgets para casa com preço de importado — sem esperar 60 dias pelo frete.",
