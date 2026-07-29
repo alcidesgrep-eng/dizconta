@@ -182,7 +182,7 @@ const CATEGORY_COPY = {
    ------------------------------------------------------------ */
 const STORES = [
   {
-    id: "natura", name: "Natura", category: "Beleza", color: "#F25C05", logoText: "natura",
+    id: "natura", name: "Natura", category: "Beleza", color: "#FF5800", logoText: "natura",
     logoUrl: "img/logos/natura.png",
     affiliateUrl: "https://www.minhaloja.natura.com/consultoria/valeskavalentina",
     logoDomain: "natura.com.br",   /* dominio para el logo (el link es minhaloja) */
@@ -191,7 +191,7 @@ const STORES = [
     top: true
   },
   {
-    id: "olympikus", name: "Olympikus", category: "Esportes", color: "#00B140", logoText: "OLK",
+    id: "olympikus", name: "Olympikus", category: "Esportes", color: "#FFFFFF", logoText: "OLK",
     logoUrl: "img/logos/olympikus.png",
     affiliateUrl: "https://www.olympikus.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 68 },
@@ -199,7 +199,7 @@ const STORES = [
     top: false
   },
   {
-    id: "vaidepromo", name: "Vai de Promo", category: "Viagens", color: "#00B5E2", logoText: "Vai de Promo",
+    id: "vaidepromo", name: "Vai de Promo", category: "Viagens", color: "#03A5CA", logoText: "Vai de Promo",
     logoUrl: "img/logos/vaidepromo.png",
     affiliateUrl: "https://www.vaidepromo.com.br/passagens-aereas/?utm_medium=afiliado&pcrid=14162&utm_source=site-blog&pcrtt=dsa",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 54 },
@@ -207,7 +207,7 @@ const STORES = [
     top: true
   },
   {
-    id: "segurospromo", name: "Seguros Promo", category: "Viagens", color: "#12B76A", logoText: "Seguros Promo",
+    id: "segurospromo", name: "Seguros Promo", category: "Viagens", color: "#FFFFFF", logoText: "Seguros Promo",
     logoUrl: "img/logos/segurospromo.png",
     affiliateUrl: "https://www.segurospromo.com.br/?utm_medium=afiliado&pcrid=14162&utm_source=site-blog",
     subidParam: null, cashback: null, rating: { score: 4.8, count: 71 },
@@ -215,7 +215,7 @@ const STORES = [
     top: true
   },
   {
-    id: "rentcars", name: "Rentcars", category: "Viagens", color: "#5F2EEA", logoText: "rentcars",
+    id: "rentcars", name: "Rentcars", category: "Viagens", color: "#11100D", logoText: "rentcars",
     logoUrl: "img/logos/rentcars.png",
     affiliateUrl: "https://www.rentcars.com/pt-br/?requestorid=10589&utm_source=gabglobalmkt.com.br&utm_medium=afiliado-link",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 63 },
@@ -223,7 +223,7 @@ const STORES = [
     top: false
   },
   {
-    id: "travelbds", name: "Travel BDS", category: "Viagens", color: "#F2740D", logoText: "Travel BDS",
+    id: "travelbds", name: "Travel BDS", category: "Viagens", color: "#FFFFFF", logoText: "Travel BDS",
     logoUrl: "img/logos/travelbds.png",
     affiliateUrl: "https://www.parceirospromo.com.br/partners/affiliate/travel-bds?page=https://travelbds.com&utm_medium=afiliado&pcrid=14162&utm_source=site-blog",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 28 },
@@ -231,7 +231,7 @@ const STORES = [
     top: false
   },
   {
-    id: "electrolux", name: "Electrolux", category: "Casa", color: "#041E42", logoText: "Electrolux",
+    id: "electrolux", name: "Electrolux", category: "Casa", color: "#FFFFFF", logoText: "Electrolux",
     logoUrl: "img/logos/electrolux.png",
     affiliateUrl: "https://loja.electrolux.com.br/?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 74 },
@@ -239,7 +239,7 @@ const STORES = [
     top: true
   },
   {
-    id: "dji", name: "DJI", category: "Tecnologia", color: "#111111", logoText: "DJI",
+    id: "dji", name: "DJI", category: "Tecnologia", color: "#FFFFFF", logoText: "DJI",
     logoUrl: "img/logos/dji.png",
     affiliateUrl: "https://www.lojadji.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.9, count: 41 },
@@ -247,7 +247,7 @@ const STORES = [
     top: false
   },
   {
-    id: "cobasi", name: "Cobasi", category: "Pets", color: "#00A859", logoText: "cobasi",
+    id: "cobasi", name: "Cobasi", category: "Pets", color: "#00ABB3", logoText: "cobasi",
     logoUrl: "img/logos/cobasi.png",
     affiliateUrl: "https://minhaloja.cobasi.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     logoDomain: "cobasi.com.br",
@@ -256,7 +256,7 @@ const STORES = [
     top: false
   },
   {
-    id: "underarmour", name: "Under Armour", category: "Esportes", color: "#1D1D1D", logoText: "UA",
+    id: "underarmour", name: "Under Armour", category: "Esportes", color: "#FFFFFF", logoText: "UA",
     logoUrl: "img/logos/underarmour.png",
     affiliateUrl: "https://www.underarmour.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 52 },
@@ -264,7 +264,7 @@ const STORES = [
     top: false
   },
   {
-    id: "payot", name: "Payot", category: "Beleza", color: "#B58A3F", logoText: "PAYOT",
+    id: "payot", name: "Payot", category: "Beleza", color: "#000000", logoText: "PAYOT",
     logoUrl: "img/logos/payot.png",
     affiliateUrl: "https://www.lojapayot.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 38 },
@@ -272,7 +272,7 @@ const STORES = [
     top: false
   },
   {
-    id: "salonline", name: "Salon Line", category: "Beleza", color: "#E91E8C", logoText: "Salon Line",
+    id: "salonline", name: "Salon Line", category: "Beleza", color: "#D666C8", logoText: "Salon Line",
     logoUrl: "img/logos/salonline.png",
     affiliateUrl: "https://www.salonline.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.8, count: 112 },
@@ -288,7 +288,7 @@ const STORES = [
     top: false
   },
   {
-    id: "amakhaparis", name: "Amakha Paris", category: "Beleza", color: "#C9A227", logoText: "AMAKHA",
+    id: "amakhaparis", name: "Amakha Paris", category: "Beleza", color: "#88B7E4", logoText: "AMAKHA",
     logoUrl: "img/logos/amakhaparis.png",
     affiliateUrl: "https://www.amakhaparis.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 33 },
@@ -296,7 +296,7 @@ const STORES = [
     top: false
   },
   {
-    id: "candide", name: "Candide", category: "Brinquedos", color: "#FFC20E", logoText: "candide",
+    id: "candide", name: "Candide", category: "Brinquedos", color: "#008C99", logoText: "candide",
     logoUrl: "img/logos/candide.png",
     affiliateUrl: "https://www.candide.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 29 },
@@ -304,7 +304,7 @@ const STORES = [
     top: false
   },
   {
-    id: "funko", name: "Funko", category: "Brinquedos", color: "#1A1A1A", logoText: "funko",
+    id: "funko", name: "Funko", category: "Brinquedos", color: "#FFFFFF", logoText: "funko",
     logoUrl: "img/logos/funko.png",
     affiliateUrl: "https://www.funko.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.8, count: 57 },
@@ -328,7 +328,7 @@ const STORES = [
     top: false
   },
   {
-    id: "seculus", name: "Seculus", category: "Relógios", color: "#00205B", logoText: "SECULUS",
+    id: "seculus", name: "Seculus", category: "Relógios", color: "#050505", logoText: "SECULUS",
     logoUrl: "img/logos/seculus.png",
     affiliateUrl: "https://www.seculus.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 24 },
@@ -336,7 +336,7 @@ const STORES = [
     top: false
   },
   {
-    id: "fossil", name: "Fossil", category: "Relógios", color: "#5C4033", logoText: "FOSSIL",
+    id: "fossil", name: "Fossil", category: "Relógios", color: "#FFFFFF", logoText: "FOSSIL",
     logoUrl: "img/logos/fossil.png",
     affiliateUrl: "https://www.fossil.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 48 },
@@ -344,14 +344,15 @@ const STORES = [
     top: false
   },
   {
-    id: "cicatribem", name: "Cicatribem", category: "Beleza", color: "#7BC142", logoText: "cicatribem",
+    id: "cicatribem", name: "Cicatribem", category: "Beleza", color: "#008AAF", logoText: "cicatribem",
+    logoUrl: "img/logos/cicatribem.png",
     affiliateUrl: "https://cicatribem.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 31 },
     description: "O dermocosmético brasileiro queridinho para cicatrizes, manchas e recuperação da pele. Resultados reais, fórmula segura e oferta ativa pelo link.",
     top: false
   },
   {
-    id: "foreverliss", name: "Forever Liss", category: "Beleza", color: "#6A1B9A", logoText: "Forever Liss",
+    id: "foreverliss", name: "Forever Liss", category: "Beleza", color: "#D8002E", logoText: "Forever Liss",
     logoUrl: "img/logos/foreverliss.png",
     affiliateUrl: "https://www.foreverliss.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 96 },
@@ -359,7 +360,7 @@ const STORES = [
     top: false
   },
   {
-    id: "probel", name: "Probel", category: "Casa", color: "#16325C", logoText: "PROBEL",
+    id: "probel", name: "Probel", category: "Casa", color: "#025A99", logoText: "PROBEL",
     logoUrl: "img/logos/probel.png",
     affiliateUrl: "https://www.probel.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 36 },
@@ -367,7 +368,7 @@ const STORES = [
     top: false
   },
   {
-    id: "gamaitaly", name: "Gama Italy", category: "Beleza", color: "#C90016", logoText: "GA.MA",
+    id: "gamaitaly", name: "Gama Italy", category: "Beleza", color: "#FFFFFF", logoText: "GA.MA",
     logoUrl: "img/logos/gamaitaly.png",
     affiliateUrl: "https://www.gamaitaly.com.br/?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 44 },
@@ -375,7 +376,7 @@ const STORES = [
     top: false
   },
   {
-    id: "technos", name: "Technos", category: "Relógios", color: "#0033A0", logoText: "TECHNOS",
+    id: "technos", name: "Technos", category: "Relógios", color: "#FFFFFF", logoText: "TECHNOS",
     logoUrl: "img/logos/technos.png",
     affiliateUrl: "https://www.technos.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 58 },
@@ -383,7 +384,7 @@ const STORES = [
     top: false
   },
   {
-    id: "eurorelogios", name: "Euro Relógios", category: "Relógios", color: "#8E44AD", logoText: "EURO",
+    id: "eurorelogios", name: "Euro Relógios", category: "Relógios", color: "#FFFFFF", logoText: "EURO",
     logoUrl: "img/logos/eurorelogios.png",
     affiliateUrl: "https://www.eurorelogios.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 26 },
@@ -391,7 +392,7 @@ const STORES = [
     top: false
   },
   {
-    id: "rigolim", name: "Rigolim", category: "Casa", color: "#1F6FB2", logoText: "RIGOLIM",
+    id: "rigolim", name: "Rigolim", category: "Casa", color: "#F1E7E6", logoText: "RIGOLIM",
     logoUrl: "img/logos/rigolim.png",
     affiliateUrl: "https://www.rigolim.com.br?parceiro=9016&am=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 22 },
@@ -399,7 +400,7 @@ const STORES = [
     top: false
   },
   {
-    id: "nacasachinatem", name: "Na Casa China Tem", category: "Casa", color: "#E02020", logoText: "NCCT",
+    id: "nacasachinatem", name: "Na Casa China Tem", category: "Casa", color: "#FFFFFF", logoText: "NCCT",
     logoUrl: "img/logos/nacasachinatem.png",
     affiliateUrl: "https://www.nacasachinatem.com.br?parceiro=9306&am=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.5, count: 30 },
