@@ -164,7 +164,7 @@
   .card .c-img{width:100%;height:140px;object-fit:cover;border-radius:14px;margin-bottom:14px;display:block}
 
   /* ---------- página de lojas ---------- */
-  .lojas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:16px;padding-bottom:60px}
+  .lojas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));grid-auto-flow:dense;gap:16px;padding-bottom:60px}
   .loja-card{background:var(--card);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .2s,transform .2s;box-shadow:0 1px 2px rgba(23,13,38,.06)}
   .loja-card:hover{box-shadow:0 16px 32px rgba(23,13,38,.18);transform:translateY(-3px)}
   .loja-card .lc-media{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -946,12 +946,15 @@ function renderLojas(){
   $("lojasFilter").innerHTML = `<button class="${!lojasCat?"active":""}" onclick="setLojasCat(null)">Todas</button>` +
     CATS.map(c => `<button class="${lojasCat===c?"active":""}" onclick="setLojasCat('${c}')">${c}</button>`).join("");
   const list = STORES.filter(s => !lojasCat || s.category === lojasCat);
+  let lojasBigLeft = 2;
   $("lojasGrid").innerHTML = list.map(s => {
     const score = s.rating ? s.rating.score : null;
+    const isBig = s.top && lojasBigLeft > 0;
+    if (isBig) lojasBigLeft--;
     const media = s.logoUrl
       ? `<img class="lc-img" src="${s.logoUrl}" alt="${s.name}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;lc-placeholder&quot;>${s.name}</div>'">`
       : `<div class="lc-placeholder">${s.name}</div>`;
-    return `<div class="loja-card${s.top ? " lc-big" : ""}" onclick="goStore('${s.id}')">
+    return `<div class="loja-card${isBig ? " lc-big" : ""}" onclick="goStore('${s.id}')">
       <div class="lc-media" style="background:${s.color}">${media}</div>
       <div class="lc-content">
         <h3>${s.name}</h3>
