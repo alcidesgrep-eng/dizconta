@@ -6,9 +6,27 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
 
-# Evitar cache viejo de html/js mientras el sitio está en desarrollo
+# ------------------------------------------------------------------
+# CERO CACHE — cada actualización se ve al instante para todos.
+# Cubre navegador, proxies intermedios y el cache propio del panel.
+# El CDN "hcdn" de Hostinger puede igual ignorar esto para CSS/JS
+# (bug documentado) — si un cambio no se refleja, renombrar el
+# archivo (style.css → style2.css) sigue siendo el respaldo seguro.
+# ------------------------------------------------------------------
 <IfModule mod_headers.c>
-  <FilesMatch "\.(html|js)$">
-    Header set Cache-Control "no-cache, must-revalidate"
-  </FilesMatch>
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, proxy-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
+  Header unset ETag
+  Header unset Last-Modified
+</IfModule>
+FileETag None
+
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>
+
+# LiteSpeed: apaga el cache de página propio del panel de Hostinger
+<IfModule LiteSpeed>
+  CacheLookup off
 </IfModule>
