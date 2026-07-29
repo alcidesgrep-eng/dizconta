@@ -57,7 +57,8 @@
 
   /* ---------- hero ---------- */
   .hero{background:var(--card);padding:56px 0 60px}
-  .hero-grid{max-width:640px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-art{display:none}}
   .hero h1{font-size:clamp(32px,4.8vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;color:var(--ink)}
   .hero p{color:var(--gray);margin-top:16px;font-size:16.5px;max-width:440px;line-height:1.6}
   .hero-cta{display:flex;gap:16px;margin-top:26px;align-items:center;flex-wrap:wrap}
@@ -75,6 +76,15 @@
   .hero-search input{flex:1;border:none;outline:none;background:none;font-size:14.5px;color:var(--ink);padding:10px 0}
   .hero-search-btn{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--accent);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer}
   .hero-search-btn svg{stroke:var(--dark)}
+  .hero-art{position:relative;height:320px;display:flex;align-items:center;justify-content:center}
+  .tag-3d{position:relative;width:210px;height:210px;background:var(--grad);border-radius:40px;transform:rotate(-10deg);display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(166,77,255,.35)}
+  .tag-3d::before{content:"";position:absolute;top:-17px;left:50%;width:36px;height:36px;border:8px solid var(--card);border-radius:50%;transform:translateX(-50%);background:var(--bg)}
+  .tag-3d span{font-size:90px;font-weight:800;color:#fff}
+  .float-chip{position:absolute;background:#fff;border-radius:20px;box-shadow:0 14px 32px rgba(23,13,38,.14);display:flex;align-items:center;justify-content:center;padding:16px}
+  .fc1{width:70px;height:70px;left:6px;top:14px}
+  .fc2{width:64px;height:64px;right:0;bottom:36px}
+  .fc3{width:58px;height:58px;left:56px;bottom:-6px}
+  .fc-stamp{position:absolute;right:-6px;top:0;width:64px;height:64px;border-radius:50%;background:var(--green-bg);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:10px;font-weight:800;text-align:center;line-height:1.2;transform:rotate(10deg)}
 
   /* ---------- secciones ---------- */
   .section{padding:38px 0 6px}
@@ -155,15 +165,17 @@
 
   /* ---------- página de lojas ---------- */
   .lojas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:16px;padding-bottom:60px}
-  .loja-card{position:relative;display:flex;flex-direction:column;aspect-ratio:4/3;border-radius:20px;cursor:pointer;transition:box-shadow .2s,transform .2s;box-shadow:0 1px 2px rgba(23,13,38,.06);padding:18px}
-  .loja-card:hover{box-shadow:0 16px 32px rgba(23,13,38,.22);transform:translateY(-3px)}
-  .loja-card .lc-media{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+  .loja-card{background:var(--card);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .2s,transform .2s;box-shadow:0 1px 2px rgba(23,13,38,.06)}
+  .loja-card:hover{box-shadow:0 16px 32px rgba(23,13,38,.18);transform:translateY(-3px)}
+  .loja-card .lc-media{aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:22px}
   .loja-card .lc-img{max-width:100%;max-height:100%;object-fit:contain}
-  .loja-card .lc-placeholder{color:rgba(255,255,255,.55);font-size:22px;font-weight:800;text-align:center;letter-spacing:-.3px;line-height:1.2}
-  .loja-card .lc-content{flex-shrink:0;display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:10px}
-  .loja-card .l-cat{font-size:11px;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.4px;text-transform:uppercase}
-  .loja-card .l-stars{color:var(--gold);font-size:12.5px;flex-shrink:0}
-  .loja-card .l-stars span{color:rgba(255,255,255,.6);font-size:11px;margin-left:3px}
+  .loja-card .lc-placeholder{color:rgba(255,255,255,.6);font-size:20px;font-weight:800;text-align:center;letter-spacing:-.3px;line-height:1.2}
+  .loja-card .lc-content{padding:14px 18px 18px}
+  .loja-card h3{font-size:15.5px;font-weight:700;color:var(--ink);letter-spacing:-.2px}
+  .loja-card .l-meta-row{display:flex;align-items:center;gap:5px;margin-top:4px;font-size:12px;color:var(--gray)}
+  .loja-card .l-stars{color:var(--gold)}
+  .loja-card .l-stars span{color:var(--gray-light);margin-left:2px}
+  .loja-card .l-link{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:13px;font-weight:600;color:var(--primary)}
   .lojas-filter{display:flex;gap:8px;flex-wrap:wrap;padding:24px 0 20px}
   .lojas-filter button{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;font-weight:600;cursor:pointer}
   .lojas-filter button.active{background:var(--primary);border-color:var(--primary);color:#fff}
@@ -320,6 +332,13 @@
           <div class="hstat"><svg width="18" height="18" fill="none" stroke="#2ED573" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg><span>Ofertas verificadas</span><b>100%</b></div>
           <div class="hstat"><svg width="18" height="18" fill="none" stroke="#170D26" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Atualização</span><b>Semanal</b></div>
         </div>
+      </div>
+      <div class="hero-art">
+        <div class="float-chip fc1"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D4FF00" stroke-width="1.8"><path d="M20 12V8a2 2 0 00-2-2H8L4 10v6a2 2 0 002 2h4"/><circle cx="8" cy="8" r="1"/><path d="M14 22l3-3 3 3M17 19v-6"/></svg></div>
+        <div class="tag-3d"><span>%</span></div>
+        <div class="float-chip fc2"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A64DFF" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></div>
+        <div class="float-chip fc3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4FF00" stroke-width="1.8"><path d="M21 12.5l-8.5 8.5L3 12v-8h8l10 8.5zM7 7h.01"/></svg></div>
+        <div class="fc-stamp">✓<br>100%<br>SEGURO</div>
       </div>
     </div>
   </section>
@@ -928,11 +947,15 @@ function renderLojas(){
     const media = s.logoUrl
       ? `<img class="lc-img" src="${s.logoUrl}" alt="${s.name}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;lc-placeholder&quot;>${s.name}</div>'">`
       : `<div class="lc-placeholder">${s.name}</div>`;
-    return `<div class="loja-card" onclick="goStore('${s.id}')" style="background:${s.color}" title="${s.name}">
-      <div class="lc-media">${media}</div>
+    return `<div class="loja-card" onclick="goStore('${s.id}')">
+      <div class="lc-media" style="background:${s.color}">${media}</div>
       <div class="lc-content">
-        <span class="l-cat">${s.category}</span>
-        ${score ? `<span class="l-stars">★ ${score.toString().replace(".",",")}<span>(${s.rating.count})</span></span>` : ""}
+        <h3>${s.name}</h3>
+        <div class="l-meta-row">
+          <span>${s.category}</span>
+          ${score ? `<span class="l-stars">· ★ ${score.toString().replace(".",",")}<span>(${s.rating.count})</span></span>` : ""}
+        </div>
+        <span class="l-link">Ver ofertas →</span>
       </div>
     </div>`;
   }).join("");
