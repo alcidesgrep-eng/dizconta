@@ -149,23 +149,21 @@
   .banner .b-text{position:absolute;left:22px;bottom:18px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.25)}
   .banner .b-text b{font-size:21px;letter-spacing:-.3px}
   .banner .b-text p{font-size:13px;margin-top:2px;opacity:.95}
-  .store-logo img,.big-logo img,.m-logo img,.dot img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
+  .store-logo img,.big-logo img,.m-logo img,.dot img{width:100%;height:100%;object-fit:contain;border-radius:inherit;display:block;padding:15%;box-sizing:border-box}
   .store-logo,.big-logo,.m-logo{border:1px solid var(--line);overflow:hidden}
   .card .c-img{width:100%;height:140px;object-fit:cover;border-radius:14px;margin-bottom:14px;display:block}
 
   /* ---------- página de lojas ---------- */
   .lojas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:16px;padding-bottom:60px}
-  .loja-card{position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:20px;cursor:pointer;transition:box-shadow .2s,transform .2s;box-shadow:0 1px 2px rgba(23,13,38,.06)}
+  .loja-card{position:relative;display:flex;flex-direction:column;aspect-ratio:4/3;border-radius:20px;cursor:pointer;transition:box-shadow .2s,transform .2s;box-shadow:0 1px 2px rgba(23,13,38,.06);padding:18px}
   .loja-card:hover{box-shadow:0 16px 32px rgba(23,13,38,.22);transform:translateY(-3px)}
-  .loja-card .lc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .loja-card .lc-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;color:rgba(255,255,255,.5);font-size:26px;font-weight:800;text-align:center;letter-spacing:-.5px;line-height:1.1}
-  .loja-card .lc-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,8,26,.88) 0%,rgba(15,8,26,.55) 32%,rgba(15,8,26,0) 62%)}
-  .loja-card .lc-content{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:16px 18px}
-  .loja-card h3{font-size:16px;font-weight:700;letter-spacing:-.3px;color:#fff}
-  .loja-card .l-cat{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-top:4px}
-  .loja-card .l-meta{font-size:12.5px;color:rgba(255,255,255,.75);margin-top:6px}
-  .loja-card .l-stars{color:var(--gold);font-size:13px;margin-top:6px}
-  .loja-card .l-stars span{color:rgba(255,255,255,.6);font-size:12px;margin-left:4px}
+  .loja-card .lc-media{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+  .loja-card .lc-img{max-width:100%;max-height:100%;object-fit:contain}
+  .loja-card .lc-placeholder{color:rgba(255,255,255,.55);font-size:22px;font-weight:800;text-align:center;letter-spacing:-.3px;line-height:1.2}
+  .loja-card .lc-content{flex-shrink:0;display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:10px}
+  .loja-card .l-cat{font-size:11px;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.4px;text-transform:uppercase}
+  .loja-card .l-stars{color:var(--gold);font-size:12.5px;flex-shrink:0}
+  .loja-card .l-stars span{color:rgba(255,255,255,.6);font-size:11px;margin-left:3px}
   .lojas-filter{display:flex;gap:8px;flex-wrap:wrap;padding:24px 0 20px}
   .lojas-filter button{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:13px;font-weight:600;cursor:pointer}
   .lojas-filter button.active{background:var(--primary);border-color:var(--primary);color:#fff}
@@ -582,7 +580,7 @@ function logoFail(img, color, text){
 }
 function logoHtml(s, cls){
   const src = logoSrc(s);
-  if (src) return `<div class="${cls}"><img src="${src}" alt="${s.name}" loading="lazy" onerror="logoFail(this,'${s.color}','${s.logoText}')"></div>`;
+  if (src) return `<div class="${cls}" style="background:${s.color}"><img src="${src}" alt="${s.name}" loading="lazy" onerror="logoFail(this,'${s.color}','${s.logoText}')"></div>`;
   return `<div class="${cls}" style="background:${s.color}">${s.logoText}</div>`;
 }
 
@@ -926,19 +924,15 @@ function renderLojas(){
     CATS.map(c => `<button class="${lojasCat===c?"active":""}" onclick="setLojasCat('${c}')">${c}</button>`).join("");
   const list = STORES.filter(s => !lojasCat || s.category === lojasCat);
   $("lojasGrid").innerHTML = list.map(s => {
-    const n = COUPONS.filter(c => c.storeId === s.id).length;
     const score = s.rating ? s.rating.score : null;
     const media = s.logoUrl
-      ? `<img class="lc-img" src="${s.logoUrl}" alt="${s.name}" loading="lazy" onerror="this.remove()">`
+      ? `<img class="lc-img" src="${s.logoUrl}" alt="${s.name}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;lc-placeholder&quot;>${s.name}</div>'">`
       : `<div class="lc-placeholder">${s.name}</div>`;
-    return `<div class="loja-card" onclick="goStore('${s.id}')" style="background:${s.color}">
-      ${media}
-      <div class="lc-scrim"></div>
+    return `<div class="loja-card" onclick="goStore('${s.id}')" style="background:${s.color}" title="${s.name}">
+      <div class="lc-media">${media}</div>
       <div class="lc-content">
-        <h3>${s.name}</h3>
-        <div class="l-cat">${s.category}</div>
-        <div class="l-meta">${n} ${n === 1 ? "oferta ativa" : "ofertas ativas"}</div>
-        ${score ? `<div class="l-stars">★ ${score.toString().replace(".",",")}<span>(${s.rating.count})</span></div>` : ""}
+        <span class="l-cat">${s.category}</span>
+        ${score ? `<span class="l-stars">★ ${score.toString().replace(".",",")}<span>(${s.rating.count})</span></span>` : ""}
       </div>
     </div>`;
   }).join("");

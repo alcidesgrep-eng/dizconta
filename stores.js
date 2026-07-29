@@ -281,6 +281,7 @@ const STORES = [
   },
   {
     id: "toptherm", name: "TopTherm", category: "Saúde", color: "#0072CE", logoText: "toptherm",
+    logoUrl: "img/logos/toptherm.png",
     affiliateUrl: "https://www.toptherm.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.6, count: 27 },
     description: "Referência em Ômega 3 Norwegian, magnésio ultra concentrado, probióticos e multivitamínicos. Suplementos de alta qualidade para sua longevidade — com desconto no Pix e campanhas compre e ganhe.",
@@ -312,6 +313,7 @@ const STORES = [
   },
   {
     id: "thermos", name: "Thermos", category: "Casa", color: "#B01E24", logoText: "THERMOS",
+    logoUrl: "img/logos/thermos.png",
     affiliateUrl: "https://www.thermosbrasil.com.br?parceiro=11042&am=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 45 },
     description: "A garrafa térmica original, inventora da categoria há mais de 100 anos. Café quente por 12 horas, água gelada por 24 — compre uma vez, use a vida toda.",
