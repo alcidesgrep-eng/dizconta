@@ -1,0 +1,14 @@
+# Dizconta — URLs limpias en Hostinger (Apache/LiteSpeed)
+# /natura y /desconto/cupom-natura → index.html (el JS resuelve la ruta)
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Evitar cache viejo de html/js mientras el sitio está en desarrollo
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

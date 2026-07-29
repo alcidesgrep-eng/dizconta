@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<!-- v4 -->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dizconta · Cupom de Desconto e Códigos Promocionais</title>
+<meta name="description" content="Cupons de desconto verificados das melhores lojas do Brasil. Clique, copie o código e economize com a Dizconta.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F6FA;
+    --card:#FFFFFF;
+    --ink:#101828;
+    --gray:#6B7280;
+    --gray-light:#9CA3AF;
+    --line:#E8E9F1;
+    --primary:#5B5BFF;
+    --primary-dark:#4747DB;
+    --accent:#7D5CFF;
+    --accent-bg:#EFECFF;
+    --green:#00D084;
+    --green-bg:#E4FBF1;
+    --gold:#F5A623;
+    --grad:linear-gradient(135deg,var(--primary),var(--accent));
+    --radius:16px;
+    --radius-sm:12px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Satoshi','Inter',-apple-system,'Segoe UI',sans-serif}
+  body{background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  /* grid children default to min-width:auto and can overflow on mobile even when nothing looks "wide" — preventive fix site-wide */
+  .cat-row>*,.grid>*,.promo-grid>*,.lojas-grid>*,.blog-grid>*,.trust-strip>*,.foot-grid>*,.contact-wrap>*,.hero-grid>*,.store-layout>*{min-width:0}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  /* ---------- header ---------- */
+  header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .head{display:flex;align-items:center;gap:30px;height:66px}
+  .logo{display:flex;align-items:center;gap:9px;font-size:19px;font-weight:800;letter-spacing:-.4px;cursor:pointer;text-transform:lowercase}
+  .logo svg{width:28px;height:28px}
+  .menu{display:flex;gap:26px;font-size:14px;font-weight:500;color:var(--ink)}
+  .menu a{padding:6px 0;cursor:pointer}
+  .menu a:hover{color:var(--primary)}
+  .head-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .search-btn{background:none;border:none;cursor:pointer;display:flex;padding:6px;color:var(--ink)}
+  .login-btn{padding:10px 22px;border:none;border-radius:999px;font-size:13.5px;font-weight:700;background:var(--primary);color:#fff;cursor:pointer;box-shadow:0 4px 14px rgba(91,91,255,.28)}
+  .search-bar{display:none;padding:0 0 14px}
+  .search-bar.open{display:block}
+  .search-bar input{width:100%;max-width:480px;padding:12px 18px;border:1px solid var(--line);border-radius:999px;font-size:14px;outline:none;background:var(--bg)}
+  .search-bar input:focus{border-color:var(--primary)}
+  @media(max-width:760px){.menu{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{background:#fff;padding:56px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-art{display:none}}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--accent);background:var(--accent-bg);border-radius:999px;padding:7px 14px;margin-bottom:18px}
+  .hero h1{font-size:clamp(32px,4.8vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;color:var(--ink)}
+  .hero p{color:var(--gray);margin-top:16px;font-size:16.5px;max-width:440px;line-height:1.6}
+  .hero-cta{display:flex;gap:16px;margin-top:26px;align-items:center;flex-wrap:wrap}
+  .btn-primary{padding:14px 28px;border-radius:999px;background:var(--primary);color:#fff;font-weight:700;font-size:14.5px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 10px 24px rgba(91,91,255,.3)}
+  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(91,91,255,.38)}
+  .btn-ghost{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ink);background:none;border:none;cursor:pointer}
+  .btn-ghost .play{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .hero-stats{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+  .hstat{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+  .hstat svg{flex-shrink:0}
+  .hstat span{order:2;font-size:12px;color:var(--gray);font-weight:500}
+  .hstat b{order:1;font-size:20px;color:var(--ink);font-weight:800}
+  .hero-search{display:flex;align-items:center;gap:8px;margin-top:24px;max-width:460px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 20px;box-shadow:0 8px 24px rgba(18,18,26,.06)}
+  .hero-search svg{flex-shrink:0;opacity:.6}
+  .hero-search input{flex:1;border:none;outline:none;background:none;font-size:14.5px;color:var(--ink);padding:10px 0}
+  .hero-search-btn{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--primary);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .hero-art{position:relative;height:320px;display:flex;align-items:center;justify-content:center}
+  .tag-3d{position:relative;width:210px;height:210px;background:var(--grad);border-radius:40px;transform:rotate(-10deg);display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(106,92,255,.28)}
+  .tag-3d::before{content:"";position:absolute;top:-17px;left:50%;width:36px;height:36px;border:8px solid #EDEBFF;border-radius:50%;transform:translateX(-50%);background:#fff}
+  .tag-3d span{font-size:90px;font-weight:800;color:#fff}
+  .float-chip{position:absolute;background:#fff;border-radius:20px;box-shadow:0 14px 32px rgba(18,18,26,.1);display:flex;align-items:center;justify-content:center;padding:16px}
+  .fc1{width:70px;height:70px;left:6px;top:14px}
+  .fc2{width:64px;height:64px;right:0;bottom:36px}
+  .fc3{width:58px;height:58px;left:56px;bottom:-6px}
+  .fc-stamp{position:absolute;right:-6px;top:0;width:64px;height:64px;border-radius:50%;background:var(--green-bg);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:10px;font-weight:800;text-align:center;line-height:1.2;transform:rotate(10deg)}
+
+  /* ---------- secciones ---------- */
+  .section{padding:38px 0 6px}
+  .section h2{font-size:21px;font-weight:800;letter-spacing:-.4px;margin-bottom:18px}
+  .cat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:14px}
+  .cat-card{position:relative;overflow:hidden;border:none;border-radius:18px;padding:18px;min-height:128px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;text-align:left;color:#fff;transition:transform .15s,box-shadow .15s}
+  .cat-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(16,24,40,.18)}
+  .cat-card.active{box-shadow:0 0 0 3px var(--ink)}
+  .cat-icon{position:absolute;right:10px;bottom:8px;opacity:.35}
+  .cat-icon svg{width:52px;height:52px;stroke:#fff}
+  .cat-name{font-size:15px;font-weight:700;letter-spacing:-.2px;position:relative;z-index:1}
+  .cat-count{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.9);margin-top:6px;position:relative;z-index:1}
+  .cat-copy{margin-top:16px;font-size:13.5px;color:var(--gray);line-height:1.55;max-width:640px}
+  .store-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px}
+  .store-tile{flex:0 0 auto;width:132px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:12px;transition:all .15s;text-align:center}
+  .store-tile:hover{box-shadow:0 10px 30px rgba(18,18,26,.08);transform:translateY(-2px)}
+  .store-tile .dot{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:800;border:1px solid var(--line)}
+  .store-tile .t-name{font-weight:600;font-size:12.5px;color:var(--ink);line-height:1.25}
+
+  /* ---------- fila de banners promocionales ---------- */
+  .promo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:900px){.promo-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.promo-grid{grid-template-columns:1fr}}
+  .promo-card{border-radius:20px;padding:22px;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;color:#fff;cursor:pointer}
+  .promo-card b{font-size:17px;font-weight:800;letter-spacing:-.3px;line-height:1.2;position:relative;z-index:1}
+  .promo-card p{font-size:12.5px;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.4;position:relative;z-index:1}
+  .promo-icon{position:absolute;right:10px;top:10px;opacity:.4}
+  .promo-icon svg{width:44px;height:44px}
+  .promo-cta{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:#fff;color:var(--ink);font-weight:700;font-size:12.5px;padding:9px 16px;border-radius:999px;border:none;cursor:pointer;width:fit-content;position:relative;z-index:1}
+  .promo-link{margin-top:14px;font-weight:700;font-size:12.5px;color:#fff;display:inline-flex;align-items:center;gap:4px;position:relative;z-index:1}
+  .promo-stores{display:flex;gap:6px;margin-top:14px;position:relative;z-index:1}
+  .promo-stores .ps-logo{width:30px;height:30px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;padding:4px;overflow:hidden}
+  .promo-stores .ps-logo img{width:100%;height:100%;object-fit:contain}
+  .promo-news{display:flex;gap:6px;margin-top:14px;position:relative;z-index:1}
+  .promo-news input{flex:1;min-width:0;border:none;border-radius:999px;padding:10px 14px;font-size:12.5px;outline:none}
+  .promo-news button{width:38px;height:38px;border-radius:50%;border:none;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+
+  /* ---------- cards de cupón ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:18px;margin-bottom:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;position:relative;transition:box-shadow .2s,transform .2s}
+  .card:hover{box-shadow:0 14px 34px rgba(18,18,26,.09);transform:translateY(-3px)}
+  .badge{position:absolute;top:16px;right:16px;font-size:10px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.5px;color:#fff}
+  .badge.top{background:var(--primary)}
+  .badge.exclusive{background:var(--accent)}
+  .card .store-logo{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:9px;margin-bottom:14px}
+  .card .value{font-size:31px;font-weight:800;letter-spacing:-1px;line-height:1;color:var(--ink)}
+  .card .value.small{font-size:22px}
+  .card .label{font-size:10.5px;font-weight:700;color:var(--gray-light);letter-spacing:.8px;margin-top:5px;text-transform:uppercase}
+  .card .title{font-size:13.5px;color:var(--gray);margin-top:10px;min-height:20px;line-height:1.45}
+  .verified{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:11px;font-weight:700;color:var(--green);letter-spacing:.3px}
+  .verified svg{width:14px;height:14px}
+  .tix-perf{height:0;border-top:1px solid var(--line);margin:16px 0}
+  .tix-perf::before,.tix-perf::after{content:none}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:2px}
+  .code-hint{font-size:12.5px;font-weight:700;color:var(--gray-light);letter-spacing:.5px}
+  .btn-coupon{display:inline-block;text-align:center;text-decoration:none;padding:9px 20px;border-radius:999px;border:1.5px solid var(--primary);color:var(--primary);background:#fff;font-weight:700;font-size:13px;cursor:pointer;transition:all .15s}
+  .btn-coupon:hover{background:var(--primary);color:#fff}
+  .rules-link{margin-top:10px;font-size:12px;color:var(--gray);cursor:pointer;background:none;border:none;text-align:left;text-decoration:underline}
+  .rules-text{display:none;font-size:12px;color:var(--gray);margin-top:8px;line-height:1.5}
+  .empty{grid-column:1/-1;text-align:center;color:var(--gray);padding:60px 0}
+  .card-hero{grid-column:span 2;background:linear-gradient(135deg,#F6F4FF,#fff);border-color:var(--accent);box-shadow:0 14px 34px rgba(106,92,255,.12)}
+  .card-hero .hero-store-name{font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+  .card-hero .value{font-size:44px}
+  .card-hero .title{font-size:15px}
+  @media(max-width:620px){.card-hero{grid-column:span 1}}
+
+  /* ---------- banners e imágenes ---------- */
+  .banner-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+  .banner{flex:0 0 auto;width:min(520px,86vw);height:190px;border-radius:20px;overflow:hidden;position:relative;cursor:pointer;scroll-snap-align:start;background:var(--grad)}
+  .banner img{width:100%;height:100%;object-fit:cover;display:block}
+  .banner .b-text{position:absolute;left:22px;bottom:18px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.25)}
+  .banner .b-text b{font-size:21px;letter-spacing:-.3px}
+  .banner .b-text p{font-size:13px;margin-top:2px;opacity:.95}
+  .store-logo img,.big-logo img,.m-logo img,.dot img{width:100%;height:100%;object-fit:contain;border-radius:inherit;background:#fff;padding:5px}
+  .store-logo,.big-logo,.m-logo{border:1px solid var(--line)}
+  .card .c-img{width:100%;height:140px;object-fit:cover;border-radius:14px;margin-bottom:14px;display:block}
+
+  /* ---------- página de lojas ---------- */
+  .lojas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:16px;padding-bottom:60px}
+  .loja-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;cursor:pointer;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;align-items:flex-start}
+  .loja-card:hover{box-shadow:0 14px 34px rgba(18,18,26,.08);transform:translateY(-3px)}
+  .loja-card .store-logo{margin-bottom:12px}
+  .loja-card h3{font-size:16px;font-weight:700;letter-spacing:-.3px}
+  .loja-card .l-cat{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-top:4px}
+  .loja-card .l-meta{font-size:12.5px;color:var(--gray);margin-top:8px}
+  .loja-card .l-stars{color:var(--gold);font-size:13px;margin-top:6px}
+  .loja-card .l-stars span{color:var(--gray);font-size:12px;margin-left:4px}
+  .lojas-filter{display:flex;gap:8px;flex-wrap:wrap;padding:24px 0 20px}
+  .lojas-filter button{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:600;cursor:pointer}
+  .lojas-filter button.active{background:var(--ink);border-color:var(--ink);color:#fff}
+  .ver-todas{flex:0 0 auto;display:flex;align-items:center;padding:16px 26px;border-radius:16px;border:1.5px dashed var(--accent);color:var(--accent);font-weight:700;font-size:14px;cursor:pointer;background:none}
+  .ver-todas:hover{background:var(--accent-bg)}
+
+  /* ---------- blog ---------- */
+  .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:18px;padding-bottom:60px}
+  .post-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:box-shadow .2s,transform .2s}
+  .post-card:hover{box-shadow:0 14px 34px rgba(18,18,26,.08);transform:translateY(-3px)}
+  .post-card .p-cover{width:100%;height:170px;object-fit:cover;display:block;background:var(--grad)}
+  .post-card .p-body{padding:18px 20px 20px}
+  .post-card .p-date{font-size:11.5px;color:var(--gray-light);font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+  .post-card h3{font-size:16px;font-weight:700;margin-top:6px;letter-spacing:-.3px;line-height:1.35}
+  .post-card .p-excerpt{font-size:13px;color:var(--gray);margin-top:8px;line-height:1.55}
+  .article-wrap{background:#fff;border-bottom:1px solid var(--line)}
+  .article{max-width:740px;margin:0 auto;padding:44px 22px 70px}
+  .article .p-date{font-size:12px;color:var(--gray-light);font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+  .article h1{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin:10px 0 18px}
+  .article .a-cover{width:100%;border-radius:18px;margin:8px 0 26px;display:block}
+  .article .a-body{font-size:15.5px;line-height:1.75;color:#3c3c43}
+  .article .a-body h2{font-size:20px;font-weight:700;letter-spacing:-.3px;margin:28px 0 10px;color:var(--ink)}
+  .article .a-body p{margin-bottom:14px}
+  .article .a-cta{display:inline-block;margin-top:10px;padding:12px 26px;border-radius:999px;background:var(--grad);color:#fff;font-weight:700;font-size:14px}
+
+  /* ---------- formulario de contato ---------- */
+  .contact-wrap{display:grid;grid-template-columns:1fr 240px;gap:24px;align-items:start;margin-top:24px}
+  @media(max-width:680px){.contact-wrap{grid-template-columns:1fr}}
+  .contact-form{display:flex;flex-direction:column;gap:16px}
+  .form-label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink)}
+  .form-input{font-family:inherit;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px;color:var(--ink);background:#fff;outline:none;resize:vertical}
+  .form-input:focus{border-color:var(--primary)}
+  .hp{position:absolute;left:-9999px;top:-9999px}
+  .cf-success{background:var(--green-bg);border:1px solid #B7EDCB;border-radius:14px;padding:18px 20px;margin-bottom:18px}
+  .cf-success b{color:var(--green);font-size:15px}
+  .cf-success p{color:var(--gray);font-size:13.5px;margin-top:4px}
+
+  /* ---------- franja de confiança ---------- */
+  .trust-strip{background:var(--accent-bg);border-radius:20px;padding:30px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:32px 0 60px}
+  @media(max-width:760px){.trust-strip{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.trust-strip{grid-template-columns:1fr}}
+  .trust-item{display:flex;flex-direction:column;gap:8px}
+  .trust-icon{width:40px;height:40px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(18,18,26,.06)}
+  .trust-item b{font-size:14.5px;color:var(--ink)}
+  .trust-item p{font-size:12px;color:var(--gray);line-height:1.55}
+
+  /* ---------- página de tienda ---------- */
+  .store-hero{background:#fff;padding:36px 0;border-bottom:1px solid var(--line)}
+  .crumb{font-size:12.5px;color:var(--gray);margin-bottom:18px}
+  .crumb a{color:var(--primary);cursor:pointer}
+  .store-head{display:flex;align-items:center;gap:20px}
+  .store-head .big-logo{width:76px;height:76px;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex-shrink:0}
+  .store-head h1{font-size:clamp(24px,3.5vw,36px);font-weight:800;letter-spacing:-1px}
+  .store-head .sub{color:var(--gray);font-size:14px;margin-top:4px}
+  .store-head .cb{color:var(--green);font-weight:700;font-size:14px;margin-top:4px}
+  .store-layout{display:grid;grid-template-columns:1fr 300px;gap:26px;align-items:start;padding:34px 0 60px}
+  @media(max-width:900px){.store-layout{grid-template-columns:1fr}}
+  .side-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px}
+  .side-card h3{font-size:15.5px;font-weight:700;margin-bottom:14px}
+  .stars{display:flex;align-items:center;gap:8px}
+  .stars .s{color:var(--gold);font-size:21px;letter-spacing:2px}
+  .stars b{font-size:16px}
+  .stars span{color:var(--gray);font-size:13px}
+  .rating-count{color:var(--gray);font-size:13px;margin-top:8px}
+  .sum-row{display:flex;justify-content:space-between;font-size:13.5px;padding:9px 0;border-bottom:1px solid var(--line);color:var(--gray)}
+  .sum-row:last-child{border-bottom:none}
+  .sum-row b{color:var(--ink)}
+  .about{font-size:13.5px;color:var(--gray);line-height:1.65}
+
+  /* ---------- modal ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(18,18,26,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+  .overlay.open{display:flex}
+  .modal{background:#fff;border-radius:24px;max-width:420px;width:100%;padding:36px 30px;text-align:center;position:relative;box-shadow:0 30px 60px rgba(18,18,26,.25)}
+  .modal .close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;color:var(--gray);cursor:pointer}
+  .modal .m-logo{width:56px;height:56px;border-radius:16px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:10px}
+  .modal h2{font-size:18px;font-weight:700;margin-bottom:6px;letter-spacing:-.3px}
+  .modal p{font-size:13.5px;color:var(--gray);line-height:1.5}
+  .code-box{margin:20px 0 12px;display:flex;border:2px dashed var(--primary);border-radius:14px;overflow:hidden}
+  .code-box span{flex:1;padding:15px;font-size:19px;font-weight:800;letter-spacing:2px}
+  .code-box button{background:var(--grad);color:#fff;border:none;padding:0 22px;font-weight:700;font-size:13.5px;cursor:pointer}
+  .go-store{display:block;margin-top:10px;padding:13px;border-radius:999px;background:var(--bg);font-weight:700;font-size:14px}
+  .go-store:hover{background:#ebebf5}
+  .tracking-note{margin-top:16px;font-size:12px;color:var(--green);font-weight:600}
+
+  footer{background:var(--ink);border-top:1px solid var(--ink);padding:44px 0 0;color:#A7A7B8;font-size:13px}
+  footer b{color:#fff;font-size:15px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;padding-bottom:30px}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+  .foot-brand p{margin-top:10px;line-height:1.7;max-width:320px;font-size:12.5px}
+  .foot-brand a{text-decoration:underline}
+  .foot-social{display:flex;gap:10px;margin-top:16px}
+  .foot-social a{width:34px;height:34px;border-radius:50%;border:1px solid #2A2A38;display:flex;align-items:center;justify-content:center;color:#A7A7B8}
+  .foot-social a:hover{border-color:var(--accent);color:var(--accent)}
+  .foot-col{display:flex;flex-direction:column;gap:10px}
+  .foot-col h4{font-size:12px;font-weight:700;color:#fff;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px}
+  .foot-col a{cursor:pointer;color:#A7A7B8}
+  .foot-col a:hover{color:var(--accent)}
+  .barcode-rule{height:1px;background:#26263A}
+  .foot-bottom{padding:16px 22px;text-align:center;font-size:12px;color:#6F6F82}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="head">
+      <div class="logo" onclick="goHome()">
+        <svg viewBox="0 0 32 32" fill="none"><defs><linearGradient id="lgLogo" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse"><stop stop-color="#5B5BFF"/><stop offset="1" stop-color="#7D5CFF"/></linearGradient></defs><rect x="4" y="4" width="24" height="24" rx="8" fill="url(#lgLogo)"/><circle cx="12" cy="12" r="2.4" fill="#fff"/><circle cx="20" cy="20" r="2.4" fill="#fff"/><line x1="20" y1="12" x2="12" y2="20" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <span id="brandName"></span>
+      </div>
+      <nav class="menu">
+        <a onclick="goLojas()">Lojas</a>
+        <a onclick="goHome('categorias')">Categorias</a>
+        <a onclick="goHome('cupons')">Top Cupons</a>
+        <a onclick="goBlog()">Blog</a>
+      </nav>
+      <div class="head-right">
+        <button class="search-btn" onclick="toggleSearch()" aria-label="Buscar">
+          <svg width="19" height="19" fill="none" stroke="#0D0D0F" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="login-btn" id="loginBtn" style="display:none">Iniciar sessão</button>
+      </div>
+    </div>
+    <div class="search-bar" id="searchBar">
+      <input id="searchInput" type="text" placeholder="Busque por loja ou cupom...">
+    </div>
+  </div>
+</header>
+
+<!-- ==================== HOME ==================== -->
+<div id="homeView">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">✓ Cupons testados toda semana</div>
+        <h1 id="heroTitle"></h1>
+        <p id="heroSub"></p>
+        <div class="hero-search">
+          <svg width="17" height="17" fill="none" stroke="#101828" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input id="heroSearchInput" type="text" placeholder="Pesquisar lojas ou cupons...">
+          <button class="hero-search-btn" onclick="scrollToId('cupons')" aria-label="Buscar">
+            <svg width="16" height="16" fill="none" stroke="#F5EFE1" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+          </button>
+        </div>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="scrollToId('cupons')">Ver cupons</button>
+          <button class="btn-ghost" onclick="scrollToId('comoFunciona')">
+            <span class="play"><svg width="12" height="12" viewBox="0 0 24 24" fill="#101828"><path d="M8 5v14l11-7z"/></svg></span>
+            Como funciona
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#101828" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 10a2 2 0 012-2h12a2 2 0 012 2v1.5a2 2 0 000 5V17a2 2 0 01-2 2H6a2 2 0 01-2-2v-1.5a2 2 0 000-5V10z"/></svg><span>Cupons ativos</span><b>50+</b></div>
+          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#101828" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 10l1.5-6h15L21 10M4 10h16v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9z"/><path d="M9 20v-6h6v6"/></svg><span>Lojas parceiras</span><b>30+</b></div>
+          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#00D084" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg><span>Ofertas verificadas</span><b>100%</b></div>
+          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#101828" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Atualização</span><b>Semanal</b></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="float-chip fc1"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7D5CFF" stroke-width="1.8"><path d="M20 12V8a2 2 0 00-2-2H8L4 10v6a2 2 0 002 2h4"/><circle cx="8" cy="8" r="1"/><path d="M14 22l3-3 3 3M17 19v-6"/></svg></div>
+        <div class="tag-3d"><span>%</span></div>
+        <div class="float-chip fc2"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B5BFF" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></div>
+        <div class="float-chip fc3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7D5CFF" stroke-width="1.8"><path d="M21 12.5l-8.5 8.5L3 12v-8h8l10 8.5zM7 7h.01"/></svg></div>
+        <div class="fc-stamp">✓<br>100%<br>SEGURO</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="bannersSec" style="display:none">
+    <div class="banner-row" id="bannerRow"></div>
+  </section>
+
+  <section class="section wrap" id="categorias" style="display:none">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <h2 style="margin-bottom:4px">Categorias em destaque</h2>
+      <a onclick="goLojas()" style="font-size:13px;font-weight:700;color:var(--primary);cursor:pointer">Ver todas as categorias →</a>
+    </div>
+    <div class="cat-row" id="catRow"></div>
+    <p class="cat-copy" id="catCopy"></p>
+  </section>
+
+  <section class="section wrap" id="lojas">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <h2 style="margin-bottom:4px">Lojas em destaque</h2>
+      <a onclick="goLojas()" style="font-size:13px;font-weight:700;color:var(--primary);cursor:pointer">Ver todas as lojas →</a>
+    </div>
+    <div class="store-row" id="storeRow"></div>
+  </section>
+
+  <section class="section wrap">
+    <div class="promo-grid">
+      <div class="promo-card" style="background:var(--grad)" onclick="scrollToId('cupons')">
+        <span class="promo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></span>
+        <b>Ofertas Relâmpago</b>
+        <p>Descontos por tempo limitado!</p>
+        <button class="promo-cta" onclick="event.stopPropagation();scrollToId('cupons')">Aproveitar agora</button>
+      </div>
+      <div class="promo-card" style="background:linear-gradient(135deg,#00D084,#00A868)" onclick="goHome('cupons')">
+        <span class="promo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M8 21h8M12 17v4M6 3h12l-1 8a5 5 0 01-10 0L6 3zM6 5H3a3 3 0 003 3M18 5h3a3 3 0 01-3 3"/></svg></span>
+        <b>Top Cupons</b>
+        <p>Os mais usados da semana!</p>
+        <span class="promo-link" onclick="event.stopPropagation();goHome('cupons')">Ver top cupons →</span>
+      </div>
+      <div class="promo-card" style="background:linear-gradient(135deg,#5B5BFF,#3D3DD6)" onclick="goLojas()">
+        <span class="promo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 10l1.5-6h15L21 10M4 10h16v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9z"/><path d="M9 20v-6h6v6"/></svg></span>
+        <b>Lojas Parceiras</b>
+        <p>Descontos das melhores lojas para você.</p>
+        <div class="promo-stores" id="promoStoresRow"></div>
+        <span class="promo-link" onclick="event.stopPropagation();goLojas()">Ver lojas →</span>
+      </div>
+      <div class="promo-card" style="background:linear-gradient(135deg,#1E1B4B,#312E81)">
+        <span class="promo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <b>Newsletter</b>
+        <p>Receba cupons exclusivos no seu e-mail!</p>
+        <form class="promo-news" id="newsletterForm" action="https://formsubmit.co/alcidesspinoz@gabglobalmkt.com.br" method="POST" onclick="event.stopPropagation()">
+          <input type="hidden" name="_subject" value="Nova assinatura newsletter · Dizconta">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" id="nlNext" value="">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+          <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+          <button type="submit" aria-label="Inscrever"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <p id="newsletterSuccess" style="display:none;font-size:12.5px;color:#fff;margin-top:14px;font-weight:600">✓ Inscrito! Você vai receber nossos melhores cupons por e-mail.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="cupons">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <h2 style="margin-bottom:4px">Ofertas em destaque</h2>
+      <a onclick="goLojas()" style="font-size:13px;font-weight:700;color:var(--primary);cursor:pointer">Ver todos os cupons →</a>
+    </div>
+    <p style="color:var(--gray);font-size:13.5px;margin-bottom:18px">Selecionamos as ofertas de maior valor da semana.</p>
+    <div class="grid" id="grid"></div>
+    <div class="trust-strip" id="comoFunciona">
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="19" height="19" fill="none" stroke="#101828" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 10a2 2 0 012-2h12a2 2 0 012 2v1.5a2 2 0 000 5V17a2 2 0 01-2 2H6a2 2 0 01-2-2v-1.5a2 2 0 000-5V10z"/></svg></span>
+        <b>Cupons testados</b>
+        <p>Cada código é verificado antes de entrar no ar — nada de cupom que não funciona.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="19" height="19" fill="none" stroke="#101828" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <b>100% seguro</b>
+        <p>Você sempre compra direto no site oficial da loja parceira.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="19" height="19" fill="none" stroke="#101828" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>
+        <b>Sem custo extra</b>
+        <p>A comissão é da loja para nós — o preço que você paga é o mesmo.</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="19" height="19" fill="none" stroke="#101828" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+        <b>Atualizado sempre</b>
+        <p>Rastreamos as lojas parceiras toda semana atrás de ofertas novas.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PÁGINA DE TIENDA ==================== -->
+<div id="storeView" style="display:none">
+  <section class="store-hero">
+    <div class="wrap">
+      <div class="crumb"><a onclick="goHome()">Início</a> · <span id="crumbStore"></span></div>
+      <div class="store-head">
+        <div class="big-logo" id="sLogo"></div>
+        <div>
+          <h1 id="sTitle"></h1>
+          <div class="sub" id="sSub"></div>
+          <div class="cb" id="sCb"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap store-layout">
+    <div>
+      <div class="grid" id="storeGrid"></div>
+    </div>
+    <aside>
+      <div class="side-card">
+        <h3 id="rateTitle"></h3>
+        <div class="stars"><span class="s" id="starRow"></span><b id="scoreNum"></b><span>/ 5</span></div>
+        <div class="rating-count" id="ratingCount"></div>
+      </div>
+      <div class="side-card">
+        <h3 id="sumTitle"></h3>
+        <div id="sumRows"></div>
+      </div>
+      <div class="side-card">
+        <h3 id="aboutTitle"></h3>
+        <div class="about" id="aboutText"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ==================== LOJAS ==================== -->
+<div id="lojasView" style="display:none">
+  <section class="store-hero">
+    <div class="wrap">
+      <div class="crumb"><a onclick="goHome()">Início</a> · Lojas</div>
+      <h1 style="font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px">Todas as lojas</h1>
+      <p style="color:var(--gray);margin-top:6px;font-size:15px">Cupons e ofertas verificadas em todas as lojas parceiras.</p>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="lojas-filter" id="lojasFilter"></div>
+    <div class="lojas-grid" id="lojasGrid"></div>
+  </div>
+</div>
+
+<!-- ==================== BLOG ==================== -->
+<div id="blogView" style="display:none">
+  <section class="store-hero">
+    <div class="wrap">
+      <div class="crumb"><a onclick="goHome()">Início</a> · Blog</div>
+      <h1 style="font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px">Blog</h1>
+      <p style="color:var(--gray);margin-top:6px;font-size:15px">Promoções, guias e dicas para economizar de verdade.</p>
+    </div>
+  </section>
+  <div class="wrap" style="padding-top:30px">
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</div>
+
+<div id="postView" style="display:none">
+  <div class="article-wrap">
+    <article class="article">
+      <div class="crumb"><a onclick="goHome()">Início</a> · <a onclick="goBlog()">Blog</a> · <span id="pCrumb"></span></div>
+      <div class="p-date" id="pDate"></div>
+      <h1 id="pTitle"></h1>
+      <img class="a-cover" id="pCover" style="display:none" alt="">
+      <div class="a-body" id="pBody"></div>
+      <a class="a-cta" id="pCta" style="display:none"></a>
+    </article>
+  </div>
+</div>
+
+<div id="pageView" style="display:none">
+  <div class="article-wrap">
+    <article class="article">
+      <div class="crumb"><a onclick="goHome()">Início</a> · <span id="pgCrumb"></span></div>
+      <h1 id="pgTitle"></h1>
+      <div class="a-body" id="pgBody"></div>
+    </article>
+  </div>
+</div>
+
+<!-- ==================== MODAL ==================== -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="m-logo" id="mLogo"></div>
+    <h2 id="mTitle"></h2>
+    <p id="mDesc"></p>
+    <div class="code-box" id="mCodeBox">
+      <span id="mCode"></span>
+      <button id="mCopy" onclick="copyCode()">Copiar</button>
+    </div>
+    <a class="go-store" id="mGo" target="_blank" rel="noopener">Ir para a loja →</a>
+    <div class="tracking-note">✓ Abrimos a loja em outra aba. Seu desconto já está ativado!</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <b id="footBrand"></b>
+      <p>Ao clicar em um cupom, você é redirecionado para a loja por meio de um link de parceiro. Podemos receber comissão pelas compras realizadas, sem custo adicional para você. Saiba mais na <a onclick="goPage('privacidade')" style="cursor:pointer;text-decoration:underline">Política de Privacidade</a>.</p>
+      <div class="foot-social" id="footSocial"></div>
+    </div>
+    <div class="foot-col">
+      <h4>Explorar</h4>
+      <a onclick="goHome('cupons')">Top cupons</a>
+      <a onclick="goLojas()">Todas as lojas</a>
+      <a onclick="goBlog()">Blog</a>
+    </div>
+    <div class="foot-col">
+      <h4>Empresa</h4>
+      <a onclick="goPage('sobre-nos')">Sobre nós</a>
+      <a onclick="goPage('contato')">Contato</a>
+    </div>
+    <div class="foot-col">
+      <h4>Legal</h4>
+      <a onclick="goPage('privacidade')">Política de Privacidade</a>
+      <a onclick="goPage('termos')">Termos de Uso</a>
+    </div>
+  </div>
+  <div class="barcode-rule"></div>
+  <div class="wrap foot-bottom">
+    <span id="footCopy"></span>
+  </div>
+</footer>
+
+<script src="stores.js?v=17"></script>
+<script>
+/* ================= LÓGICA — no necesitas editar ================= */
+const $ = id => document.getElementById(id);
+const storeById = Object.fromEntries(STORES.map(s => [s.id, s]));
+const BANNERS_DATA = (typeof BANNERS !== "undefined") ? BANNERS : [];
+const BLOG_DATA = (typeof BLOG !== "undefined") ? BLOG : [];
+/* categorías dinámicas: salen de las tiendas cargadas; la sección
+   solo aparece cuando hay 2+ categorías distintas */
+const CATS = [...new Set(STORES.map(s => s.category).filter(Boolean))];
+let catFilter = null, query = "";
+
+/* logo: 1) logoUrl manual → 2) logo automático de la marca (por dominio)
+   → 3) bloque de color. Si la imagen falla, cae al bloque de color. */
+function logoSrc(s){
+  if (s.logoUrl) return s.logoUrl;
+  if (SITE.autoLogos === false) return null;
+  try{
+    const host = s.logoDomain || new URL(s.affiliateUrl).hostname;
+    return "https://www.google.com/s2/favicons?domain=" + host + "&sz=128";
+  }catch(e){ return null; }
+}
+function logoFail(img, color, text){
+  const p = img.parentNode;
+  img.remove();
+  p.style.background = color;
+  p.textContent = text;
+}
+function logoHtml(s, cls){
+  const src = logoSrc(s);
+  if (src) return `<div class="${cls}"><img src="${src}" alt="${s.name}" loading="lazy" onerror="logoFail(this,'${s.color}','${s.logoText}')"></div>`;
+  return `<div class="${cls}" style="background:${s.color}">${s.logoText}</div>`;
+}
+
+/* ---------- TRACKING: captura gclid/utm al entrar ---------- */
+(function captureClickMeta(){
+  try{
+    const p = new URLSearchParams(location.search);
+    const meta = {};
+    ["gclid","utm_source","utm_medium","utm_campaign","utm_content","fbclid"].forEach(k=>{
+      if (p.get(k)) meta[k] = p.get(k);
+    });
+    if (Object.keys(meta).length){
+      meta.ts = Date.now();
+      localStorage.setItem("cp_click_meta", JSON.stringify(meta));
+    }
+  }catch(e){}
+})();
+
+function getSubId(){
+  try{
+    const m = JSON.parse(localStorage.getItem("cp_click_meta")||"{}");
+    if (m.gclid) return "g_" + m.gclid;
+    if (m.utm_campaign) return "c_" + m.utm_campaign;
+  }catch(e){}
+  return "organic";
+}
+
+/* Link de destino: si el cupón tiene url propia (deep link a una sección
+   de promos con tu atribución), usa esa; si no, el link general de la tienda.
+   Luego inyecta el SubID según la red. */
+function buildAffiliateUrl(store, coupon){
+  let url = (coupon && coupon.url) || store.affiliateUrl;
+  if (store.subidParam){
+    const sep = url.includes("?") ? "&" : "?";
+    url += sep + store.subidParam + "=" + encodeURIComponent(getSubId());
+  }
+  return url;
+}
+
+/* GA4 + Google Ads (solo si configuraste IDs en stores.js) */
+(function initGtag(){
+  if (!TRACKING.ga4Id && !TRACKING.adsConversion) return;
+  const tagId = TRACKING.ga4Id || TRACKING.adsConversion.split("/")[0];
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + tagId;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag("js", new Date());
+  if (TRACKING.ga4Id) gtag("config", TRACKING.ga4Id);
+  if (TRACKING.adsConversion) gtag("config", TRACKING.adsConversion.split("/")[0]);
+})();
+
+function trackCouponClick(store, coupon, position){
+  if (!window.gtag) return;
+  gtag("event", "coupon_click", {
+    store: store.id,
+    coupon_code: coupon.code || "oferta",
+    oid: coupon.oid,
+    position: position || 1,
+    subid: getSubId()
+  });
+  if (TRACKING.adsConversion){
+    gtag("event", "conversion", { send_to: TRACKING.adsConversion });
+  }
+}
+
+/* ---------- routing ----------
+   tudominio.com/natura                              → página de tienda
+   tudominio.com/desconto/cupom-natura?oid=1001&position=1 → cupón directo */
+function currentStoreId(){
+  const seg = location.pathname.split("/").filter(Boolean)[0];
+  if (seg && seg !== "desconto" && storeById[seg]) return seg;
+  const q = new URLSearchParams(location.search).get("loja");
+  if (q && storeById[q]) return q;
+  return null;
+}
+function currentCouponRoute(){
+  const segs = location.pathname.split("/").filter(Boolean);
+  const p = new URLSearchParams(location.search);
+  if (segs[0] !== "desconto" && !p.get("oid")) return null;
+  const oid = parseInt(p.get("oid"), 10);
+  let c = COUPONS.find(x => x.oid === oid);
+  if (!c && segs[1]){
+    const sid = segs[1].replace(/^cupom-/, "");
+    c = COUPONS.find(x => x.storeId === sid);
+  }
+  return c || null;
+}
+function couponUrl(c, position){
+  return "/desconto/cupom-" + c.storeId + "?oid=" + c.oid + "&position=" + position;
+}
+function goHome(anchor){
+  /* si NO estamos en la home (tienda, cupón o blog) → navegar a la home */
+  const isHome = !currentStoreId() && !currentCouponRoute() && !currentBlogRoute() && !currentLojasRoute() && !currentPageRoute();
+  if (!isHome){
+    if (location.protocol === "file:"){ location.href = "index.html" + (anchor ? "#"+anchor : ""); return; }
+    location.href = "/" + (anchor ? "#"+anchor : "");
+    return;
+  }
+  if (anchor) scrollToId(anchor);
+}
+function goStore(id){
+  if (location.protocol === "file:"){ location.href = "index.html?loja=" + id; return; }
+  location.href = "/" + id;
+}
+/* clic en cualquier parte de la card de cupón → página de la tienda,
+   excepto en el botón Ver cupom / Regras (que tienen su propia acción) */
+function cardClick(e, storeId){
+  if (e.target.closest("a,button")) return;
+  goStore(storeId);
+}
+/* oferta genérica de tienda (sin cupón cargado): abre el link de afiliado */
+function openStoreOffer(id){
+  const s = storeById[id];
+  trackCouponClick(s, { code: null, oid: 0 }, 1);
+  window.open(buildAffiliateUrl(s), "_blank", "noopener");
+}
+function goBlog(slug){
+  if (location.protocol === "file:"){ location.href = "index.html?" + (slug ? "post=" + slug : "blog=1"); return; }
+  location.href = slug ? "/blog/" + slug : "/blog";
+}
+function goPage(slug){
+  if (location.protocol === "file:"){ location.href = "index.html?pagina=" + slug; return; }
+  location.href = "/pagina/" + slug;
+}
+function goLojas(){
+  if (location.protocol === "file:"){ location.href = "index.html?lojas=1"; return; }
+  location.href = "/lojas";
+}
+function currentLojasRoute(){
+  const seg = location.pathname.split("/").filter(Boolean)[0];
+  return seg === "lojas" || new URLSearchParams(location.search).has("lojas");
+}
+function scrollToId(id){ const el = $(id); if (el) el.scrollIntoView({behavior:"smooth"}); }
+
+/* ---------- iconos de categoría ---------- */
+const ICONS = {
+  tech:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+  moda:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 4l3 2 3-2 5 4-2 3-2-1v10H6V10l-2 1-2-3 5-4z"/></svg>',
+  casa:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 11l9-8 9 8M6 9v11h12V9"/></svg>',
+  beleza:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 3c1.5 3 5 4 5 8a5 5 0 01-10 0c0-4 3.5-5 5-8z"/><path d="M12 21v-5"/></svg>',
+  esporte:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>',
+  viagem:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 15l-9-3-6 5 3 1 2 3 1-4 9-2zM3 3l7 7"/><path d="M14 3l7 7"/></svg>',
+  mercado:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 5h2l2 12h11l2-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="16" cy="20" r="1.5"/></svg>',
+  mais:'<svg fill="none" stroke-width="1.8" viewBox="0 0 24 24" stroke="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>'
+};
+
+/* ---------- render ---------- */
+function activeCoupons(storeId){
+  const today = new Date().toISOString().slice(0,10);
+  return COUPONS.filter(c => {
+    const s = storeById[c.storeId];
+    if (!s) return false;
+    if (c.expires && c.expires < today) return false;
+    if (storeId && c.storeId !== storeId) return false;
+    if (!storeId && catFilter && s.category !== catFilter) return false;
+    if (!storeId && query && !(c.title + c.value + s.name).toLowerCase().includes(query)) return false;
+    return true;
+  });
+}
+/* destaques de la home: solo los oids de HOME_FEATURED (stores.js),
+   en ese orden. El primero (Natura) recibe la tarjeta grande. */
+function featuredCoupons(){
+  const today = new Date().toISOString().slice(0,10);
+  const ids = (typeof HOME_FEATURED !== "undefined") ? HOME_FEATURED : [];
+  return ids.map(oid => COUPONS.find(c => c.oid === oid)).filter(c => {
+    if (!c) return false;
+    if (!storeById[c.storeId]) return false;
+    if (c.expires && c.expires < today) return false;
+    return true;
+  });
+}
+
+function couponCard(c, i, _arr, big){
+  const s = storeById[c.storeId];
+  const idx = COUPONS.indexOf(c);
+  const position = (i || 0) + 1;
+  const hint = c.code ? "•••" + c.code.slice(-3) : `<span style="color:var(--green)">✓ Desconto direto</span>`;
+  const badge = c.exclusive ? '<span class="badge exclusive">EXCLUSIVO</span>' : (c.top ? '<span class="badge top">TOP</span>' : "");
+  return `<article class="card ${big ? "card-hero" : ""}" onclick="cardClick(event, '${s.id}')" style="cursor:pointer" title="Ver todos os cupons ${s.name}">
+    ${badge}
+    ${big ? `<div class="hero-store-name">${s.name}</div>` : ""}
+    ${c.image ? `<img class="c-img" src="${c.image}" alt="${c.title}">` : ""}
+    ${logoHtml(s, "store-logo")}
+    <div class="value ${!big && c.value.length > 6 ? "small" : ""}">${c.value}</div>
+    <div class="label">${c.label || "DE DESCONTO"}</div>
+    <div class="title">${c.title}</div>
+    <div class="verified">
+      <svg fill="none" stroke="#00D084" stroke-width="2.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#00D084" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg>
+      VERIFICADO
+    </div>
+    <div class="tix-perf"></div>
+    <div class="card-foot">
+      <span class="code-hint">${hint}</span>
+      <a class="btn-coupon" href="${couponUrl(c, position)}" onclick="return clickCoupon(event, ${idx}, ${position})">${c.code ? "Ver cupom" : "Ativar oferta"}</a>
+    </div>
+    <button class="rules-link" onclick="toggleRules(this)">Regras e informações</button>
+    <div class="rules-text">${c.rules || "Consulte as condições na loja."}</div>
+  </article>`;
+}
+
+/* mapa nombre de categoría → icono */
+const CAT_ICON = { "Tecnologia":"tech", "Moda":"moda", "Casa":"casa", "Beleza":"beleza",
+  "Esportes":"esporte", "Viagens":"viagem", "Mercado":"mercado" };
+/* paleta que rota por categoría (mismo espíritu azul/violeta + acentos) */
+const CAT_COLORS = ["#EC4899","#00D084","#5B5BFF","#A855F7","#FF8A3D","#0EA5E9","#7D5CFF","#F43F5E","#14B8A6"];
+function catColor(c){ return CAT_COLORS[CATS.indexOf(c) % CAT_COLORS.length]; }
+
+function renderHome(){
+  $("heroTitle").textContent = SITE.tagline;
+  $("heroSub").textContent = SITE.subtitle;
+
+  /* banners (solo si hay definidos en stores.js) */
+  if (BANNERS_DATA.length){
+    $("bannersSec").style.display = "block";
+    $("bannerRow").innerHTML = BANNERS_DATA.map(b => `
+      <div class="banner" onclick="${b.storeId ? `goStore('${b.storeId}')` : (b.href ? `location.href='${b.href}'` : "")}">
+        ${b.image ? `<img src="${b.image}" alt="${b.title||""}">` : ""}
+        <div class="b-text"><b>${b.title||""}</b><p>${b.subtitle||""}</p></div>
+      </div>`).join("");
+  }
+
+  /* categorías dinámicas: aparecen solas con 2+ categorías */
+  if (CATS.length >= 2){
+    $("categorias").style.display = "block";
+    $("catRow").innerHTML = CATS.map(c => {
+      const n = COUPONS.filter(x => storeById[x.storeId] && storeById[x.storeId].category === c && (!x.expires || x.expires >= new Date().toISOString().slice(0,10))).length;
+      return `<div class="cat-card ${catFilter===c?"active":""}" onclick="setCat('${c}')" style="background:${catColor(c)}">
+        <span class="cat-name">${c}</span>
+        <span class="cat-count">Ver ${n} ${n===1?"cupom":"cupons"} →</span>
+        <span class="cat-icon">${ICONS[CAT_ICON[c]]||ICONS.mais}</span>
+      </div>`;
+    }).join("") + `<div class="cat-card ${!catFilter?"active":""}" onclick="setCat(null)" style="background:var(--ink)">
+        <span class="cat-name">Todas</span>
+        <span class="cat-count">Ver ${COUPONS.length} cupons →</span>
+        <span class="cat-icon">${ICONS.mais}</span>
+      </div>`;
+    /* copy persuasivo de la categoría seleccionada */
+    const CAT_COPY = (typeof CATEGORY_COPY !== "undefined") ? CATEGORY_COPY : {};
+    $("catCopy").textContent = catFilter
+      ? (CAT_COPY[catFilter] || "")
+      : "Escolha uma categoria e veja só as ofertas que interessam para você.";
+  }
+
+  /* home: solo tiendas destacadas (top:true) o primeras 8 */
+  const featured = STORES.filter(s => s.top).length ? STORES.filter(s => s.top) : STORES.slice(0, 8);
+  $("storeRow").innerHTML = featured.map(s => {
+    const src = logoSrc(s);
+    const dot = src
+      ? `<span class="dot"><img src="${src}" alt="${s.name}" loading="lazy" onerror="logoFail(this,'${s.color}','${s.logoText.slice(0,2).toUpperCase()}')"></span>`
+      : `<span class="dot" style="background:${s.color}">${s.logoText.slice(0,2).toUpperCase()}</span>`;
+    return `<div class="store-tile" onclick="goStore('${s.id}')">${dot}<span class="t-name">${s.name}</span></div>`;
+  }).join("");
+  /* mini logos reales para la card "Lojas Parceiras" del banner promocional */
+  if ($("promoStoresRow")){
+    $("promoStoresRow").innerHTML = featured.slice(0, 5).map(s => {
+      const src = logoSrc(s);
+      return src
+        ? `<span class="ps-logo"><img src="${src}" alt="${s.name}" loading="lazy" onerror="this.parentNode.style.background='${s.color}';this.remove()"></span>`
+        : `<span class="ps-logo" style="background:${s.color};color:#fff;font-size:8px;font-weight:800">${s.logoText.slice(0,2).toUpperCase()}</span>`;
+    }).join("");
+  }
+  /* cupones: solo los destaques curados (HOME_FEATURED) por defecto.
+     Si el usuario busca o filtra por categoría, mostramos el catálogo
+     completo filtrado — la curaduría es solo para la primera vista. */
+  const usingFilter = !!(catFilter || query);
+  const list = usingFilter
+    ? activeCoupons(null).sort((a,b) => (b.top?1:0) - (a.top?1:0))
+    : featuredCoupons();
+  $("grid").innerHTML = list.length
+    ? list.map((c,i) => couponCard(c, i, null, !usingFilter && i === 0)).join("")
+    : `<div class="empty">Nenhum cupom encontrado.</div>`;
+}
+function setCat(c){ catFilter = catFilter===c ? null : c; renderHome(); }
+
+function renderStore(id){
+  const s = storeById[id];
+  $("homeView").style.display = "none";
+  $("storeView").style.display = "block";
+  document.title = `Cupom ${s.name} · ${SITE.brand}`;
+  $("crumbStore").textContent = s.name;
+  const sSrc = logoSrc(s);
+  if (sSrc){ $("sLogo").style.background = "#fff"; $("sLogo").innerHTML = `<img src="${sSrc}" alt="${s.name}" onerror="logoFail(this,'${s.color}','${s.logoText}')">`; }
+  else { $("sLogo").style.background = s.color; $("sLogo").textContent = s.logoText; }
+  $("sTitle").textContent = `Cupom de desconto ${s.name}`;
+  $("sSub").textContent = `Todos os cupons e ofertas ${s.name} verificados hoje.`;
+  $("sCb").textContent = s.cashback ? `+ ${s.cashback}% de cashback` : "";
+  const list = activeCoupons(id);
+  /* red de seguridad: tienda sin cupones → oferta genérica persuasiva
+     que abre el link de afiliado igual */
+  $("storeGrid").innerHTML = list.length ? list.map(couponCard).join("") : `
+    <article class="card" style="cursor:pointer" onclick="openStoreOffer('${s.id}')">
+      <span class="badge top">HOJE</span>
+      ${logoHtml(s, "store-logo")}
+      <div class="value small">Ofertas ativas</div>
+      <div class="label">EXCLUSIVAS PELO LINK</div>
+      <div class="title">Descontos e promoções de ${s.name} ativados na hora — sem precisar de código.</div>
+      <div class="verified">
+        <svg fill="none" stroke="#00D084" stroke-width="2.4" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#00D084" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg>
+        VERIFICADO
+      </div>
+      <div class="tix-perf"></div>
+      <div class="card-foot">
+        <span class="code-hint" style="color:var(--green)">✓ Desconto direto</span>
+        <button class="btn-coupon">Ativar oferta</button>
+      </div>
+    </article>`;
+
+  /* rating */
+  $("rateTitle").textContent = `Avalie ${s.name}`;
+  const score = s.rating ? s.rating.score : 5;
+  const full = Math.round(score);
+  $("starRow").textContent = "★".repeat(full) + "☆".repeat(5-full);
+  $("scoreNum").textContent = score.toString().replace(".",",");
+  $("ratingCount").textContent = (s.rating ? s.rating.count : 0) + " avaliações";
+
+  /* resumo estilo Méliuz — calculado automáticamente */
+  const withCode = list.filter(c => c.code).length;
+  const offers = list.filter(c => !c.code).length;
+  const best = (list.find(c => c.top) || list[0] || {}).value || "—";
+  $("sumTitle").textContent = `Resumo de ${s.name}`;
+  $("sumRows").innerHTML = `
+    <div class="sum-row"><span>Cupons de desconto:</span><b>${withCode}</b></div>
+    <div class="sum-row"><span>Ofertas:</span><b>${offers}</b></div>
+    <div class="sum-row"><span>Total de descontos:</span><b>${list.length}</b></div>
+    <div class="sum-row"><span>Melhor desconto:</span><b>${best}</b></div>`;
+
+  $("aboutTitle").textContent = `Sobre a ${s.name}`;
+  $("aboutText").textContent = s.description || "";
+}
+
+/* ---------- página de lojas ---------- */
+let lojasCat = null;
+function renderLojas(){
+  hideAllViews();
+  $("lojasView").style.display = "block";
+  document.title = `Todas as lojas · ${SITE.brand}`;
+  $("lojasFilter").innerHTML = `<button class="${!lojasCat?"active":""}" onclick="setLojasCat(null)">Todas</button>` +
+    CATS.map(c => `<button class="${lojasCat===c?"active":""}" onclick="setLojasCat('${c}')">${c}</button>`).join("");
+  const list = STORES.filter(s => !lojasCat || s.category === lojasCat);
+  $("lojasGrid").innerHTML = list.map(s => {
+    const n = COUPONS.filter(c => c.storeId === s.id).length;
+    const score = s.rating ? s.rating.score : null;
+    return `<div class="loja-card" onclick="goStore('${s.id}')">
+      ${logoHtml(s, "store-logo")}
+      <h3>${s.name}</h3>
+      <div class="l-cat">${s.category}</div>
+      <div class="l-meta">${n} ${n === 1 ? "oferta ativa" : "ofertas ativas"}</div>
+      ${score ? `<div class="l-stars">★ ${score.toString().replace(".",",")}<span>(${s.rating.count})</span></div>` : ""}
+    </div>`;
+  }).join("");
+}
+function setLojasCat(c){ lojasCat = c; renderLojas(); }
+
+/* ---------- blog ---------- */
+function hideAllViews(){
+  ["homeView","storeView","lojasView","blogView","postView","pageView"].forEach(v => { if ($(v)) $(v).style.display = "none"; });
+}
+function renderBlog(){
+  hideAllViews();
+  $("blogView").style.display = "block";
+  document.title = `Blog · ${SITE.brand}`;
+  const posts = [...BLOG_DATA].sort((a,b) => (b.date||"").localeCompare(a.date||""));
+  $("blogGrid").innerHTML = posts.length ? posts.map(p => `
+    <div class="post-card" onclick="goBlog('${p.slug}')">
+      ${p.cover ? `<img class="p-cover" src="${p.cover}" alt="${p.title}">` : `<div class="p-cover"></div>`}
+      <div class="p-body">
+        <div class="p-date">${formatDate(p.date)}</div>
+        <h3>${p.title}</h3>
+        <div class="p-excerpt">${p.excerpt||""}</div>
+      </div>
+    </div>`).join("") : `<div class="empty">Em breve novos artigos.</div>`;
+}
+function renderPost(p){
+  hideAllViews();
+  $("postView").style.display = "block";
+  document.title = `${p.title} · ${SITE.brand}`;
+  $("pCrumb").textContent = p.title;
+  $("pDate").textContent = formatDate(p.date);
+  $("pTitle").textContent = p.title;
+  if (p.cover){ $("pCover").src = p.cover; $("pCover").style.display = "block"; }
+  $("pBody").innerHTML = p.content || "";
+  if (p.ctaStoreId && storeById[p.ctaStoreId]){
+    $("pCta").style.display = "inline-block";
+    $("pCta").textContent = `Ver cupons ${storeById[p.ctaStoreId].name} →`;
+    $("pCta").href = "/" + p.ctaStoreId;
+  }
+}
+function formatDate(d){
+  if (!d) return "";
+  const meses = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+  const [y,m,day] = d.split("-");
+  return `${parseInt(day)} de ${meses[parseInt(m)-1]}. de ${y}`;
+}
+function currentBlogRoute(){
+  const segs = location.pathname.split("/").filter(Boolean);
+  const q = new URLSearchParams(location.search);
+  if (segs[0] === "blog" || q.has("blog")){
+    const slug = segs[1] || q.get("post");
+    if (slug){
+      const p = BLOG_DATA.find(x => x.slug === slug);
+      return p ? { post: p } : { list: true };
+    }
+    return { list: true };
+  }
+  return null;
+}
+function currentPageRoute(){
+  const segs = location.pathname.split("/").filter(Boolean);
+  const q = new URLSearchParams(location.search);
+  const slug = (segs[0] === "pagina" ? segs[1] : null) || q.get("pagina");
+  if (!slug) return null;
+  const PAGES_DATA = (typeof PAGES !== "undefined") ? PAGES : [];
+  return PAGES_DATA.find(x => x.slug === slug) || null;
+}
+/* URL de retorno del formulario de contato tras enviar (FormSubmit
+   hace un redirect real de servidor, por eso arma la URL absoluta
+   aunque el sitio todavía no tenga dominio definido: usa el actual). */
+function contactSuccessUrl(){
+  if (location.protocol === "file:") return location.href.split("?")[0] + "?pagina=contato&enviado=1";
+  return location.origin + "/pagina/contato?enviado=1";
+}
+/* mismo mecanismo para el formulario de newsletter del banner promocional da home */
+function newsletterSuccessUrl(){
+  if (location.protocol === "file:") return location.href.split("?")[0] + "?assinante=1";
+  return location.origin + "/?assinante=1";
+}
+function initNewsletter(){
+  const nextEl = $("nlNext");
+  if (nextEl) nextEl.value = newsletterSuccessUrl();
+  if (new URLSearchParams(location.search).get("assinante") === "1" && $("newsletterForm")){
+    $("newsletterForm").style.display = "none";
+    $("newsletterSuccess").style.display = "block";
+  }
+}
+function renderPage(p){
+  hideAllViews();
+  $("pageView").style.display = "block";
+  document.title = `${p.title} · ${SITE.brand}`;
+  $("pgCrumb").textContent = p.title;
+  $("pgTitle").textContent = p.title;
+  $("pgBody").innerHTML = p.content || "";
+  ["pgContactEmail","pgPrivEmail","pgPrivEmail2"].forEach(id => { if ($(id)) $(id).textContent = SITE.contactEmail || ""; });
+  if (p.slug === "contato"){
+    if (SITE.whatsapp){
+      $("pgWhatsappRow").style.display = "block";
+      $("pgWhatsappLink").href = "https://wa.me/" + SITE.whatsapp;
+    }
+    const nextEl = $("cfNext");
+    if (nextEl) nextEl.value = contactSuccessUrl();
+    if (new URLSearchParams(location.search).get("enviado") === "1"){
+      $("cfSuccess").style.display = "block";
+      $("contactForm").style.display = "none";
+    }
+  }
+}
+
+/* ---------- núcleo: clic → link de afiliado + revela código ----------
+   La URL de la barra cambia a /desconto/cupom-loja?oid=X&position=N
+   (compartible y rastreable, estilo Méliuz). autoOpen=false se usa
+   cuando alguien llega directo a esa URL (no auto-abrimos popup). */
+let currentCode = "", prevPath = null;
+function clickCoupon(e, idx, pos){
+  if (e) e.preventDefault();
+  openCoupon(idx, pos);
+  return false;
+}
+function openCoupon(idx, pos, autoOpen){
+  const c = COUPONS[idx];
+  const s = storeById[c.storeId];
+  trackCouponClick(s, c, pos);
+  const url = buildAffiliateUrl(s, c);
+  if (autoOpen !== false) window.open(url, "_blank", "noopener");   /* cookie de atribución */
+  try{
+    if (!location.pathname.startsWith("/desconto") && location.protocol !== "file:"){
+      prevPath = location.pathname + location.search;
+      history.pushState({}, "", couponUrl(c, pos || 1));
+    }
+  }catch(e){}
+  if (!c.code && autoOpen !== false) return;
+  currentCode = c.code || "";
+  $("mCodeBox").style.display = c.code ? "flex" : "none";
+  const mSrc = logoSrc(s);
+  if (mSrc){ $("mLogo").style.background = "#fff"; $("mLogo").innerHTML = `<img src="${mSrc}" alt="${s.name}" onerror="logoFail(this,'${s.color}','${s.logoText}')">`; }
+  else { $("mLogo").style.background = s.color; $("mLogo").textContent = s.logoText; }
+  $("mTitle").textContent = c.value + " " + (c.label||"").toLowerCase() + " · " + s.name;
+  $("mDesc").textContent = c.code
+    ? "Copie o código e cole no carrinho da " + s.name + "."
+    : "Clique abaixo e o desconto será aplicado automaticamente.";
+  $("mCode").textContent = currentCode;
+  $("mCopy").textContent = "Copiar";
+  $("mGo").href = url;
+  $("overlay").classList.add("open");
+}
+function copyCode(){
+  navigator.clipboard.writeText(currentCode).then(()=> $("mCopy").textContent = "Copiado ✓");
+}
+function closeModal(){
+  $("overlay").classList.remove("open");
+  try{
+    if (prevPath !== null){ history.replaceState({}, "", prevPath); prevPath = null; }
+  }catch(e){}
+}
+$("overlay").addEventListener("click", e => { if (e.target === $("overlay")) closeModal(); });
+
+function toggleRules(btn){
+  const t = btn.nextElementSibling;
+  t.style.display = t.style.display === "block" ? "none" : "block";
+}
+function toggleSearch(){
+  $("searchBar").classList.toggle("open");
+  if ($("searchBar").classList.contains("open")) $("searchInput").focus();
+}
+$("searchInput").addEventListener("input", e => { query = e.target.value.toLowerCase(); renderHome(); });
+if ($("heroSearchInput")) $("heroSearchInput").addEventListener("input", e => { query = e.target.value.toLowerCase(); renderHome(); });
+
+/* ---------- init ---------- */
+$("brandName").textContent = SITE.brand;
+$("footBrand").textContent = SITE.brand;
+$("footCopy").textContent = `© ${new Date().getFullYear()} ${SITE.brand}. Todos os direitos reservados.`;
+if (SITE.social){
+  const icons = { instagram: "M12 2c2.7 0 3 0 4 .1 1 .1 1.7.2 2.3.5.6.3 1.1.6 1.6 1.1.5.5.8 1 1.1 1.6.3.6.4 1.3.5 2.3.1 1 .1 1.3.1 4s0 3-.1 4c-.1 1-.2 1.7-.5 2.3-.3.6-.6 1.1-1.1 1.6-.5.5-1 .8-1.6 1.1-.6.3-1.3.4-2.3.5-1 .1-1.3.1-4 .1s-3 0-4-.1c-1-.1-1.7-.2-2.3-.5-.6-.3-1.1-.6-1.6-1.1-.5-.5-.8-1-1.1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4c.1-1 .2-1.7.5-2.3.3-.6.6-1.1 1.1-1.6.5-.5 1-.8 1.6-1.1.6-.3 1.3-.4 2.3-.5C9 2 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.2-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z",
+    tiktok: "M16.5 2h-3v13.5a2.7 2.7 0 11-2.7-2.7c.25 0 .49.03.72.1V9.6a5.9 5.9 0 00-.72-.05A5.95 5.95 0 004.8 15.5a5.95 5.95 0 0011.9 0V8.3a8 8 0 004.5 1.4V6.7a5 5 0 01-4.7-4.7z" };
+  const links = Object.entries(SITE.social).filter(([,url]) => url);
+  $("footSocial").innerHTML = links.map(([k,url]) =>
+    `<a href="${url}" target="_blank" rel="noopener" aria-label="${k}"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="${icons[k]||""}"/></svg></a>`
+  ).join("");
+}
+if (SITE.cashbackEnabled) $("loginBtn").style.display = "block";
+initNewsletter();
+const blogRoute = currentBlogRoute();
+const pageRoute = currentPageRoute();
+const routeCoupon = currentCouponRoute();
+const sid = currentStoreId();
+if (pageRoute){
+  renderPage(pageRoute);
+} else if (blogRoute && blogRoute.post){
+  renderPost(blogRoute.post);
+} else if (blogRoute){
+  renderBlog();
+} else if (currentLojasRoute()){
+  renderLojas();
+} else if (routeCoupon){
+  /* URL directa /desconto/cupom-natura?oid=1001 → página de tienda + modal */
+  renderStore(routeCoupon.storeId);
+  const pos = parseInt(new URLSearchParams(location.search).get("position"), 10) || 1;
+  setTimeout(() => openCoupon(COUPONS.indexOf(routeCoupon), pos, false), 250);
+} else if (sid){
+  renderStore(sid);
+} else {
+  renderHome();
+}
+</script>
+</body>
+</html>
