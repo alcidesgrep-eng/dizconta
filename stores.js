@@ -572,7 +572,7 @@ const BANNERS = [
     storeId: "natura"
   },
   {
-    image: "",                 // ej: "img/banner-esportes.jpg"
+    image: "img/banner-tenis.jpg",
     title: "Tênis de marca pagando menos",
     subtitle: "Olympikus, Mizuno e Under Armour com oferta ativa",
     storeId: "olympikus"
