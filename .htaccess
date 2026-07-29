@@ -7,23 +7,39 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
 
 # ------------------------------------------------------------------
-# CERO CACHE — cada actualización se ve al instante para todos.
-# Cubre navegador, proxies intermedios y el cache propio del panel.
-# El CDN "hcdn" de Hostinger puede igual ignorar esto para CSS/JS
-# (bug documentado) — si un cambio no se refleja, renombrar el
-# archivo (style.css → style2.css) sigue siendo el respaldo seguro.
+# CACHE — sin cache SOLO para html/css/js (los archivos que editamos
+# seguido), para que cada actualización se vea al instante. El CDN
+# "hcdn" de Hostinger puede igual ignorar esto para CSS/JS (bug
+# documentado) — si un cambio no se refleja, renombrar el archivo
+# (style.css → style2.css) sigue siendo el respaldo seguro.
+#
+# Imágenes, video y fuentes SÍ se cachean (30 días) — no cambian
+# seguido y son pesadas (el video del hero pesa ~2.5MB); sin esto se
+# vuelven a descargar en cada carga de página, lo cual hace que el
+# sitio se sienta lento. Si reemplazás una imagen, renombrala (mismo
+# truco que con CSS/JS) para forzar que se vea la nueva.
 # ------------------------------------------------------------------
 <IfModule mod_headers.c>
-  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, proxy-revalidate"
-  Header set Pragma "no-cache"
-  Header set Expires "0"
-  Header unset ETag
-  Header unset Last-Modified
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, proxy-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+  <FilesMatch "\.(jpg|jpeg|png|webp|gif|svg|mp4|webm|woff|woff2)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
 </IfModule>
-FileETag None
 
 <IfModule mod_expires.c>
-  ExpiresActive Off
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 0 seconds"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
 </IfModule>
 
 # LiteSpeed: apaga el cache de página propio del panel de Hostinger
