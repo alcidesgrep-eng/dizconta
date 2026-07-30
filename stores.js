@@ -149,6 +149,7 @@ const PAGES = [
     content: `
       <div class="q-hero">
         <div>
+          <span style="display:inline-block;background:var(--accent-bg);color:var(--ink);font-weight:800;font-size:12.5px;padding:6px 14px;border-radius:999px;margin-bottom:10px">50% OFF na primeira mensalidade</span>
           <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
           <h1 style="font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-top:8px">Seguro auto com parcela mensal, sem compromisso de fidelidade</h1>
           <p style="font-size:15.5px;color:var(--gray);margin-top:10px;max-width:520px">Preencha seus dados abaixo e nossa equipe monta sua cotação personalizada e te chama no WhatsApp — sem formulário longo, sem espera.</p>
@@ -158,7 +159,8 @@ const PAGES = [
             <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
             <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Cobertura em todo o Brasil, com assistência 24h incluída</li>
           </ul>
-          <button class="btn-primary" style="margin-top:24px" onclick="scrollToId('looviForm')">Solicitar cotação agora →</button>
+          <button class="btn-primary" style="margin-top:24px" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
+          <p style="margin-top:14px;font-size:12.5px;color:var(--gray);display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.5A8.5 8.5 0 1121 11.5z"/></svg> Atendido por Alcides Gabriel, executivo Loovi</p>
         </div>
         <div class="q-art">
           <div class="q-art-badge">
@@ -170,39 +172,72 @@ const PAGES = [
         </div>
       </div>
 
+      <div class="q-cover" style="margin-top:28px">
+        <h2>Descontos de ativação</h2>
+        <p class="q-cover-sub">Condição especial disponível ao solicitar seu orçamento com a gente.</p>
+        <div class="card" style="max-width:340px;cursor:pointer" onclick="goPage('seguro-auto-orcamento')">
+          <span class="badge exclusive">EXCLUSIVO</span>
+          <div class="value">50%</div>
+          <div class="label">OFF NA PRIMEIRA MENSALIDADE</div>
+          <div class="title">Solicite seu orçamento pelo WhatsApp e garanta o desconto na ativação do seu seguro.</div>
+          <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();goPage('seguro-auto-orcamento')">Solicitar desconto →</a>
+        </div>
+      </div>
+
       <div class="q-steps">
         <div class="q-step"><div class="q-num">1</div><h4>Preencha seus dados</h4><p>Nome, contato e informações básicas do seu veículo — leva menos de 1 minuto.</p></div>
         <div class="q-step"><div class="q-num">2</div><h4>Enviamos pro WhatsApp</h4><p>Seus dados chegam direto pra nossa equipe, sem cadastro nem senha.</p></div>
         <div class="q-step"><div class="q-num">3</div><h4>Cotação personalizada</h4><p>Você recebe o valor certinho pro seu carro e decide se quer fechar.</p></div>
       </div>
 
-      <div class="contact-wrap" style="margin-top:28px">
-        <div>
-          <div id="looviSuccess" class="cf-success" style="display:none">
-            <b>Recebemos seus dados ✓</b>
-            <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
+      <div class="q-cover">
+        <h2>Coberturas</h2>
+        <p class="q-cover-sub">Coberturas garantidas pela LTI Seguros S.A., empresa do Grupo Loovi, seguradora participante do Sandbox Regulatório da SUSEP. Valores e condições podem variar por veículo e categoria — confirme os detalhes na sua cotação.</p>
+        <details class="q-cover-item">
+          <summary><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Assistência 24h</summary>
+          <div class="q-cover-body">
+            Assistência completa via 0800 em todo o território nacional:
+            <ul>
+              <li>Reboque</li>
+              <li>Hotel para até 5 pessoas</li>
+              <li>Chaveiro</li>
+              <li>Assistência para pane elétrica e mecânica</li>
+              <li>Auxílio na falta de combustível</li>
+              <li>Táxi ou transporte alternativo</li>
+              <li>Troca de pneus e recarga de bateria</li>
+            </ul>
           </div>
-          <form id="looviForm" class="contact-form" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
-            <label class="form-label">Nome completo
-              <input type="text" name="nome" class="form-input" required maxlength="80">
-            </label>
-            <label class="form-label">Telefone/WhatsApp
-              <input type="tel" name="telefone" class="form-input" placeholder="(00) 00000-0000" required maxlength="20">
-            </label>
-            <label class="form-label">Veículo (marca e modelo)
-              <input type="text" name="veiculo" class="form-input" placeholder="Ex: Onix 2020" required maxlength="60">
-            </label>
-            <label class="form-label">Ano
-              <input type="text" name="ano" class="form-input" maxlength="9">
-            </label>
-            <label class="form-label">Placa
-              <input type="text" name="placa" class="form-input" maxlength="10">
-            </label>
-            <label class="form-label">Cidade/Estado
-              <input type="text" name="cidade" class="form-input" maxlength="60">
-            </label>
-            <button type="submit" class="btn-primary" style="width:100%">Solicitar cotação no WhatsApp</button>
-          </form>
+        </details>
+        <details class="q-cover-item">
+          <summary><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Carro Reserva</summary>
+          <div class="q-cover-body">Carro reserva por até 7 dias em caso de colisão, incêndio, roubo ou furto.</div>
+        </details>
+        <details class="q-cover-item">
+          <summary><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Colisão</summary>
+          <div class="q-cover-body">Pagamento integral ou parcial em caso de colisão e fenômenos da natureza (alagamento, granizo, queda de árvore). Franquia reduzida conforme a categoria do veículo.</div>
+        </details>
+        <details class="q-cover-item">
+          <summary><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Terceiros</summary>
+          <div class="q-cover-body">Cobertura de danos materiais e corporais causados a terceiros, com reparo ou indenização conforme apólice.</div>
+        </details>
+        <details class="q-cover-item">
+          <summary><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Vidros Completo</summary>
+          <div class="q-cover-body">Troca ou reparo de vidros laterais, vidro traseiro, para-brisa, retrovisores, lanternas e faróis.</div>
+        </details>
+        <details class="q-cover-item">
+          <summary><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Acidentes Pessoais a Passageiros (APP)</summary>
+          <div class="q-cover-body">Indenização em caso de morte ou invalidez, com reembolso de despesas hospitalares.</div>
+        </details>
+        <details class="q-cover-item">
+          <summary><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Furto e Roubo</summary>
+          <div class="q-cover-body">Cobertura completa contra furto e roubo do veículo.</div>
+        </details>
+      </div>
+
+      <div class="contact-wrap" style="margin-top:28px">
+        <div class="side-card" style="background:var(--grad);border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:120px">
+          <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
+          <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
         </div>
         <aside class="side-card">
           <h3>Perguntas frequentes</h3>
@@ -211,6 +246,41 @@ const PAGES = [
           <p style="font-size:13.5px;color:var(--gray)"><b style="color:var(--ink)">Quanto tempo demora?</b><br>Normalmente respondemos no mesmo dia — muitas vezes em poucos minutos.</p>
         </aside>
       </div>`
+  },
+  {
+    slug: "seguro-auto-orcamento",
+    title: "Solicitar orçamento · Seguro Auto",
+    wide: false,
+    content: `
+      <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
+      <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Solicite seu orçamento</h1>
+      <p style="font-size:15px;color:var(--gray);margin-top:8px">Preencha seus dados abaixo — nossa equipe recebe direto no WhatsApp e te retorna com a cotação personalizada para o seu carro.</p>
+      <div id="looviSuccess" class="cf-success" style="display:none;margin-top:20px">
+        <b>Recebemos seus dados ✓</b>
+        <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
+      </div>
+      <form id="looviForm" class="contact-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
+        <label class="form-label">Nome completo
+          <input type="text" name="nome" class="form-input" required maxlength="80">
+        </label>
+        <label class="form-label">Telefone/WhatsApp
+          <input type="tel" name="telefone" class="form-input" placeholder="(00) 00000-0000" required maxlength="20">
+        </label>
+        <label class="form-label">Veículo (marca e modelo)
+          <input type="text" name="veiculo" class="form-input" placeholder="Ex: Onix 2020" required maxlength="60">
+        </label>
+        <label class="form-label">Ano
+          <input type="text" name="ano" class="form-input" maxlength="9">
+        </label>
+        <label class="form-label">Placa
+          <input type="text" name="placa" class="form-input" maxlength="10">
+        </label>
+        <label class="form-label">Cidade/Estado
+          <input type="text" name="cidade" class="form-input" maxlength="60">
+        </label>
+        <button type="submit" class="btn-primary" style="width:100%">Solicitar cotação no WhatsApp</button>
+      </form>
+      <p style="font-size:12.5px;color:var(--gray-light);margin-top:16px">Seus dados são usados apenas para gerar sua cotação de seguro auto, conforme nossa <a onclick="goPage('privacidade')" style="color:var(--primary);font-weight:600;cursor:pointer">Política de Privacidade</a>.</p>`
   }
 ];
 
