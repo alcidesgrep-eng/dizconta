@@ -343,7 +343,7 @@
         <div class="hero-search">
           <svg width="17" height="17" fill="none" stroke="#170D26" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
           <input id="heroSearchInput" type="text" placeholder="Pesquisar lojas ou cupons...">
-          <button class="hero-search-btn" onclick="scrollToId('cupons')" aria-label="Buscar">
+          <button class="hero-search-btn" onclick="submitSearch()" aria-label="Buscar">
             <svg width="16" height="16" fill="none" stroke="#170D26" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
           </button>
         </div>
@@ -638,6 +638,7 @@
 <script>
 /* ================= LÓGICA — no necesitas editar ================= */
 const $ = id => document.getElementById(id);
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
 const storeById = Object.fromEntries(STORES.map(s => [s.id, s]));
 const BANNERS_DATA = (typeof BANNERS !== "undefined") ? BANNERS : [];
 const BLOG_DATA = (typeof BLOG !== "undefined") ? BLOG : [];
@@ -841,7 +842,11 @@ function activeCoupons(storeId){
     if (!s) return false;
     if (c.expires && c.expires < today) return false;
     if (storeId && c.storeId !== storeId) return false;
-    if (!storeId && query && !(c.title + c.value + s.name).toLowerCase().includes(query)) return false;
+    if (!storeId && query){
+      const haystack = (c.title + " " + c.value + " " + s.name + " " + s.category).toLowerCase();
+      const words = query.split(/\s+/).filter(Boolean);
+      if (!words.every(w => haystack.includes(w))) return false;
+    }
     return true;
   });
 }
@@ -975,7 +980,9 @@ function renderHome(){
     : featuredCoupons();
   $("grid").innerHTML = list.length
     ? list.map((c,i) => couponCard(c, i, null, !usingFilter && i === 0)).join("")
-    : `<div class="empty">Nenhum cupom encontrado.</div>`;
+    : usingFilter
+      ? `<div class="empty">Nenhum resultado para "${escapeHtml(query)}". Busca não disponível para esse termo — tente o nome de uma loja ou categoria.</div>`
+      : `<div class="empty">Nenhum cupom encontrado.</div>`;
 }
 
 function renderStore(id){
@@ -1266,8 +1273,20 @@ function toggleSearch(){
   $("searchBar").classList.toggle("open");
   if ($("searchBar").classList.contains("open")) $("searchInput").focus();
 }
+function submitSearch(){
+  const val = (($("heroSearchInput") && $("heroSearchInput").value) || $("searchInput").value || "").trim();
+  query = val.toLowerCase();
+  $("searchInput").value = val;
+  if ($("heroSearchInput")) $("heroSearchInput").value = val;
+  renderHome();
+  if (query) scrollToId("cupons");
+}
 $("searchInput").addEventListener("input", e => { query = e.target.value.toLowerCase(); renderHome(); });
-if ($("heroSearchInput")) $("heroSearchInput").addEventListener("input", e => { query = e.target.value.toLowerCase(); renderHome(); });
+$("searchInput").addEventListener("keydown", e => { if (e.key === "Enter") submitSearch(); });
+if ($("heroSearchInput")){
+  $("heroSearchInput").addEventListener("input", e => { query = e.target.value.toLowerCase(); renderHome(); });
+  $("heroSearchInput").addEventListener("keydown", e => { if (e.key === "Enter") submitSearch(); });
+}
 
 /* ---------- init ---------- */
 $("brandName").textContent = SITE.brand;
