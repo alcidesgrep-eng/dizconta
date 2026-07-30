@@ -174,13 +174,32 @@ const PAGES = [
 
       <div class="q-cover" style="margin-top:28px">
         <h2>Descontos de ativação</h2>
-        <p class="q-cover-sub">Condição especial disponível ao solicitar seu orçamento com a gente.</p>
-        <div class="card" style="max-width:340px;cursor:pointer" onclick="goPage('seguro-auto-orcamento')">
-          <span class="badge exclusive">EXCLUSIVO</span>
-          <div class="value">50%</div>
-          <div class="label">OFF NA PRIMEIRA MENSALIDADE</div>
-          <div class="title">Solicite seu orçamento pelo WhatsApp e garanta o desconto na ativação do seu seguro.</div>
-          <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();goPage('seguro-auto-orcamento')">Solicitar desconto →</a>
+        <p class="q-cover-sub">Campanhas ativas — vagas limitadas por código.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+          <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">
+            <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">50/50 disponíveis</div>
+            <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">50% OFF</span>
+            <div class="title" style="margin-top:12px">50% na primeira mensalidade.</div>
+            <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO50</div>
+            <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">Aplicar cupom →</a>
+            <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+          </div>
+          <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">
+            <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">50/50 disponíveis</div>
+            <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">10% OFF</span>
+            <div class="title" style="margin-top:12px">10% de desconto em 12 mensalidades. Não se aplica à campanha do hexa.</div>
+            <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO10X12</div>
+            <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">Aplicar cupom →</a>
+            <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+          </div>
+          <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">
+            <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">50/50 disponíveis</div>
+            <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">45% OFF</span>
+            <div class="title" style="margin-top:12px">45% nas duas primeiras mensalidades.</div>
+            <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO45</div>
+            <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">Aplicar cupom →</a>
+            <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+          </div>
         </div>
       </div>
 
@@ -255,11 +274,13 @@ const PAGES = [
       <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
       <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Solicite seu orçamento</h1>
       <p style="font-size:15px;color:var(--gray);margin-top:8px">Preencha seus dados abaixo — nossa equipe recebe direto no WhatsApp e te retorna com a cotação personalizada para o seu carro.</p>
+      <div id="cupomBanner" style="display:none;margin-top:16px;background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;color:var(--ink)">Cupom aplicado: <span id="cupomBannerCode"></span></div>
       <div id="looviSuccess" class="cf-success" style="display:none;margin-top:20px">
         <b>Recebemos seus dados ✓</b>
         <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
       </div>
-      <form id="looviForm" class="contact-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
+      <form id="looviForm" class="contact-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'},{name:'cupom',label:'Cupom'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
+        <input type="hidden" name="cupom" id="cupomField" value="">
         <label class="form-label">Nome completo
           <input type="text" name="nome" class="form-input" required maxlength="80">
         </label>
