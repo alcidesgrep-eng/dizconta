@@ -147,29 +147,30 @@ const PAGES = [
     wide: true,
     hideTitle: true,
     content: `
-      <div class="q-hero">
-        <div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <img src="img/logos/loovi.png" alt="Loovi" style="height:20px;width:auto;border-radius:4px">
-            <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
+      <div class="q-fullbleed">
+        <img src="img/loovi-hero.jpg" alt="Seguro auto Loovi">
+        <div class="q-scrim"></div>
+        <div class="q-fb-content">
+          <div class="crumb"><a onclick="goHome()">Início</a> · Seguro Auto</div>
+          <div class="store-head">
+            <div class="big-logo"><img src="img/logos/loovi.png" alt="Loovi"></div>
+            <div>
+              <h1>O seguro mais barato do Brasil</h1>
+              <div class="sub">Preencha seus dados e receba sua cotação personalizada — resposta em minutos, direto no WhatsApp.</div>
+            </div>
           </div>
-          <h1 style="font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-top:8px">O seguro mais barato do Brasil</h1>
-          <p style="font-size:15.5px;color:var(--gray);margin-top:10px;max-width:520px">Preencha seus dados abaixo e nossa equipe monta sua cotação personalizada e te chama no WhatsApp — sem formulário longo, sem espera.</p>
-          <ul class="q-benefits">
-            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Pagamento mês a mês, como uma assinatura — sem multa para cancelar</li>
-            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Sem análise de perfil do condutor — o valor não muda por idade, sexo ou onde você mora</li>
-            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
-            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Cobertura em todo o Brasil, com assistência 24h incluída</li>
-          </ul>
-          <button class="btn-primary" style="margin-top:24px" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
-          <p style="margin-top:14px;font-size:12.5px;color:var(--gray);display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.5A8.5 8.5 0 1121 11.5z"/></svg> Atendido por Alcides Gabriel, executivo Loovi</p>
         </div>
-        <div class="q-art">
-          <img src="img/loovi-hero.jpg" alt="Seguro auto Loovi">
-          <div class="q-chip qc1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A64DFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Resposta em minutos</div>
-          <div class="q-chip qc2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Seguradora regulada SUSEP</div>
-          <div class="q-chip qc3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.5A8.5 8.5 0 1121 11.5z"/></svg> 100% pelo WhatsApp</div>
-        </div>
+      </div>
+
+      <div style="padding-top:28px">
+        <ul class="q-benefits">
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Pagamento mês a mês, como uma assinatura — sem multa para cancelar</li>
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Sem análise de perfil do condutor — o valor não muda por idade, sexo ou onde você mora</li>
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Cobertura em todo o Brasil, com assistência 24h incluída</li>
+        </ul>
+        <button class="btn-primary" style="margin-top:24px" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
+        <p style="margin-top:14px;font-size:12.5px;color:var(--gray)">Resposta em minutos · Seguradora regulada SUSEP · Atendido por Alcides Gabriel, executivo Loovi</p>
       </div>
 
       <div class="q-cover" style="margin-top:28px">
