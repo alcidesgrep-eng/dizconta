@@ -578,13 +578,13 @@ const BANNERS = [
     storeId: "olympikus"
   },
   {
-    image: "",                 // ej: "img/banner-electrolux.jpg"
+    image: "img/banner-electrodomesticos.jpg",
     title: "Sua casa completa direto da fábrica",
     subtitle: "Electrolux com condições exclusivas",
     storeId: "electrolux"
   },
   {
-    image: "",                 // ej: "img/banner-viagens.jpg"
+    image: "img/banner-viagens.jpg",
     title: "Sua próxima viagem pagando menos",
     subtitle: "Passagens, seguro e carro — tudo em um lugar",
     storeId: "vaidepromo"
