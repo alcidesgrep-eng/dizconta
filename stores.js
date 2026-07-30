@@ -620,6 +620,12 @@ const BANNERS = [
     storeId: "natura"
   },
   {
+    image: "",
+    title: "Seguro auto com parcela mensal",
+    subtitle: "Cote agora sem compromisso — resposta no WhatsApp",
+    href: "/pagina/seguro-auto"
+  },
+  {
     image: "img/banner-tenis.jpg",
     title: "Tênis de marca pagando menos",
     subtitle: "Olympikus, Mizuno e Under Armour com oferta ativa",
