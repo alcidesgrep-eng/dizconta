@@ -263,6 +263,10 @@
   .contact-form{display:flex;flex-direction:column;gap:16px}
   .form-label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink)}
   .form-input{font-family:inherit;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px;color:var(--ink);background:var(--card-2);outline:none;resize:vertical}
+  .contact-form.q-form{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px}
+  @media(max-width:520px){.contact-form.q-form{grid-template-columns:1fr}}
+  .contact-form.q-form button{grid-column:1/-1;border-radius:999px}
+  .contact-form.q-form .form-input{border-radius:16px;padding:14px 18px;background:#fff;border:1.5px solid var(--line);font-size:14.5px}
   .form-input:focus{border-color:var(--primary)}
   .hp{position:absolute;left:-9999px;top:-9999px}
   .cf-success{background:var(--green-bg);border:1px solid rgba(46,213,115,.4);border-radius:14px;padding:18px 20px;margin-bottom:18px}
@@ -1101,7 +1105,14 @@ function renderLojas(){
         <span class="l-link">Ver ofertas →</span>
       </div>
     </div>`;
-  }).join("");
+  }).join("") + `<div class="loja-card" onclick="location.href='/pagina/seguro-auto'">
+      <div class="lc-media" style="background:#1D4ED8"><img class="lc-img" src="img/logos/loovi.png" alt="Loovi" loading="lazy"></div>
+      <div class="lc-content">
+        <h3>Loovi</h3>
+        <div class="l-meta-row"><span>Seguros</span></div>
+        <span class="l-link">Ver ofertas →</span>
+      </div>
+    </div>`;
 }
 function setLojasCat(c){ lojasCat = c; renderLojas(); }
 

@@ -149,7 +149,10 @@ const PAGES = [
     content: `
       <div class="q-hero">
         <div>
-          <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
+          <div style="display:flex;align-items:center;gap:8px">
+            <img src="img/logos/loovi.png" alt="Loovi" style="height:20px;width:auto;border-radius:4px">
+            <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
+          </div>
           <h1 style="font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-top:8px">O seguro mais barato do Brasil</h1>
           <p style="font-size:15.5px;color:var(--gray);margin-top:10px;max-width:520px">Preencha seus dados abaixo e nossa equipe monta sua cotação personalizada e te chama no WhatsApp — sem formulário longo, sem espera.</p>
           <ul class="q-benefits">
@@ -162,9 +165,7 @@ const PAGES = [
           <p style="margin-top:14px;font-size:12.5px;color:var(--gray);display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.5A8.5 8.5 0 1121 11.5z"/></svg> Atendido por Alcides Gabriel, executivo Loovi</p>
         </div>
         <div class="q-art">
-          <div class="q-art-badge">
-            <svg width="76" height="76" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 13l1.6-5.6A2 2 0 016.5 6h11a2 2 0 011.9 1.4L21 13"/><path d="M2.5 13h19v4.5a1 1 0 01-1 1h-1.5a1 1 0 01-1-1V16H6v1.5a1 1 0 01-1 1H3.5a1 1 0 01-1-1V13z"/><circle cx="7.5" cy="16.5" r="1.4"/><circle cx="16.5" cy="16.5" r="1.4"/></svg>
-          </div>
+          <img src="img/loovi-hero.jpg" alt="Seguro auto Loovi">
           <div class="q-chip qc1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A64DFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Resposta em minutos</div>
           <div class="q-chip qc2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Seguradora regulada SUSEP</div>
           <div class="q-chip qc3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.5A8.5 8.5 0 1121 11.5z"/></svg> 100% pelo WhatsApp</div>
@@ -295,7 +296,7 @@ const PAGES = [
         <b>Recebemos seus dados ✓</b>
         <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
       </div>
-      <form id="looviForm" class="contact-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'},{name:'cupom',label:'Cupom'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
+      <form id="looviForm" class="contact-form q-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'},{name:'cupom',label:'Cupom'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
         <input type="hidden" name="cupom" id="cupomField" value="">
         <label class="form-label">Nome completo
           <input type="text" name="nome" class="form-input" required maxlength="80">
@@ -750,7 +751,7 @@ const BANNERS = [
     storeId: "natura"
   },
   {
-    image: "",
+    image: "img/banner-seguro-auto.jpg",
     title: "Seguro auto com parcela mensal",
     subtitle: "Cote agora sem compromisso — resposta no WhatsApp",
     href: "/pagina/seguro-auto"
@@ -768,7 +769,7 @@ const BANNERS = [
     storeId: "electrolux"
   },
   {
-    image: "img/banner-viagens.jpg",
+    image: "img/banner-viagens2.jpg",
     title: "Sua próxima viagem pagando menos",
     subtitle: "Passagens, seguro e carro — tudo em um lugar",
     storeId: "vaidepromo"
