@@ -176,7 +176,6 @@ const PAGES = [
         <p class="q-cover-sub">Campanhas ativas — vagas limitadas por código.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
           <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">
-            <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">50/50 disponíveis</div>
             <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">50% OFF</span>
             <div class="title" style="margin-top:12px">50% na primeira mensalidade.</div>
             <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO50</div>
@@ -184,7 +183,6 @@ const PAGES = [
             <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
           </div>
           <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">
-            <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">50/50 disponíveis</div>
             <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">10% OFF</span>
             <div class="title" style="margin-top:12px">10% de desconto em 12 mensalidades. Não se aplica à campanha do hexa.</div>
             <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO10X12</div>
@@ -192,7 +190,6 @@ const PAGES = [
             <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
           </div>
           <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">
-            <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">50/50 disponíveis</div>
             <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">45% OFF</span>
             <div class="title" style="margin-top:12px">45% nas duas primeiras mensalidades.</div>
             <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO45</div>
@@ -209,7 +206,21 @@ const PAGES = [
         </div>
       </div>
 
-      <div class="q-cover">
+      <div class="contact-wrap" style="margin-top:28px">
+        <div>
+          <h2 style="font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.4px">Sobre a Loovi</h2>
+          <p style="font-size:14.5px;color:var(--gray);line-height:1.75;margin-top:10px">A Loovi é uma insurtech brasileira, representante da LTI Seguros S.A. — seguradora participante do Sandbox Regulatório da SUSEP, um ambiente de testes supervisionado pelo órgão regulador para novos modelos de seguro. A proposta é simplificar a contratação do seguro auto: sem análise de perfil do condutor, com pagamento mensal e sem burocracia, atendendo veículos que muitas seguradoras tradicionais recusam (carros antigos, modificados, de leilão, híbridos e elétricos).</p>
+        </div>
+        <aside class="side-card">
+          <h3>Resumo da parceria</h3>
+          <div class="sum-row"><span>Campanhas ativas:</span><b>4</b></div>
+          <div class="sum-row"><span>Melhor desconto:</span><b>50%</b></div>
+          <div class="sum-row"><span>Coberturas incluídas:</span><b>7</b></div>
+          <div class="sum-row"><span>Atendimento:</span><b>WhatsApp</b></div>
+        </aside>
+      </div>
+
+      <div class="q-cover" style="margin-top:28px">
         <h2>Coberturas</h2>
         <p class="q-cover-sub">Coberturas garantidas pela LTI Seguros S.A., empresa do Grupo Loovi, seguradora participante do Sandbox Regulatório da SUSEP. Valores e condições podem variar por veículo e categoria — confirme os detalhes na sua cotação.</p>
         <details class="q-cover-item">
@@ -254,20 +265,6 @@ const PAGES = [
       </div>
 
       <div class="contact-wrap" style="margin-top:28px">
-        <div>
-          <h2 style="font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.4px">Sobre a Loovi</h2>
-          <p style="font-size:14.5px;color:var(--gray);line-height:1.75;margin-top:10px">A Loovi é uma insurtech brasileira, representante da LTI Seguros S.A. — seguradora participante do Sandbox Regulatório da SUSEP, um ambiente de testes supervisionado pelo órgão regulador para novos modelos de seguro. A proposta é simplificar a contratação do seguro auto: sem análise de perfil do condutor, com pagamento mensal e sem burocracia, atendendo veículos que muitas seguradoras tradicionais recusam (carros antigos, modificados, de leilão, híbridos e elétricos).</p>
-        </div>
-        <aside class="side-card">
-          <h3>Resumo da parceria</h3>
-          <div class="sum-row"><span>Campanhas ativas:</span><b>4</b></div>
-          <div class="sum-row"><span>Melhor desconto:</span><b>50%</b></div>
-          <div class="sum-row"><span>Coberturas incluídas:</span><b>7</b></div>
-          <div class="sum-row"><span>Atendimento:</span><b>WhatsApp</b></div>
-        </aside>
-      </div>
-
-      <div class="contact-wrap" style="margin-top:20px">
         <div class="side-card" style="background:var(--grad);border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:120px">
           <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
           <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
