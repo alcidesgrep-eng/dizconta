@@ -144,16 +144,38 @@ const PAGES = [
   {
     slug: "seguro-auto",
     title: "Seguro Auto",
+    wide: true,
+    hideTitle: true,
     content: `
-      <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
-      <h1 style="font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Seguro auto com parcela mensal, sem compromisso de fidelidade</h1>
-      <p style="font-size:15.5px;color:var(--gray);margin-top:8px;max-width:560px">Preencha seus dados abaixo e nossa equipe monta sua cotação personalizada e te chama no WhatsApp — sem formulário longo, sem espera.</p>
-      <ul style="margin-top:20px;padding-left:0;list-style:none;display:grid;gap:10px;max-width:560px">
-        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Pagamento mês a mês, como uma assinatura — sem multa para cancelar</li>
-        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Sem análise de perfil do condutor — o valor não muda por idade, sexo ou onde você mora</li>
-        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
-        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Cobertura em todo o Brasil, com assistência 24h incluída</li>
-      </ul>
+      <div class="q-hero">
+        <div>
+          <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
+          <h1 style="font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-top:8px">Seguro auto com parcela mensal, sem compromisso de fidelidade</h1>
+          <p style="font-size:15.5px;color:var(--gray);margin-top:10px;max-width:520px">Preencha seus dados abaixo e nossa equipe monta sua cotação personalizada e te chama no WhatsApp — sem formulário longo, sem espera.</p>
+          <ul class="q-benefits">
+            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Pagamento mês a mês, como uma assinatura — sem multa para cancelar</li>
+            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Sem análise de perfil do condutor — o valor não muda por idade, sexo ou onde você mora</li>
+            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
+            <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Cobertura em todo o Brasil, com assistência 24h incluída</li>
+          </ul>
+          <button class="btn-primary" style="margin-top:24px" onclick="scrollToId('looviForm')">Solicitar cotação agora →</button>
+        </div>
+        <div class="q-art">
+          <div class="q-art-badge">
+            <svg width="76" height="76" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 13l1.6-5.6A2 2 0 016.5 6h11a2 2 0 011.9 1.4L21 13"/><path d="M2.5 13h19v4.5a1 1 0 01-1 1h-1.5a1 1 0 01-1-1V16H6v1.5a1 1 0 01-1 1H3.5a1 1 0 01-1-1V13z"/><circle cx="7.5" cy="16.5" r="1.4"/><circle cx="16.5" cy="16.5" r="1.4"/></svg>
+          </div>
+          <div class="q-chip qc1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A64DFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Resposta em minutos</div>
+          <div class="q-chip qc2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Seguradora regulada SUSEP</div>
+          <div class="q-chip qc3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.5A8.5 8.5 0 1121 11.5z"/></svg> 100% pelo WhatsApp</div>
+        </div>
+      </div>
+
+      <div class="q-steps">
+        <div class="q-step"><div class="q-num">1</div><h4>Preencha seus dados</h4><p>Nome, contato e informações básicas do seu veículo — leva menos de 1 minuto.</p></div>
+        <div class="q-step"><div class="q-num">2</div><h4>Enviamos pro WhatsApp</h4><p>Seus dados chegam direto pra nossa equipe, sem cadastro nem senha.</p></div>
+        <div class="q-step"><div class="q-num">3</div><h4>Cotação personalizada</h4><p>Você recebe o valor certinho pro seu carro e decide se quer fechar.</p></div>
+      </div>
+
       <div class="contact-wrap" style="margin-top:28px">
         <div>
           <div id="looviSuccess" class="cf-success" style="display:none">
@@ -185,7 +207,8 @@ const PAGES = [
         <aside class="side-card">
           <h3>Perguntas frequentes</h3>
           <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px"><b style="color:var(--ink)">Preciso pagar algo agora?</b><br>Não. Só enviamos seus dados básicos para gerar a cotação — o pagamento só acontece se você aprovar o valor.</p>
-          <p style="font-size:13.5px;color:var(--gray)"><b style="color:var(--ink)">Quem garante o seguro?</b><br>A apólice é garantida pela LTI Seguros S.A., participante do Sandbox Regulatório da SUSEP, comercializada através da Loovi.</p>
+          <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px"><b style="color:var(--ink)">Quem garante o seguro?</b><br>A apólice é garantida pela LTI Seguros S.A., participante do Sandbox Regulatório da SUSEP, comercializada através da Loovi.</p>
+          <p style="font-size:13.5px;color:var(--gray)"><b style="color:var(--ink)">Quanto tempo demora?</b><br>Normalmente respondemos no mesmo dia — muitas vezes em poucos minutos.</p>
         </aside>
       </div>`
   }
