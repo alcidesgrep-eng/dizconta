@@ -1273,6 +1273,23 @@ function toggleSearch(){
   $("searchBar").classList.toggle("open");
   if ($("searchBar").classList.contains("open")) $("searchInput").focus();
 }
+/* leads de cotação (seguro auto, consórcio, etc.) → não ficam retidos
+   por um formulário automático de terceiros: coletamos os dados aqui
+   e mandamos por WhatsApp para fechar manualmente. */
+function submitQuoteLead(e, whatsappNumber, fields, intro){
+  e.preventDefault();
+  const f = e.target;
+  const get = name => ((f.elements[name] && f.elements[name].value) || "").trim();
+  const required = fields.filter(x => x.required).every(x => get(x.name));
+  if (!required) return false;
+  const lines = [intro, ""];
+  fields.forEach(x => { const v = get(x.name); if (v) lines.push(x.label + ": " + v); });
+  window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+  const successEl = f.nextElementSibling && f.nextElementSibling.classList.contains("cf-success") ? f.nextElementSibling : f.parentNode.querySelector(".cf-success");
+  if (successEl) successEl.style.display = "block";
+  f.style.display = "none";
+  return false;
+}
 function submitSearch(){
   const val = (($("heroSearchInput") && $("heroSearchInput").value) || $("searchInput").value || "").trim();
   query = val.toLowerCase();

@@ -140,6 +140,54 @@ const PAGES = [
       <p>As informações enviadas pelo formulário de contato são usadas exclusivamente para responder sua mensagem, conforme nossa <a onclick="goPage('privacidade')" style="color:var(--primary);font-weight:600;cursor:pointer">Política de Privacidade</a>.</p>
       <h2>6. Alterações destes termos</h2>
       <p>Podemos atualizar estes termos conforme o site evolui. O uso contínuo do site após uma atualização representa a aceitação dos novos termos.</p>`
+  },
+  {
+    slug: "seguro-auto",
+    title: "Seguro Auto",
+    content: `
+      <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
+      <h1 style="font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Seguro auto com parcela mensal, sem compromisso de fidelidade</h1>
+      <p style="font-size:15.5px;color:var(--gray);margin-top:8px;max-width:560px">Preencha seus dados abaixo e nossa equipe monta sua cotação personalizada e te chama no WhatsApp — sem formulário longo, sem espera.</p>
+      <ul style="margin-top:20px;padding-left:0;list-style:none;display:grid;gap:10px;max-width:560px">
+        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Pagamento mês a mês, como uma assinatura — sem multa para cancelar</li>
+        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Sem análise de perfil do condutor — o valor não muda por idade, sexo ou onde você mora</li>
+        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
+        <li style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink)"><span style="color:var(--green);font-weight:800">✓</span> Cobertura em todo o Brasil, com assistência 24h incluída</li>
+      </ul>
+      <div class="contact-wrap" style="margin-top:28px">
+        <div>
+          <div id="looviSuccess" class="cf-success" style="display:none">
+            <b>Recebemos seus dados ✓</b>
+            <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
+          </div>
+          <form id="looviForm" class="contact-form" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
+            <label class="form-label">Nome completo
+              <input type="text" name="nome" class="form-input" required maxlength="80">
+            </label>
+            <label class="form-label">Telefone/WhatsApp
+              <input type="tel" name="telefone" class="form-input" placeholder="(00) 00000-0000" required maxlength="20">
+            </label>
+            <label class="form-label">Veículo (marca e modelo)
+              <input type="text" name="veiculo" class="form-input" placeholder="Ex: Onix 2020" required maxlength="60">
+            </label>
+            <label class="form-label">Ano
+              <input type="text" name="ano" class="form-input" maxlength="9">
+            </label>
+            <label class="form-label">Placa
+              <input type="text" name="placa" class="form-input" maxlength="10">
+            </label>
+            <label class="form-label">Cidade/Estado
+              <input type="text" name="cidade" class="form-input" maxlength="60">
+            </label>
+            <button type="submit" class="btn-primary" style="width:100%">Solicitar cotação no WhatsApp</button>
+          </form>
+        </div>
+        <aside class="side-card">
+          <h3>Perguntas frequentes</h3>
+          <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px"><b style="color:var(--ink)">Preciso pagar algo agora?</b><br>Não. Só enviamos seus dados básicos para gerar a cotação — o pagamento só acontece se você aprovar o valor.</p>
+          <p style="font-size:13.5px;color:var(--gray)"><b style="color:var(--ink)">Quem garante o seguro?</b><br>A apólice é garantida pela LTI Seguros S.A., participante do Sandbox Regulatório da SUSEP, comercializada através da Loovi.</p>
+        </aside>
+      </div>`
   }
 ];
 
