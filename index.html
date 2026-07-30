@@ -3,6 +3,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dizconta · Cupom de Desconto e Códigos Promocionais</title>
 <meta name="description" content="Cupons de desconto verificados das melhores lojas do Brasil. Clique, copie o código e economize com a Dizconta.">
@@ -311,7 +312,7 @@
       </div>
       <nav class="menu">
         <a onclick="goLojas()">Lojas</a>
-        <a onclick="goHome('categorias')">Categorias</a>
+        <a onclick="goCategorias()">Categorias</a>
         <a onclick="goHome('cupons')">Top Cupons</a>
         <a onclick="goBlog()">Newsletter</a>
       </nav>
@@ -370,7 +371,7 @@
   <section class="section wrap" id="categorias" style="display:none">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
       <h2 style="margin-bottom:4px">Categorias em destaque</h2>
-      <a onclick="goLojas()" style="font-size:13px;font-weight:700;color:var(--primary);cursor:pointer">Ver todas as categorias →</a>
+      <a onclick="goCategorias()" style="font-size:13px;font-weight:700;color:var(--primary);cursor:pointer">Ver todas as categorias →</a>
     </div>
     <div class="cat-row" id="catRow"></div>
     <p class="cat-copy" id="catCopy"></p>
@@ -514,6 +515,42 @@
   </div>
 </div>
 
+<!-- ==================== CATEGORIAS (diretório) ==================== -->
+<div id="categoriasView" style="display:none">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="crumb"><a onclick="goHome()">Início</a> · Categorias</div>
+        <h1 style="font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px">Todas as categorias</h1>
+        <p style="color:var(--gray);margin-top:6px;font-size:15px;max-width:420px">Encontre cupons e ofertas organizados por categoria.</p>
+      </div>
+      <div class="hero-art">
+        <div class="float-chip fc1"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D4FF00" stroke-width="1.8"><path d="M20 12V8a2 2 0 00-2-2H8L4 10v6a2 2 0 002 2h4"/><circle cx="8" cy="8" r="1"/><path d="M14 22l3-3 3 3M17 19v-6"/></svg></div>
+        <div class="tag-3d"><span>%</span></div>
+        <div class="float-chip fc2"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A64DFF" stroke-width="1.8"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a4 4 0 018 0v2"/></svg></div>
+        <div class="float-chip fc3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4FF00" stroke-width="1.8"><path d="M21 12.5l-8.5 8.5L3 12v-8h8l10 8.5zM7 7h.01"/></svg></div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="cat-row" id="categoriasGrid" style="padding-bottom:60px"></div>
+  </div>
+</div>
+
+<!-- ==================== CATEGORIA (página individual) ==================== -->
+<div id="categoriaView" style="display:none">
+  <section class="store-hero">
+    <div class="wrap">
+      <div class="crumb"><a onclick="goHome()">Início</a> · <a onclick="goCategorias()">Categorias</a> · <span id="ctCrumb"></span></div>
+      <h1 id="ctTitle" style="font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px"></h1>
+      <p id="ctSub" style="color:var(--gray);margin-top:6px;font-size:15px"></p>
+    </div>
+  </section>
+  <div class="wrap" style="padding-top:30px">
+    <div class="grid" id="ctGrid"></div>
+  </div>
+</div>
+
 <!-- ==================== BLOG ==================== -->
 <div id="blogView" style="display:none">
   <section class="store-hero">
@@ -607,7 +644,7 @@ const BLOG_DATA = (typeof BLOG !== "undefined") ? BLOG : [];
 /* categorías dinámicas: salen de las tiendas cargadas; la sección
    solo aparece cuando hay 2+ categorías distintas */
 const CATS = [...new Set(STORES.map(s => s.category).filter(Boolean))];
-let catFilter = null, query = "";
+let query = "";
 
 /* logo: 1) logoUrl manual → 2) logo automático de la marca (por dominio)
    → 3) bloque de color. Si la imagen falla, cae al bloque de color. */
@@ -723,7 +760,7 @@ function couponUrl(c, position){
 }
 function goHome(anchor){
   /* si NO estamos en la home (tienda, cupón o blog) → navegar a la home */
-  const isHome = !currentStoreId() && !currentCouponRoute() && !currentBlogRoute() && !currentLojasRoute() && !currentPageRoute();
+  const isHome = !currentStoreId() && !currentCouponRoute() && !currentBlogRoute() && !currentLojasRoute() && !currentPageRoute() && !currentCategoriasRoute() && !currentCategoriaRoute();
   if (!isHome){
     if (location.protocol === "file:"){ location.href = "index.html" + (anchor ? "#"+anchor : ""); return; }
     location.href = "/" + (anchor ? "#"+anchor : "");
@@ -763,6 +800,25 @@ function currentLojasRoute(){
   const seg = location.pathname.split("/").filter(Boolean)[0];
   return seg === "lojas" || new URLSearchParams(location.search).has("lojas");
 }
+function slugify(s){ return s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,""); }
+function goCategorias(){
+  if (location.protocol === "file:"){ location.href = "index.html?categorias=1"; return; }
+  location.href = "/categorias";
+}
+function goCategoria(cat){
+  if (location.protocol === "file:"){ location.href = "index.html?categoria=" + slugify(cat); return; }
+  location.href = "/categoria/" + slugify(cat);
+}
+function currentCategoriasRoute(){
+  const seg = location.pathname.split("/").filter(Boolean)[0];
+  return seg === "categorias" || new URLSearchParams(location.search).has("categorias");
+}
+function currentCategoriaRoute(){
+  const segs = location.pathname.split("/").filter(Boolean);
+  let slug = segs[0] === "categoria" ? segs[1] : new URLSearchParams(location.search).get("categoria");
+  if (!slug) return null;
+  return CATS.find(c => slugify(c) === slug) || null;
+}
 function scrollToId(id){ const el = $(id); if (el) el.scrollIntoView({behavior:"smooth"}); }
 
 /* ---------- iconos de categoría ---------- */
@@ -785,7 +841,6 @@ function activeCoupons(storeId){
     if (!s) return false;
     if (c.expires && c.expires < today) return false;
     if (storeId && c.storeId !== storeId) return false;
-    if (!storeId && catFilter && s.category !== catFilter) return false;
     if (!storeId && query && !(c.title + c.value + s.name).toLowerCase().includes(query)) return false;
     return true;
   });
@@ -870,7 +925,7 @@ function renderHome(){
         ? `<img class="cc-img" src="${media.img}" alt="${c}" loading="lazy" onerror="this.remove()">`
         : "";
       const tint = media ? media.tint : "18,18,26";
-      return `<div class="cat-card ${catFilter===c?"active":""}" onclick="setCat('${c}')" style="background:${catColor(c)};--cc:${tint}">
+      return `<div class="cat-card" onclick="goCategoria('${c}')" style="background:${catColor(c)};--cc:${tint}">
         ${bg}
         <div class="cc-overlay"></div>
         <div class="cc-content">
@@ -878,18 +933,14 @@ function renderHome(){
           <span class="cat-count">Ver ${n} ${n===1?"cupom":"cupons"} →</span>
         </div>
       </div>`;
-    }).join("") + `<div class="cat-card ${!catFilter?"active":""}" onclick="setCat(null)" style="background:linear-gradient(150deg,#7A1FE0 0%,#A64DFF 45%,#D4FF00 130%);--cc:18,18,26">
+    }).join("") + `<div class="cat-card" onclick="scrollToId('cupons')" style="background:linear-gradient(150deg,#7A1FE0 0%,#A64DFF 45%,#D4FF00 130%);--cc:18,18,26">
         <div class="cc-overlay"></div>
         <div class="cc-content">
           <span class="cat-name">Todas</span>
           <span class="cat-count">Ver ${COUPONS.length} cupons →</span>
         </div>
       </div>`;
-    /* copy persuasivo de la categoría seleccionada */
-    const CAT_COPY = (typeof CATEGORY_COPY !== "undefined") ? CATEGORY_COPY : {};
-    $("catCopy").textContent = catFilter
-      ? (CAT_COPY[catFilter] || "")
-      : "Escolha uma categoria e veja só as ofertas que interessam para você.";
+    $("catCopy").textContent = "Escolha uma categoria e veja só as ofertas que interessam para você.";
   }
 
   /* home: solo tiendas destacadas (top:true) o primeras 8 */
@@ -916,9 +967,9 @@ function renderHome(){
     }).join("");
   }
   /* cupones: solo los destaques curados (HOME_FEATURED) por defecto.
-     Si el usuario busca o filtra por categoría, mostramos el catálogo
-     completo filtrado — la curaduría es solo para la primera vista. */
-  const usingFilter = !!(catFilter || query);
+     Si el usuario busca, mostramos el catálogo completo filtrado —
+     la curaduría es solo para la primera vista. */
+  const usingFilter = !!query;
   const list = usingFilter
     ? activeCoupons(null).sort((a,b) => (b.top?1:0) - (a.top?1:0))
     : featuredCoupons();
@@ -926,7 +977,6 @@ function renderHome(){
     ? list.map((c,i) => couponCard(c, i, null, !usingFilter && i === 0)).join("")
     : `<div class="empty">Nenhum cupom encontrado.</div>`;
 }
-function setCat(c){ catFilter = catFilter===c ? null : c; renderHome(); }
 
 function renderStore(id){
   const s = storeById[id];
@@ -1016,9 +1066,50 @@ function renderLojas(){
 }
 function setLojasCat(c){ lojasCat = c; renderLojas(); }
 
+/* ---------- diretório de categorias ---------- */
+function renderCategorias(){
+  hideAllViews();
+  $("categoriasView").style.display = "block";
+  document.title = `Categorias · ${SITE.brand}`;
+  const today = new Date().toISOString().slice(0,10);
+  $("categoriasGrid").innerHTML = CATS.map(c => {
+    const n = COUPONS.filter(x => storeById[x.storeId] && storeById[x.storeId].category === c && (!x.expires || x.expires >= today)).length;
+    const media = CAT_MEDIA[c];
+    const bg = media ? `<img class="cc-img" src="${media.img}" alt="${c}" loading="lazy" onerror="this.remove()">` : "";
+    const tint = media ? media.tint : "18,18,26";
+    return `<div class="cat-card" onclick="goCategoria('${c}')" style="background:${catColor(c)};--cc:${tint}">
+      ${bg}
+      <div class="cc-overlay"></div>
+      <div class="cc-content">
+        <span class="cat-name">${c}</span>
+        <span class="cat-count">Ver ${n} ${n===1?"cupom":"cupons"} →</span>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ---------- página de categoria individual ---------- */
+function renderCategoria(cat){
+  hideAllViews();
+  $("categoriaView").style.display = "block";
+  document.title = `Cupons de ${cat} · ${SITE.brand}`;
+  const CAT_COPY = (typeof CATEGORY_COPY !== "undefined") ? CATEGORY_COPY : {};
+  $("ctCrumb").textContent = cat;
+  $("ctTitle").textContent = `Ofertas de ${cat}`;
+  $("ctSub").textContent = CAT_COPY[cat] || `Cupons e descontos verificados em ${cat}.`;
+  const today = new Date().toISOString().slice(0,10);
+  const list = COUPONS.filter(c => {
+    const s = storeById[c.storeId];
+    return s && s.category === cat && (!c.expires || c.expires >= today);
+  }).sort((a,b) => (b.top?1:0) - (a.top?1:0));
+  $("ctGrid").innerHTML = list.length
+    ? list.map((c,i) => couponCard(c, i, null, i === 0)).join("")
+    : `<div class="empty">Nenhum cupom encontrado nesta categoria.</div>`;
+}
+
 /* ---------- blog ---------- */
 function hideAllViews(){
-  ["homeView","storeView","lojasView","blogView","postView","pageView"].forEach(v => { if ($(v)) $(v).style.display = "none"; });
+  ["homeView","storeView","lojasView","blogView","postView","pageView","categoriasView","categoriaView"].forEach(v => { if ($(v)) $(v).style.display = "none"; });
 }
 function renderBlog(){
   hideAllViews();
@@ -1204,6 +1295,10 @@ if (pageRoute){
   renderBlog();
 } else if (currentLojasRoute()){
   renderLojas();
+} else if (currentCategoriasRoute()){
+  renderCategorias();
+} else if (currentCategoriaRoute()){
+  renderCategoria(currentCategoriaRoute());
 } else if (routeCoupon){
   /* URL directa /desconto/cupom-natura?oid=1001 → página de tienda + modal */
   renderStore(routeCoupon.storeId);
