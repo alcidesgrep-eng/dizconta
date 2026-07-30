@@ -148,22 +148,23 @@ const PAGES = [
     hideTitle: true,
     content: `
       <div class="q-fullbleed">
-        <img src="img/loovi-hero.jpg" alt="Seguro auto Loovi">
+        <img class="q-fb-bg" src="img/loovi-hero.jpg" alt="Seguro auto Loovi">
         <div class="q-scrim"></div>
         <div class="q-fb-content">
-          <div class="crumb"><a onclick="goHome()">Início</a> · Seguro Auto</div>
-          <div class="store-head">
-            <div class="big-logo"><img src="img/logos/loovi.png" alt="Loovi"></div>
-            <div>
-              <h1>O seguro mais barato do Brasil</h1>
-              <div class="sub">Preencha seus dados e receba sua cotação personalizada — resposta em minutos, direto no WhatsApp.</div>
-            </div>
-          </div>
+          <h1>O seguro mais barato do Brasil</h1>
         </div>
       </div>
 
       <div style="padding-top:28px">
-        <ul class="q-benefits">
+        <div class="crumb"><a onclick="goHome()">Início</a> · Seguro Auto</div>
+        <div class="store-head">
+          <div class="big-logo q-logo-cover" style="background:#1D4ED8"><img src="img/logos/loovi.png" alt="Loovi"></div>
+          <div>
+            <h2>Cupom de desconto Loovi</h2>
+            <div class="sub">Todos os cupons e ofertas Loovi verificados hoje.</div>
+          </div>
+        </div>
+        <ul class="q-benefits" style="margin-top:26px">
           <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Pagamento mês a mês, como uma assinatura — sem multa para cancelar</li>
           <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Sem análise de perfil do condutor — o valor não muda por idade, sexo ou onde você mora</li>
           <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
