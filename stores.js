@@ -164,7 +164,59 @@ const PAGES = [
             <div class="sub">Todos os cupons e ofertas Loovi verificados hoje.</div>
           </div>
         </div>
-        <ul class="q-benefits" style="margin-top:26px">
+        <div class="store-layout" style="margin-top:26px;padding:0">
+          <div>
+            <h2 style="font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.4px">Descontos de ativação</h2>
+            <p class="q-cover-sub">Campanhas ativas — vagas limitadas por código.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">
+                <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">50% OFF</span>
+                <div class="title" style="margin-top:12px">50% na primeira mensalidade.</div>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO50</div>
+                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">Aplicar cupom →</a>
+                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+              </div>
+              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">
+                <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">10% OFF</span>
+                <div class="title" style="margin-top:12px">10% de desconto em 12 mensalidades. Não se aplica à campanha do hexa.</div>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO10X12</div>
+                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">Aplicar cupom →</a>
+                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+              </div>
+              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">
+                <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">45% OFF</span>
+                <div class="title" style="margin-top:12px">45% nas duas primeiras mensalidades.</div>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO45</div>
+                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">Aplicar cupom →</a>
+                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+              </div>
+              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=ADESAO0'">
+                <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">Oferta do executivo</div>
+                <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">ADESÃO 0</span>
+                <div class="title" style="margin-top:12px">Sem taxa de adesão na ativação do seu seguro.</div>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">ADESAO0</div>
+                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=ADESAO0'">Optar agora →</a>
+              </div>
+            </div>
+          </div>
+          <aside>
+            <div class="side-card">
+              <h3>Resumo da parceria</h3>
+              <div class="sum-row"><span>Campanhas ativas:</span><b>4</b></div>
+              <div class="sum-row"><span>Melhor desconto:</span><b>50%</b></div>
+              <div class="sum-row"><span>Coberturas incluídas:</span><b>7</b></div>
+              <div class="sum-row"><span>Atendimento:</span><b>WhatsApp</b></div>
+            </div>
+            <div class="side-card">
+              <h3>Perguntas frequentes</h3>
+              <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px"><b style="color:var(--ink)">Preciso pagar algo agora?</b><br>Não. Só enviamos seus dados básicos para gerar a cotação — o pagamento só acontece se você aprovar o valor.</p>
+              <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px"><b style="color:var(--ink)">Quem garante o seguro?</b><br>A apólice é garantida pela LTI Seguros S.A., participante do Sandbox Regulatório da SUSEP, comercializada através da Loovi.</p>
+              <p style="font-size:13.5px;color:var(--gray)"><b style="color:var(--ink)">Quanto tempo demora?</b><br>Normalmente respondemos no mesmo dia — muitas vezes em poucos minutos.</p>
+            </div>
+          </aside>
+        </div>
+
+        <ul class="q-benefits" style="margin-top:32px">
           <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Pagamento mês a mês, como uma assinatura — sem multa para cancelar</li>
           <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Sem análise de perfil do condutor — o valor não muda por idade, sexo ou onde você mora</li>
           <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2ED573" stroke-width="2.4"><circle cx="12" cy="12" r="10" fill="#2ED573" stroke="none"/><path d="M8 12.5l2.6 2.5L16 9.5" stroke="#fff"/></svg> Aceita carros a partir de 1986, inclusive modificados, de leilão, híbridos e elétricos</li>
@@ -172,55 +224,9 @@ const PAGES = [
         </ul>
         <button class="btn-primary" style="margin-top:24px" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
         <p style="margin-top:14px;font-size:12.5px;color:var(--gray)">Resposta em minutos · Seguradora regulada SUSEP · Atendido por Alcides Gabriel, executivo Loovi</p>
-      </div>
 
-      <div class="q-cover" style="margin-top:28px">
-        <h2>Descontos de ativação</h2>
-        <p class="q-cover-sub">Campanhas ativas — vagas limitadas por código.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
-          <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">
-            <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">50% OFF</span>
-            <div class="title" style="margin-top:12px">50% na primeira mensalidade.</div>
-            <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO50</div>
-            <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">Aplicar cupom →</a>
-            <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
-          </div>
-          <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">
-            <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">10% OFF</span>
-            <div class="title" style="margin-top:12px">10% de desconto em 12 mensalidades. Não se aplica à campanha do hexa.</div>
-            <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO10X12</div>
-            <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">Aplicar cupom →</a>
-            <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
-          </div>
-          <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">
-            <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">45% OFF</span>
-            <div class="title" style="margin-top:12px">45% nas duas primeiras mensalidades.</div>
-            <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO45</div>
-            <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">Aplicar cupom →</a>
-            <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
-          </div>
-          <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=ADESAO0'">
-            <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">Oferta do executivo</div>
-            <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">ADESÃO 0</span>
-            <div class="title" style="margin-top:12px">Sem taxa de adesão na ativação do seu seguro.</div>
-            <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">ADESAO0</div>
-            <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=ADESAO0'">Optar agora →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-wrap" style="margin-top:28px">
-        <div>
-          <h2 style="font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.4px">Sobre a Loovi</h2>
-          <p style="font-size:14.5px;color:var(--gray);line-height:1.75;margin-top:10px">A Loovi é uma insurtech brasileira, representante da LTI Seguros S.A. — seguradora participante do Sandbox Regulatório da SUSEP, um ambiente de testes supervisionado pelo órgão regulador para novos modelos de seguro. A proposta é simplificar a contratação do seguro auto: sem análise de perfil do condutor, com pagamento mensal e sem burocracia, atendendo veículos que muitas seguradoras tradicionais recusam (carros antigos, modificados, de leilão, híbridos e elétricos).</p>
-        </div>
-        <aside class="side-card">
-          <h3>Resumo da parceria</h3>
-          <div class="sum-row"><span>Campanhas ativas:</span><b>4</b></div>
-          <div class="sum-row"><span>Melhor desconto:</span><b>50%</b></div>
-          <div class="sum-row"><span>Coberturas incluídas:</span><b>7</b></div>
-          <div class="sum-row"><span>Atendimento:</span><b>WhatsApp</b></div>
-        </aside>
+        <h2 style="font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.4px;margin-top:40px">Sobre a Loovi</h2>
+        <p style="font-size:14.5px;color:var(--gray);line-height:1.75;margin-top:10px;max-width:720px">A Loovi é uma insurtech brasileira, representante da LTI Seguros S.A. — seguradora participante do Sandbox Regulatório da SUSEP, um ambiente de testes supervisionado pelo órgão regulador para novos modelos de seguro. A proposta é simplificar a contratação do seguro auto: sem análise de perfil do condutor, com pagamento mensal e sem burocracia, atendendo veículos que muitas seguradoras tradicionais recusam (carros antigos, modificados, de leilão, híbridos e elétricos).</p>
       </div>
 
       <div class="q-cover" style="margin-top:28px">
@@ -267,17 +273,9 @@ const PAGES = [
         </details>
       </div>
 
-      <div class="contact-wrap" style="margin-top:28px">
-        <div class="side-card" style="background:var(--grad);border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:120px">
-          <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
-          <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
-        </div>
-        <aside class="side-card">
-          <h3>Perguntas frequentes</h3>
-          <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px"><b style="color:var(--ink)">Preciso pagar algo agora?</b><br>Não. Só enviamos seus dados básicos para gerar a cotação — o pagamento só acontece se você aprovar o valor.</p>
-          <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px"><b style="color:var(--ink)">Quem garante o seguro?</b><br>A apólice é garantida pela LTI Seguros S.A., participante do Sandbox Regulatório da SUSEP, comercializada através da Loovi.</p>
-          <p style="font-size:13.5px;color:var(--gray)"><b style="color:var(--ink)">Quanto tempo demora?</b><br>Normalmente respondemos no mesmo dia — muitas vezes em poucos minutos.</p>
-        </aside>
+      <div class="side-card" style="margin-top:28px;background:var(--grad);border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:120px">
+        <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
+        <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
       </div>`
   },
   {
