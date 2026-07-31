@@ -223,13 +223,17 @@
   .q-benefits{margin-top:22px;padding-left:0;list-style:none;display:grid;gap:11px}
   .q-benefits li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink);font-weight:500}
   .q-benefits svg{flex-shrink:0;margin-top:1px}
-  .q-fullbleed{position:relative;overflow:hidden;margin:-44px calc(50% - 50vw) 0;width:100vw;min-height:260px;display:flex;align-items:center}
+  .q-fullbleed{position:relative;overflow:hidden;margin:-44px calc(50% - 50vw) 0;width:100vw;min-height:400px;display:flex;align-items:center}
   .q-fullbleed .q-fb-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .q-fullbleed .q-scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(15,35,110,.92) 0%,rgba(20,50,150,.75) 45%,rgba(29,78,216,.35) 100%);z-index:1}
   .q-fullbleed .q-fb-content{position:relative;z-index:2;padding:40px max(22px,calc(50vw - 580px));width:100%}
   .q-fullbleed h1{color:#fff;font-size:clamp(28px,4.5vw,44px);font-weight:800;letter-spacing:-1px;max-width:640px}
   .store-head h1,.store-head h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;letter-spacing:-1px}
-  .big-logo.q-logo-cover img{padding:0;object-fit:cover}
+  .store-head .big-logo.q-logo-cover{width:96px;height:96px}
+  .big-logo.q-logo-cover img{padding:6%;object-fit:contain}
+  .q-page-bg{background-size:cover;background-position:center top;background-repeat:no-repeat}
+  .q-glass{background:rgba(255,255,255,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:24px;border:1px solid rgba(255,255,255,.5);box-shadow:0 20px 50px rgba(15,35,110,.18);padding:32px}
+  @media(max-width:600px){.q-glass{padding:24px 20px}}
   .q-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:36px 0 8px}
   @media(max-width:680px){.q-steps{grid-template-columns:1fr}}
   .q-step{background:var(--card-2);border-radius:var(--radius);padding:22px}
@@ -613,7 +617,7 @@
 </div>
 
 <div id="pageView" style="display:none">
-  <div class="article-wrap">
+  <div class="article-wrap" id="pgArticleWrap">
     <article class="article" id="pgArticle">
       <div class="crumb"><a onclick="goHome()">Início</a> · <span id="pgCrumb"></span></div>
       <h1 id="pgTitle"></h1>
@@ -1241,6 +1245,8 @@ function renderPage(p){
   $("pageView").style.display = "block";
   document.title = `${p.title} · ${SITE.brand}`;
   $("pgArticle").classList.toggle("wide", !!p.wide);
+  $("pgArticleWrap").classList.toggle("q-page-bg", !!p.bgImage);
+  $("pgArticleWrap").style.backgroundImage = p.bgImage ? `url('${p.bgImage}')` : "";
   $("pgCrumb").textContent = p.title;
   $("pgTitle").textContent = p.hideTitle ? "" : p.title;
   $("pgTitle").style.display = p.hideTitle ? "none" : "";

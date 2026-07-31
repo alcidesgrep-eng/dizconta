@@ -273,7 +273,7 @@ const PAGES = [
         </details>
       </div>
 
-      <div class="side-card" style="margin-top:28px;background:var(--grad);border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:120px">
+      <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:150px;background:linear-gradient(100deg,rgba(122,31,224,.94) 0%,rgba(122,31,224,.75) 45%,rgba(122,31,224,.3) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
         <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
         <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
       </div>`
@@ -282,43 +282,49 @@ const PAGES = [
     slug: "seguro-auto-orcamento",
     title: "Solicitar orçamento · Seguro Auto",
     wide: false,
+    bgImage: "img/loovi-form-bg.jpg",
     content: `
-      <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
-      <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Solicite seu orçamento</h1>
-      <p style="font-size:15px;color:var(--gray);margin-top:8px">Preencha seus dados abaixo — nossa equipe recebe direto no WhatsApp e te retorna com a cotação personalizada para o seu carro.</p>
-      <div class="q-steps" style="margin:24px 0 8px">
-        <div class="q-step"><div class="q-num">1</div><h4>Preencha seus dados</h4><p>Nome, contato e informações básicas do seu veículo — leva menos de 1 minuto.</p></div>
-        <div class="q-step"><div class="q-num">2</div><h4>Enviamos pro WhatsApp</h4><p>Seus dados chegam direto pra nossa equipe, sem cadastro nem senha.</p></div>
-        <div class="q-step"><div class="q-num">3</div><h4>Cotação personalizada</h4><p>Você recebe o valor certinho pro seu carro e decide se quer fechar.</p></div>
-      </div>
-      <div id="cupomBanner" style="display:none;margin-top:16px;background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;color:var(--ink)">Cupom aplicado: <span id="cupomBannerCode"></span></div>
-      <div id="looviSuccess" class="cf-success" style="display:none;margin-top:20px">
-        <b>Recebemos seus dados ✓</b>
-        <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
-      </div>
-      <form id="looviForm" class="contact-form q-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'telefone',label:'Telefone/WhatsApp',required:true},{name:'veiculo',label:'Veículo (marca e modelo)',required:true},{name:'ano',label:'Ano'},{name:'placa',label:'Placa'},{name:'cidade',label:'Cidade/Estado'},{name:'cupom',label:'Cupom'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
-        <input type="hidden" name="cupom" id="cupomField" value="">
-        <label class="form-label">Nome completo
-          <input type="text" name="nome" class="form-input" required maxlength="80">
-        </label>
-        <label class="form-label">Telefone/WhatsApp
-          <input type="tel" name="telefone" class="form-input" placeholder="(00) 00000-0000" required maxlength="20">
-        </label>
-        <label class="form-label">Veículo (marca e modelo)
-          <input type="text" name="veiculo" class="form-input" placeholder="Ex: Onix 2020" required maxlength="60">
-        </label>
-        <label class="form-label">Ano
-          <input type="text" name="ano" class="form-input" maxlength="9">
-        </label>
-        <label class="form-label">Placa
-          <input type="text" name="placa" class="form-input" maxlength="10">
-        </label>
-        <label class="form-label">Cidade/Estado
-          <input type="text" name="cidade" class="form-input" maxlength="60">
-        </label>
-        <button type="submit" class="btn-primary" style="width:100%">Solicitar cotação no WhatsApp</button>
-      </form>
-      <p style="font-size:12.5px;color:var(--gray-light);margin-top:16px">Seus dados são usados apenas para gerar sua cotação de seguro auto, conforme nossa <a onclick="goPage('privacidade')" style="color:var(--primary);font-weight:600;cursor:pointer">Política de Privacidade</a>.</p>`
+      <div class="q-glass">
+        <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
+        <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Solicite seu orçamento</h1>
+        <div id="cupomBanner" style="display:none;margin-top:16px;background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;color:var(--ink)">Cupom aplicado: <span id="cupomBannerCode"></span></div>
+        <div id="looviSuccess" class="cf-success" style="display:none;margin-top:20px">
+          <b>Recebemos seus dados ✓</b>
+          <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
+        </div>
+        <form id="looviForm" class="contact-form q-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'email',label:'E-mail',required:true},{name:'telefone',label:'Telefone',required:true},{name:'documento',label:'CPF/CNPJ',required:true},{name:'placa',label:'Placa do veículo',required:true},{name:'cep',label:'CEP',required:true},{name:'cupom',label:'Cupom'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
+          <input type="hidden" name="cupom" id="cupomField" value="">
+          <label class="form-label">Nome completo
+            <input type="text" name="nome" class="form-input" required maxlength="80">
+          </label>
+          <label class="form-label">E-mail
+            <input type="email" name="email" class="form-input" required maxlength="120">
+          </label>
+          <label class="form-label">Telefone
+            <input type="tel" name="telefone" class="form-input" placeholder="(00) 00000-0000" required maxlength="20">
+          </label>
+          <label class="form-label">CPF/CNPJ
+            <input type="text" name="documento" class="form-input" placeholder="000.000.000-00" required maxlength="20">
+          </label>
+          <label class="form-label">Placa do veículo
+            <input type="text" name="placa" class="form-input" placeholder="ABC1D23" required maxlength="10">
+          </label>
+          <label class="form-label">CEP
+            <input type="text" name="cep" class="form-input" placeholder="00000-000" required maxlength="10">
+          </label>
+          <button type="submit" class="btn-primary" style="width:100%">Solicitar cotação no WhatsApp</button>
+        </form>
+        <p style="font-size:12.5px;color:var(--gray-light);margin-top:16px">Seus dados são usados apenas para gerar sua cotação de seguro auto, conforme nossa <a onclick="goPage('privacidade')" style="color:var(--primary);font-weight:600;cursor:pointer">Política de Privacidade</a>.</p>
+
+        <div style="margin-top:32px;padding-top:28px;border-top:1px solid var(--line)">
+          <p style="font-size:15px;color:var(--gray)">Preencha seus dados acima — nossa equipe recebe direto no WhatsApp e te retorna com a cotação personalizada para o seu carro.</p>
+          <div class="q-steps" style="margin:20px 0 0">
+            <div class="q-step"><div class="q-num">1</div><h4>Preencha seus dados</h4><p>Nome, contato e informações básicas do seu veículo — leva menos de 1 minuto.</p></div>
+            <div class="q-step"><div class="q-num">2</div><h4>Enviamos pro WhatsApp</h4><p>Seus dados chegam direto pra nossa equipe, sem cadastro nem senha.</p></div>
+            <div class="q-step"><div class="q-num">3</div><h4>Cotação personalizada</h4><p>Você recebe o valor certinho pro seu carro e decide se quer fechar.</p></div>
+          </div>
+        </div>
+      </div>`
   }
 ];
 
