@@ -273,7 +273,7 @@ const PAGES = [
         </details>
       </div>
 
-      <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:150px;background:linear-gradient(100deg,rgba(122,31,224,.94) 0%,rgba(122,31,224,.75) 45%,rgba(0,0,0,.15) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
+      <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:280px;background:linear-gradient(100deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.12) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
         <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
         <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
       </div>`
@@ -282,10 +282,11 @@ const PAGES = [
     slug: "seguro-auto-orcamento",
     title: "Solicitar orçamento · Seguro Auto",
     wide: false,
+    hideTitle: true,
     content: `
       <div>
-        <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
-        <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Solicite seu orçamento</h1>
+        <img src="img/loovi-top-banner.png" alt="Loovi Seguros" style="height:30px;width:auto;display:block;margin-bottom:22px">
+        <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px">Solicite seu orçamento</h1>
         <div id="cupomBanner" style="display:none;margin-top:16px;background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;color:var(--ink)">Cupom aplicado: <span id="cupomBannerCode"></span></div>
         <div id="looviSuccess" class="cf-success" style="display:none;margin-top:20px">
           <b>Recebemos seus dados ✓</b>
@@ -311,7 +312,7 @@ const PAGES = [
           <label class="form-label">CEP
             <input type="text" name="cep" class="form-input" placeholder="00000-000" required maxlength="10">
           </label>
-          <button type="submit" class="btn-primary" style="width:100%">Solicitar cotação no WhatsApp</button>
+          <button type="submit" class="btn-primary q-btn-loovi" style="width:100%">Solicitar cotação no WhatsApp</button>
         </form>
         <p style="font-size:12.5px;color:var(--gray-light);margin-top:16px">Seus dados são usados apenas para gerar sua cotação de seguro auto, conforme nossa <a onclick="goPage('privacidade')" style="color:var(--primary);font-weight:600;cursor:pointer">Política de Privacidade</a>.</p>
 
@@ -323,6 +324,7 @@ const PAGES = [
             <div class="q-step"><div class="q-num">3</div><h4>Cotação personalizada</h4><p>Você recebe o valor certinho pro seu carro e decide se quer fechar.</p></div>
           </div>
         </div>
+        <img src="img/loovi-hero.jpg" alt="Seguro auto Loovi" style="width:100%;border-radius:20px;margin-top:32px;display:block">
       </div>`
   }
 ];
