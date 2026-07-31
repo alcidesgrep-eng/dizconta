@@ -275,10 +275,7 @@ const PAGES = [
 
       <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;min-height:280px;background:linear-gradient(100deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.5) 45%,rgba(0,0,0,.22) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
         <h3 style="color:#fff;font-size:24px;letter-spacing:-.4px;max-width:420px">Pronto para economizar no seguro do seu carro?</h3>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn-primary" style="font-size:15px;padding:15px 30px" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
-          <button style="font-size:15px;padding:15px 30px;border-radius:999px;background:transparent;border:1.5px solid rgba(255,255,255,.6);color:#fff;font-weight:700;cursor:pointer" onclick="goPage('seguro-auto-orcamento')">Ativar oferta →</button>
-        </div>
+        <button class="btn-primary" style="font-size:15px;padding:15px 30px" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
       </div>`
   },
   {
