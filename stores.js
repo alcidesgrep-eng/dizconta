@@ -158,7 +158,7 @@ const PAGES = [
       <div style="padding-top:28px">
         <div class="crumb"><a onclick="goHome()">Início</a> · Seguro Auto</div>
         <div class="store-head">
-          <div class="big-logo q-logo-cover" style="background:#1D4ED8"><img src="img/logos/loovi.png" alt="Loovi"></div>
+          <div class="big-logo q-logo-cover" style="background:#4b7cff"><img src="img/logos/loovi.png" alt="Loovi"></div>
           <div>
             <h2>Cupom de desconto Loovi</h2>
             <div class="sub">Todos os cupons e ofertas Loovi verificados hoje.</div>
@@ -273,7 +273,7 @@ const PAGES = [
         </details>
       </div>
 
-      <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:150px;background:linear-gradient(100deg,rgba(122,31,224,.94) 0%,rgba(122,31,224,.75) 45%,rgba(122,31,224,.3) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
+      <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:150px;background:linear-gradient(100deg,rgba(122,31,224,.94) 0%,rgba(122,31,224,.75) 45%,rgba(0,0,0,.15) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
         <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
         <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
       </div>`
