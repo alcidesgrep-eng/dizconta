@@ -282,9 +282,8 @@ const PAGES = [
     slug: "seguro-auto-orcamento",
     title: "Solicitar orçamento · Seguro Auto",
     wide: false,
-    bgImage: "img/loovi-form-bg.jpg",
     content: `
-      <div class="q-glass">
+      <div>
         <p style="color:var(--primary);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase">Parceria Dizconta · Loovi</p>
         <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px;margin-top:6px">Solicite seu orçamento</h1>
         <div id="cupomBanner" style="display:none;margin-top:16px;background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;color:var(--ink)">Cupom aplicado: <span id="cupomBannerCode"></span></div>
