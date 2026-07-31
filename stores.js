@@ -273,9 +273,12 @@ const PAGES = [
         </details>
       </div>
 
-      <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;min-height:280px;background:linear-gradient(100deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.12) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
-        <h3 style="color:#fff">Pronto para economizar no seguro do seu carro?</h3>
-        <button class="btn-primary" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
+      <div class="side-card" style="margin-top:28px;position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;min-height:280px;background:linear-gradient(100deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.5) 45%,rgba(0,0,0,.22) 100%),url('img/loovi-cta.jpg');background-size:cover;background-position:center 20%">
+        <h3 style="color:#fff;font-size:24px;letter-spacing:-.4px;max-width:420px">Pronto para economizar no seguro do seu carro?</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-primary" style="font-size:15px;padding:15px 30px" onclick="goPage('seguro-auto-orcamento')">Solicitar orçamento agora →</button>
+          <button style="font-size:15px;padding:15px 30px;border-radius:999px;background:transparent;border:1.5px solid rgba(255,255,255,.6);color:#fff;font-weight:700;cursor:pointer" onclick="goPage('seguro-auto-orcamento')">Ativar oferta →</button>
+        </div>
       </div>`
   },
   {
@@ -285,7 +288,7 @@ const PAGES = [
     hideTitle: true,
     content: `
       <div>
-        <img src="img/loovi-top-banner.png" alt="Loovi Seguros" style="height:30px;width:auto;display:block;margin-bottom:22px">
+        <img src="img/loovi-top-banner.png" alt="Loovi Seguros" style="height:48px;width:auto;display:block;margin:0 auto 26px">
         <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px">Solicite seu orçamento</h1>
         <div id="cupomBanner" style="display:none;margin-top:16px;background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;color:var(--ink)">Cupom aplicado: <span id="cupomBannerCode"></span></div>
         <div id="looviSuccess" class="cf-success" style="display:none;margin-top:20px">
@@ -324,7 +327,7 @@ const PAGES = [
             <div class="q-step"><div class="q-num">3</div><h4>Cotação personalizada</h4><p>Você recebe o valor certinho pro seu carro e decide se quer fechar.</p></div>
           </div>
         </div>
-        <img src="img/loovi-hero.jpg" alt="Seguro auto Loovi" style="width:100%;border-radius:20px;margin-top:32px;display:block">
+        <img src="img/loovi-form-bg.jpg" alt="Seguro auto Loovi" style="width:100%;border-radius:20px;margin-top:32px;display:block">
       </div>`
   }
 ];
