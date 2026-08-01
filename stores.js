@@ -292,7 +292,7 @@ const PAGES = [
           <b>Recebemos seus dados ✓</b>
           <p>Abrimos o WhatsApp para você confirmar o envio. Nossa equipe monta sua cotação e retorna por lá.</p>
         </div>
-        <form id="looviForm" class="contact-form q-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '5586988838452', [{name:'nome',label:'Nome',required:true},{name:'email',label:'E-mail',required:true},{name:'telefone',label:'Telefone',required:true},{name:'documento',label:'CPF/CNPJ',required:true},{name:'placa',label:'Placa do veículo',required:true},{name:'cep',label:'CEP',required:true},{name:'cupom',label:'Cupom'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
+        <form id="looviForm" class="contact-form q-form" style="margin-top:20px" onsubmit="return submitQuoteLead(event, '558681235358', [{name:'nome',label:'Nome',required:true},{name:'email',label:'E-mail',required:true},{name:'telefone',label:'Telefone',required:true},{name:'documento',label:'CPF/CNPJ',required:true},{name:'placa',label:'Placa do veículo',required:true},{name:'cep',label:'CEP',required:true},{name:'cupom',label:'Cupom'}], 'Olá! Quero uma cotação de seguro auto pela Dizconta (parceria Loovi).')">
           <input type="hidden" name="cupom" id="cupomField" value="">
           <label class="form-label">Nome completo
             <input type="text" name="nome" class="form-input" required maxlength="80">

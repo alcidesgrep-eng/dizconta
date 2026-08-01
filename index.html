@@ -1342,7 +1342,17 @@ function submitQuoteLead(e, whatsappNumber, fields, intro){
   const required = fields.filter(x => x.required).every(x => get(x.name));
   if (!required) return false;
   const lines = [intro, ""];
-  fields.forEach(x => { const v = get(x.name); if (v) lines.push(x.label + ": " + v); });
+  const dataObj = { _subject: "Novo lead WhatsApp · " + intro, _template: "table" };
+  fields.forEach(x => { const v = get(x.name); if (v){ lines.push(x.label + ": " + v); dataObj[x.label] = v; } });
+  /* guarda el lead por email al mismo tiempo que se abre WhatsApp,
+     para no perderlo si la persona no llega a enviar el mensaje */
+  if (SITE.contactEmail){
+    fetch("https://formsubmit.co/ajax/" + SITE.contactEmail, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(dataObj)
+    }).catch(() => {});
+  }
   window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
   const successEl = f.nextElementSibling && f.nextElementSibling.classList.contains("cf-success") ? f.nextElementSibling : f.parentNode.querySelector(".cf-success");
   if (successEl) successEl.style.display = "block";
