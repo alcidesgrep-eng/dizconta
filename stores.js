@@ -151,19 +151,18 @@ const PAGES = [
         <img class="q-fb-bg" src="img/loovi-hero.jpg" alt="Seguro auto Loovi">
         <div class="q-scrim"></div>
         <div class="q-fb-content">
-          <h1>O seguro mais barato do Brasil</h1>
+          <div class="crumb" style="color:rgba(255,255,255,.75)"><a onclick="goHome()" style="color:rgba(255,255,255,.9)">Início</a> · Seguro Auto</div>
+          <div class="store-head">
+            <div class="big-logo q-logo-cover" style="background:#4b7cff"><img src="img/logos/loovi.png" alt="Loovi"></div>
+            <div>
+              <h1 style="color:#fff">Cupom de desconto Loovi</h1>
+              <div class="sub" style="color:rgba(255,255,255,.85)">O seguro mais barato do Brasil — todos os cupons verificados hoje.</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div style="padding-top:28px">
-        <div class="crumb"><a onclick="goHome()">Início</a> · Seguro Auto</div>
-        <div class="store-head">
-          <div class="big-logo q-logo-cover" style="background:#4b7cff"><img src="img/logos/loovi.png" alt="Loovi"></div>
-          <div>
-            <h2>Cupom de desconto Loovi</h2>
-            <div class="sub">Todos os cupons e ofertas Loovi verificados hoje.</div>
-          </div>
-        </div>
         <div class="store-layout" style="margin-top:26px;padding:0">
           <div>
             <h2 style="font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.4px">Descontos de ativação</h2>
