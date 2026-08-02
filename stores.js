@@ -34,6 +34,17 @@ const SITE = {
 const HOME_FEATURED = [1001, 2002, 2004, 2005, 3001];
 
 /* ------------------------------------------------------------
+   CAMPANHAS SAZONAIS — banners de época (Dia dos Pais, Black
+   Friday, Natal, etc). Marca os cupons relevantes com
+   seasonal:"tag" (ver COUPONS abaixo) e cadastra a campanha aqui.
+   A seção só aparece na home enquanto houver pelo menos 1 cupom
+   dessa tag ainda não vencido.
+   ------------------------------------------------------------ */
+const SEASONAL_CAMPAIGNS = [
+  { tag: "dia-dos-pais", emoji: "🎁", label: "Ofertas Dia dos Pais", sub: "Presentes com desconto especial — só até acabar o estoque." }
+];
+
+/* ------------------------------------------------------------
    PÁGINAS INSTITUCIONAIS — rodapié (LGPD, confiança)
    slug → define la URL: tudominio.com/pagina/sobre-nos
    Edita el texto libremente, son solo HTML simple.
@@ -614,9 +625,9 @@ const COUPONS = [
   { oid: 1003, storeId: "natura", value: "1ª compra", label: "CONDIÇÃO ESPECIAL", title: "Especial primeira compra: comece economizando",
     url: "https://www.minhaloja.natura.com/c/especial-primeira-compra?consultoria=valeskavalentina&marca=natura",
     code: null, rules: "Condições especiais para a primeira compra no espaço da consultora.", expires: null, top: false, exclusive: false },
-  { oid: 1004, storeId: "natura", value: "Presentes", label: "DIA DOS PAIS", title: "Kits e presentes para o Dia dos Pais com desconto",
+  { oid: 1004, storeId: "natura", value: "Até 50%", label: "DIA DOS PAIS", title: "Mais de 30 presentes com até 50% de desconto",
     url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=valeskavalentina&marca=natura",
-    code: null, rules: "Seleção de presentes para o Dia dos Pais, enquanto durarem os estoques.", expires: "2026-08-09", top: false, exclusive: false },
+    code: null, rules: "Seleção de mais de 30 presentes para o Dia dos Pais, enquanto durarem os estoques.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais" },
   { oid: 1005, storeId: "natura", value: "Ofertas", label: "TODAS AS PROMOÇÕES", title: "Central de promoções da loja oficial Natura",
     url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=valeskavalentina&marca=natura",
     code: null, rules: "Todas as promoções vigentes da semana na loja oficial.", expires: null, top: false, exclusive: false },

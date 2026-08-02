@@ -411,6 +411,12 @@
     </div>
   </section>
 
+  <section class="section wrap" id="sazonalSec" style="display:none">
+    <h2 id="sazonalTitle" style="margin-bottom:4px"></h2>
+    <p id="sazonalSub" style="color:var(--gray);font-size:13.5px;margin-bottom:18px"></p>
+    <div class="grid" id="sazonalGrid"></div>
+  </section>
+
   <section class="section wrap" id="bannersSec" style="display:none">
     <div class="banner-row" id="bannerRow"></div>
   </section>
@@ -968,6 +974,23 @@ function catColor(c){ return CAT_FALLBACK_COLORS[CATS.indexOf(c) % CAT_FALLBACK_
 function renderHome(){
   $("heroTitle").textContent = SITE.tagline;
   $("heroSub").textContent = SITE.subtitle;
+
+  /* campanha sazonal ativa (Dia dos Pais, Black Friday, etc.) —
+     mostra a primeira campanha que tenha pelo menos 1 cupom vigente */
+  const today0 = new Date().toISOString().slice(0,10);
+  const campaigns = (typeof SEASONAL_CAMPAIGNS !== "undefined") ? SEASONAL_CAMPAIGNS : [];
+  const activeCampaign = campaigns.map(camp => ({
+    camp,
+    coupons: COUPONS.filter(c => c.seasonal === camp.tag && storeById[c.storeId] && (!c.expires || c.expires >= today0))
+  })).find(x => x.coupons.length);
+  if (activeCampaign){
+    $("sazonalSec").style.display = "block";
+    $("sazonalTitle").textContent = `${activeCampaign.camp.emoji||""} ${activeCampaign.camp.label}`.trim();
+    $("sazonalSub").textContent = activeCampaign.camp.sub || "";
+    $("sazonalGrid").innerHTML = activeCampaign.coupons.map((c,i) => couponCard(c, i, null, i === 0)).join("");
+  } else {
+    $("sazonalSec").style.display = "none";
+  }
 
   /* banners (solo si hay definidos en stores.js) */
   if (BANNERS_DATA.length){
