@@ -342,7 +342,7 @@ const PAGES = [
    ------------------------------------------------------------ */
 const TRACKING = {
   ga4Id: "G-Y6RDV5YCS6",      // ej: "G-XXXXXXX"
-  adsConversion: null        // ej: "AW-XXXXXXX/etiqueta" — agregar cuando tengas Google Ads
+  adsConversion: "AW-17872633328/duQ-CLuJw9scEPD7qspC"
 };
 
 /* ------------------------------------------------------------
