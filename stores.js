@@ -286,10 +286,11 @@ const PAGES = [
     title: "Solicitar orçamento · Seguro Auto",
     wide: false,
     hideTitle: true,
-    bgImage: "img/loovi-form-bg2.jpg",
+    bgImage: "img/loovi-form-bg3.jpg",
     content: `
       <div>
-        <img src="img/loovi-top-banner.png" alt="Loovi Seguros" style="height:68px;width:auto;display:block;margin:0 auto 26px">
+        <img src="img/loovi-top-banner.png" alt="Loovi Seguros" style="height:68px;width:auto;display:block;margin:0 auto 10px">
+        <p style="text-align:center;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:26px">Tá seguro, tá na Loovi</p>
         <h1 style="font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.5px">Solicite seu orçamento</h1>
         <div id="cupomBanner" style="display:none;margin-top:16px;background:var(--accent-bg);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;color:var(--ink)">Cupom aplicado: <span id="cupomBannerCode"></span></div>
         <div id="looviSuccess" class="cf-success" style="display:none;margin-top:20px">
