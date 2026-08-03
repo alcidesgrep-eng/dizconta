@@ -341,8 +341,8 @@ const PAGES = [
       formato "AW-123456789/AbCdEfGh". null = desactivado.
    ------------------------------------------------------------ */
 const TRACKING = {
-  ga4Id: null,               // ej: "G-XXXXXXX"
-  adsConversion: null        // ej: "AW-XXXXXXX/etiqueta"
+  ga4Id: "G-Y6RDV5YCS6",      // ej: "G-XXXXXXX"
+  adsConversion: null        // ej: "AW-XXXXXXX/etiqueta" — agregar cuando tengas Google Ads
 };
 
 /* ------------------------------------------------------------

@@ -1414,6 +1414,12 @@ function submitQuoteLead(e, whatsappNumber, fields, intro){
       body: JSON.stringify(dataObj)
     }).catch(() => {});
   }
+  /* conversao: lead do formulario (ex. Loovi) — evento proprio,
+     separado do coupon_click, para medir campanhas de forma isolada */
+  if (window.gtag){
+    gtag("event", "generate_lead", { form_id: f.id || "quote_form" });
+    if (TRACKING.adsConversion) gtag("event", "conversion", { send_to: TRACKING.adsConversion });
+  }
   window.open("https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
   const successEl = f.nextElementSibling && f.nextElementSibling.classList.contains("cf-success") ? f.nextElementSibling : f.parentNode.querySelector(".cf-success");
   if (successEl) successEl.style.display = "block";
