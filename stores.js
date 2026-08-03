@@ -179,40 +179,33 @@ const PAGES = [
             <h2 style="font-size:21px;font-weight:800;color:var(--ink);letter-spacing:-.4px">Descontos de ativação</h2>
             <p class="q-cover-sub">Campanhas ativas — vagas limitadas por código.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
-              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">
+              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=PANICO50'">
                 <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">50% OFF</span>
-                <div class="title" style="margin-top:12px">50% na primeira mensalidade.</div>
-                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO50</div>
-                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO50'">Aplicar cupom →</a>
-                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+                <div class="title" style="margin-top:12px">Adesão grátis + 50% OFF na primeira mensalidade.</div>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">PANICO50</div>
+                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=PANICO50'">Aplicar cupom →</a>
+                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 03/08/2026</div>
               </div>
-              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">
+              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=AGOSTO10X12'">
                 <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">10% OFF</span>
-                <div class="title" style="margin-top:12px">10% de desconto em 12 mensalidades. Não se aplica à campanha do hexa.</div>
-                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO10X12</div>
-                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO10X12'">Aplicar cupom →</a>
-                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
+                <div class="title" style="margin-top:12px">10% de desconto em 12 mensalidades.</div>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">AGOSTO10X12</div>
+                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=AGOSTO10X12'">Aplicar cupom →</a>
+                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 09/08/2026</div>
               </div>
-              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">
+              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=AGOSTO45'">
                 <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">45% OFF</span>
-                <div class="title" style="margin-top:12px">45% nas duas primeiras mensalidades.</div>
-                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">JULHO45</div>
-                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=JULHO45'">Aplicar cupom →</a>
-                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 31/07/2026</div>
-              </div>
-              <div class="card" style="cursor:pointer" onclick="location.href='/pagina/seguro-auto-orcamento?cupom=ADESAO0'">
-                <div style="font-size:11px;color:var(--gray-light);font-weight:700;margin-bottom:10px">Oferta do executivo</div>
-                <span class="badge exclusive" style="position:static;display:inline-block;width:fit-content">ADESÃO 0</span>
-                <div class="title" style="margin-top:12px">Sem taxa de adesão na ativação do seu seguro.</div>
-                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">ADESAO0</div>
-                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=ADESAO0'">Optar agora →</a>
+                <div class="title" style="margin-top:12px">45% nas duas primeiras mensalidades. Não se aplica à campanha do hexa.</div>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;width:fit-content">AGOSTO45</div>
+                <a class="btn-coupon" style="margin-top:14px;align-self:flex-start" onclick="event.stopPropagation();location.href='/pagina/seguro-auto-orcamento?cupom=AGOSTO45'">Aplicar cupom →</a>
+                <div style="font-size:11.5px;color:var(--gray-light);margin-top:10px">Validade: 09/08/2026</div>
               </div>
             </div>
           </div>
           <aside>
             <div class="side-card">
               <h3>Resumo da parceria</h3>
-              <div class="sum-row"><span>Campanhas ativas:</span><b>4</b></div>
+              <div class="sum-row"><span>Campanhas ativas:</span><b>3</b></div>
               <div class="sum-row"><span>Melhor desconto:</span><b>50%</b></div>
               <div class="sum-row"><span>Coberturas incluídas:</span><b>7</b></div>
               <div class="sum-row"><span>Atendimento:</span><b>WhatsApp</b></div>
@@ -293,6 +286,7 @@ const PAGES = [
     title: "Solicitar orçamento · Seguro Auto",
     wide: false,
     hideTitle: true,
+    bgImage: "img/loovi-form-bg2.jpg",
     content: `
       <div>
         <img src="img/loovi-top-banner.png" alt="Loovi Seguros" style="height:68px;width:auto;display:block;margin:0 auto 26px">
