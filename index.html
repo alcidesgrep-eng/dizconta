@@ -1099,7 +1099,13 @@ function renderHome(){
         <span class="st-link">Ver ofertas →</span>
       </div>
     </div>`;
-  }).join("");
+  }).join("") + `<div class="store-tile" onclick="location.href='/pagina/seguro-auto'">
+      <div class="st-media" style="background:#1D4ED8"><img class="st-img" src="img/logos/loovi.png" alt="Loovi" loading="lazy"></div>
+      <div class="st-content">
+        <h4>Loovi</h4>
+        <span class="st-link">Ver ofertas →</span>
+      </div>
+    </div>`;
   /* mini logos reales para la card "Lojas Parceiras" del banner promocional */
   if ($("promoStoresRow")){
     $("promoStoresRow").innerHTML = featured.slice(0, 5).map(s => {
