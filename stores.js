@@ -42,12 +42,32 @@ const HOME_FEATURED = [1011, 2002, 2001];
    ------------------------------------------------------------ */
 const SEASONAL_CAMPAIGNS = [
   { tag: "dia-dos-pais", emoji: "🎁", label: "Ofertas Dia dos Pais", sub: "Presentes com desconto especial — só até acabar o estoque.",
-    heroEyebrow: "Oferta especial",
-    heroTitle: "Dia dos Pais Natura",
-    heroSub: "Mais de 30 presentes com até 50% de desconto.",
-    heroImage: "img/banner-dia-dos-pais.jpg",
-    heroStoreId: "natura" }
+    heroEyebrow: "Oferta especial" }
 ];
+
+/* ------------------------------------------------------------
+   DESTAQUES DE PRODUTOS POR LOJA (opcional) — grid de "presentes"
+   com foto + % de desconto (sem preço, pra não desatualizar) + CTA,
+   e uma tira de fotos estilo "favoritos". Preencha "image" quando
+   tiver a foto — até lá aparece um espaço reservado.
+   ------------------------------------------------------------ */
+const STORE_PRODUCT_HIGHLIGHTS = {
+  natura: {
+    title: "Presentes Dia dos Pais",
+    sub: "Escolha o presente ideal com desconto especial — estoque limitado.",
+    ctaText: "Conseguir oferta →",
+    items: [
+      { image: "img/produto-natura-completo.jpg", discount: "42%", name: "Presente Natura Essencial Completo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-completo-3-produtos/NATBRA-245353?position=1&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&marca=natura&consultoria=alcidesgabriel" },
+      { image: "img/produto-natura-sagaz.jpg", discount: "37%", name: "Presente Natura Homem Sagaz", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-sagaz-3-produtos/NATBRA-245371?position=2&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=alcidesgabriel&marca=natura" },
+      { image: "img/produto-natura-coragio.jpg", discount: "32%", name: "Presente Natura Homem Cor.agio (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-coragio-2-produtos/NATBRA-245382?position=3&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=alcidesgabriel&marca=natura" },
+      { image: "img/produto-natura-exclusivo.jpg", discount: "43%", name: "Presente Natura Essencial Exclusivo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-exclusivo-3-produtos/NATBRA-245358?position=4&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=alcidesgabriel&marca=natura" },
+      { image: "img/produto-natura-palo-santo.jpg", discount: "", name: "Presente Natura Essencial Palo Santo (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-palo-santo-2-produtos/NATBRA-245362?position=5&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=alcidesgabriel&marca=natura" }
+    ],
+    photoStrip: [
+      { image: "img/produto-natura-categoria.jpg", alt: "Presentes Dia dos Pais Natura", url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=alcidesgabriel&marca=natura" }
+    ]
+  }
+};
 
 /* ------------------------------------------------------------
    PÁGINAS INSTITUCIONAIS — rodapié (LGPD, confiança)
@@ -380,7 +400,7 @@ const STORES = [
   {
     id: "natura", name: "Natura", category: "Beleza", color: "#FF5800", logoText: "natura",
     logoUrl: "img/logos/natura.png",
-    affiliateUrl: "https://www.minhaloja.natura.com/consultoria/valeskavalentina",
+    affiliateUrl: "https://www.minhaloja.natura.com/consultoria/alcidesgabriel?marca=natura",
     logoDomain: "natura.com.br",   /* dominio para el logo (el link es minhaloja) */
     subidParam: null, cashback: null, rating: { score: 4.8, count: 93 },
     description: "A maior marca brasileira de cosméticos e perfumaria. Ekos, Kaiak, Tododia e Essencial com promoções semanais — e frete grátis em compras selecionadas. Quem compra pelo link ativa as melhores condições da semana.",
@@ -617,27 +637,29 @@ const STORES = [
 const COUPONS = [
   /* --- Natura (cada oferta abre su sección con tu atribución via url) --- */
   { oid: 1001, storeId: "natura", value: "Relâmpago", label: "POR TEMPO LIMITADO", title: "Corra: promoções relâmpago de hoje na loja oficial",
-    url: "https://www.minhaloja.natura.com/c/relampago?consultoria=valeskavalentina&marca=natura",
+    url: "https://www.minhaloja.natura.com/c/relampago?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Ofertas relâmpago por tempo limitado, enquanto durarem os estoques.", expires: null, top: true, exclusive: false },
   { oid: 1002, storeId: "natura", value: "Exclusivas", label: "PROMOÇÃO DA CONSULTORA", title: "Ofertas exclusivas do espaço da consultora",
-    url: "https://www.minhaloja.natura.com/c/promocao-exclusiva?consultoria=valeskavalentina&marca=natura",
+    url: "https://www.minhaloja.natura.com/c/promocao-exclusiva?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Promoções exclusivas disponíveis apenas no espaço digital da consultora.", expires: null, top: false, exclusive: true },
   { oid: 1003, storeId: "natura", value: "1ª compra", label: "CONDIÇÃO ESPECIAL", title: "Especial primeira compra: comece economizando",
-    url: "https://www.minhaloja.natura.com/c/especial-primeira-compra?consultoria=valeskavalentina&marca=natura",
+    url: "https://www.minhaloja.natura.com/c/especial-primeira-compra?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Condições especiais para a primeira compra no espaço da consultora.", expires: null, top: false, exclusive: false },
   { oid: 1004, storeId: "natura", value: "Até 50%", label: "DIA DOS PAIS", title: "Mais de 30 presentes com até 50% de desconto",
-    url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=valeskavalentina&marca=natura",
-    code: null, rules: "Seleção de mais de 30 presentes para o Dia dos Pais, enquanto durarem os estoques.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais" },
+    url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=alcidesgabriel&marca=natura",
+    code: null, rules: "Seleção de mais de 30 presentes para o Dia dos Pais, enquanto durarem os estoques.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais",
+    heroImage: "img/banner-dia-dos-pais.jpg", heroTitle: "Dia dos Pais Natura", heroSub: "Mais de 30 presentes com até 50% de desconto." },
   { oid: 1011, storeId: "natura", value: "Até R$88", label: "8.8 ESQUENTA DIA DOS PAIS", title: "Desbloqueie até R$88 OFF com o cupom — R$8 OFF em R$80, R$38 OFF em R$240, R$88 OFF em R$400",
-    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=valeskavalentina&marca=natura",
-    code: "MLDATADUPLA", rules: "Campanha 8.8 Esquenta Dia dos Pais: desconto progressivo por faixa de valor no carrinho — R$8 OFF a partir de R$80, R$38 OFF a partir de R$240, R$88 OFF a partir de R$400. Teste o cupom no carrinho antes de finalizar.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais" },
+    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=alcidesgabriel&marca=natura",
+    code: "MLDATADUPLA", rules: "Campanha 8.8 Esquenta Dia dos Pais: desconto progressivo por faixa de valor no carrinho — R$8 OFF a partir de R$80, R$38 OFF a partir de R$240, R$88 OFF a partir de R$400. Teste o cupom no carrinho antes de finalizar.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais",
+    heroImage: "img/banner-88.jpg", heroTitle: "8.8 Natura", heroSub: "Esquenta Dia dos Pais: desbloqueie até R$88 OFF usando o cupom no carrinho." },
   { oid: 1005, storeId: "natura", value: "Ofertas", label: "TODAS AS PROMOÇÕES", title: "Central de promoções da loja oficial Natura",
-    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=valeskavalentina&marca=natura",
+    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Todas as promoções vigentes da semana na loja oficial.", expires: null, top: false, exclusive: false },
   { oid: 1006, storeId: "natura", value: "15%", label: "OFF COM CUPOM", title: "Seleção de autocuidado com cupom + frete grátis",
     code: "Happy15", rules: "Válido em seleção de produtos. Teste o cupom no carrinho antes de finalizar. Não cumulativo com outras promoções.", expires: null, top: false, exclusive: false },
   { oid: 1007, storeId: "natura", value: "15%", label: "ESQUENTA 7.7", title: "Campanha 7.7: desconto em quase todo o site",
-    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=valeskavalentina&marca=natura",
+    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Campanha Esquenta 7.7 por tempo limitado. Exceto linhas Biome, Bothânica, Alta Perfumaria e sabonetes em barra promocionados.", expires: "2026-07-08", top: false, exclusive: false },
   /* --- Natura: brindes com cupom --- */
   { oid: 1008, storeId: "natura", value: "Brinde", label: "ÓLEO EKOS TUKUMÃ", title: "Ganhe o óleo em compras acima de R$266,90",

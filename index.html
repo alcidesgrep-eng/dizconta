@@ -65,7 +65,8 @@
   @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-art{display:none}}
   .hero h1{font-size:clamp(32px,4.8vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;color:var(--ink)}
   .hero p{color:var(--gray);margin-top:16px;font-size:16.5px;max-width:440px;line-height:1.6}
-  .hero.hero-media{position:relative;overflow:hidden;background:var(--ink);padding:100px 0 90px}
+  .hero.hero-media{position:relative;overflow:hidden;background:var(--ink);padding:100px 0 90px;min-height:640px;display:flex;align-items:center}
+  .hero.hero-media .hero-slide{width:100%}
   .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .hero-scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(23,13,38,.92) 0%,rgba(23,13,38,.72) 42%,rgba(23,13,38,.3) 100%);z-index:1}
   .hero-media .wrap{position:relative;z-index:2}
@@ -79,7 +80,7 @@
   .hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4}
   .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:all .2s}
   .hero-dot.active{background:#fff;width:22px;border-radius:4px}
-  @media(max-width:700px){.hero.hero-media{padding:70px 0 60px}}
+  @media(max-width:700px){.hero.hero-media{padding:70px 0 60px;min-height:560px}}
   .hero-cta{display:flex;gap:16px;margin-top:26px;align-items:center;flex-wrap:wrap}
   .btn-primary{padding:14px 28px;border-radius:999px;background:var(--accent);color:var(--dark);font-weight:700;font-size:14.5px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 10px 24px rgba(212,255,0,.28)}
   .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(212,255,0,.4)}
@@ -309,6 +310,18 @@
   .store-head .sub{color:var(--gray);font-size:14px;margin-top:4px}
   .store-head .cb{color:var(--green);font-weight:700;font-size:14px;margin-top:4px}
   .store-layout{display:grid;grid-template-columns:1fr 300px;gap:26px;align-items:start;padding:34px 0 60px}
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+  .product-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .2s,transform .2s}
+  .product-card:hover{box-shadow:0 14px 28px rgba(23,13,38,.14);transform:translateY(-2px)}
+  .product-card .pc-media{position:relative;aspect-ratio:1/1;background:var(--card-2);display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--gray-light);font-size:12px;text-align:center;padding:10px}
+  .product-card .pc-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .product-card .pc-discount{position:absolute;top:10px;right:10px;background:var(--gold);color:#fff;font-weight:800;font-size:12px;padding:4px 9px;border-radius:999px}
+  .product-card .pc-body{padding:14px 16px 16px}
+  .product-card .pc-name{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.35;min-height:36px}
+  .product-card .pc-cta{display:block;margin-top:12px;text-align:center;padding:10px;border-radius:999px;background:var(--grad);color:#fff;font-weight:700;font-size:13px}
+  .photo-strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px}
+  .photo-strip .ps-item{flex:0 0 auto;width:150px;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:var(--card-2);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-light);font-size:11px;text-align:center;padding:8px}
+  .photo-strip .ps-item img{width:100%;height:100%;object-fit:cover;display:block}
   @media(max-width:900px){.store-layout{grid-template-columns:1fr}}
   .side-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px}
   .side-card h3{font-size:15.5px;font-weight:700;margin-bottom:14px}
@@ -417,24 +430,8 @@
         </div>
       </div>
     </div>
-    <div class="hero-slide" id="heroSlide1" style="display:none">
-      <img class="hero-bg-video" id="heroSlide1Bg" alt="">
-      <div class="hero-scrim"></div>
-      <div class="wrap">
-        <div class="hero-text">
-          <p id="heroSlide1Eyebrow" style="color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px"></p>
-          <h1 id="heroSlide1Title"></h1>
-          <p id="heroSlide1Sub"></p>
-          <div class="hero-cta">
-            <button class="btn-primary" id="heroSlide1Cta">Ativar oferta →</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-dots" id="heroDots" style="display:none">
-      <button class="hero-dot active" onclick="setHeroSlide(0)" aria-label="Slide 1"></button>
-      <button class="hero-dot" onclick="setHeroSlide(1)" aria-label="Slide 2"></button>
-    </div>
+    <div id="heroExtraSlides"></div>
+    <div class="hero-dots" id="heroDots" style="display:none"></div>
   </section>
 
   <section class="section wrap" id="bannersSec" style="display:none">
@@ -531,19 +528,23 @@
 <!-- ==================== PÁGINA DE TIENDA ==================== -->
 <div id="storeView" style="display:none">
   <section class="store-hero" id="storeHeroSection">
-    <img class="sh-bg" id="sHeroBg" style="display:none" alt="">
-    <div class="sh-scrim"></div>
-    <div class="wrap">
-      <div class="crumb"><a onclick="goHome()">Início</a> · <span id="crumbStore"></span></div>
-      <div class="store-head">
-        <div class="big-logo" id="sLogo"></div>
-        <div>
-          <h1 id="sTitle"></h1>
-          <div class="sub" id="sSub"></div>
-          <div class="cb" id="sCb"></div>
+    <div class="hero-slide active" id="storeHeroSlide0">
+      <img class="sh-bg" id="sHeroBg" style="display:none" alt="">
+      <div class="sh-scrim"></div>
+      <div class="wrap">
+        <div class="crumb"><a onclick="goHome()">Início</a> · <span id="crumbStore"></span></div>
+        <div class="store-head">
+          <div class="big-logo" id="sLogo"></div>
+          <div>
+            <h1 id="sTitle"></h1>
+            <div class="sub" id="sSub"></div>
+            <div class="cb" id="sCb"></div>
+          </div>
         </div>
       </div>
     </div>
+    <div id="storeHeroExtraSlides"></div>
+    <div class="hero-dots" id="storeHeroDots" style="display:none"></div>
   </section>
   <div class="wrap store-layout">
     <div>
@@ -565,6 +566,17 @@
       </div>
     </aside>
   </div>
+
+  <section class="wrap" id="storeProductsSec" style="display:none;padding:10px 0 0">
+    <h2 id="storeProductsTitle" style="margin-bottom:4px"></h2>
+    <p id="storeProductsSub" style="color:var(--gray);font-size:13.5px;margin-bottom:18px"></p>
+    <div class="product-grid" id="storeProductsGrid"></div>
+  </section>
+
+  <section class="wrap" id="storePhotoStripSec" style="display:none;padding:32px 0 0">
+    <div class="photo-strip" id="storePhotoStrip"></div>
+  </section>
+
   <div class="wrap" style="padding-bottom:60px">
     <div class="side-card" id="storeCta" style="position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;min-height:200px">
       <img id="storeCtaBg" class="sh-bg" style="display:none" alt="">
@@ -1003,22 +1015,8 @@ function renderHome(){
     camp,
     coupons: COUPONS.filter(c => c.seasonal === camp.tag && storeById[c.storeId] && (!c.expires || c.expires >= today0))
   })).find(x => x.coupons.length);
-  stopHeroRotation();
-  if (activeCampaign && activeCampaign.camp.heroImage){
-    const camp = activeCampaign.camp;
-    $("heroSlide1Bg").src = camp.heroImage;
-    $("heroSlide1Bg").alt = camp.heroTitle || "";
-    $("heroSlide1Eyebrow").textContent = camp.heroEyebrow || "";
-    $("heroSlide1Title").textContent = camp.heroTitle || "";
-    $("heroSlide1Sub").textContent = camp.heroSub || "";
-    $("heroSlide1Cta").onclick = () => goStore(camp.heroStoreId || activeCampaign.coupons[0].storeId);
-    $("heroDots").style.display = "flex";
-    setHeroSlide(0);
-    startHeroRotation();
-  } else {
-    $("heroSlide1").style.display = "none";
-    $("heroDots").style.display = "none";
-  }
+  const heroExtraSlides = activeCampaign ? activeCampaign.coupons.filter(c => c.heroImage) : [];
+  setupHeroCarousel($("heroCarousel"), $("heroExtraSlides"), $("heroDots"), heroExtraSlides);
 
   /* banners (solo si hay definidos en stores.js) */
   if (BANNERS_DATA.length){
@@ -1127,6 +1125,9 @@ function renderStore(id){
   $("sTitle").textContent = `Cupom de desconto ${s.name}`;
   $("sSub").textContent = `Todos os cupons e ofertas ${s.name} verificados hoje.`;
   $("sCb").textContent = s.cashback ? `+ ${s.cashback}% de cashback` : "";
+  const todayStore = new Date().toISOString().slice(0,10);
+  const storeSeasonalSlides = COUPONS.filter(c => c.storeId === s.id && c.heroImage && (!c.expires || c.expires >= todayStore));
+  setupHeroCarousel($("storeHeroSection"), $("storeHeroExtraSlides"), $("storeHeroDots"), storeSeasonalSlides);
   const list = activeCoupons(id);
   /* red de seguridad: tienda sin cupones → oferta genérica persuasiva
      que abre el link de afiliado igual */
@@ -1168,6 +1169,46 @@ function renderStore(id){
 
   $("aboutTitle").textContent = `Sobre a ${s.name}`;
   $("aboutText").textContent = s.description || "";
+
+  /* destaques de produtos (opcional, por loja) */
+  const highlights = (typeof STORE_PRODUCT_HIGHLIGHTS !== "undefined") ? STORE_PRODUCT_HIGHLIGHTS[s.id] : null;
+  if (highlights && highlights.items && highlights.items.length){
+    $("storeProductsSec").style.display = "block";
+    $("storeProductsTitle").textContent = highlights.title || "";
+    $("storeProductsSub").textContent = highlights.sub || "";
+    $("storeProductsGrid").innerHTML = highlights.items.map((it,i) => `
+      <div class="product-card" onclick="openProductLink('${s.id}','items',${i})">
+        <div class="pc-media">
+          ${it.discount ? `<span class="pc-discount">-${it.discount}</span>` : ""}
+          ${it.image ? `<img src="${it.image}" alt="${it.name||""}" loading="lazy">` : "Foto em breve"}
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">${it.name||""}</div>
+          <span class="pc-cta">${highlights.ctaText || "Conseguir oferta →"}</span>
+        </div>
+      </div>`).join("");
+  } else {
+    $("storeProductsSec").style.display = "none";
+  }
+  if (highlights && highlights.photoStrip && highlights.photoStrip.length){
+    $("storePhotoStripSec").style.display = "block";
+    $("storePhotoStrip").innerHTML = highlights.photoStrip.map((p,i) => `
+      <div class="ps-item" onclick="openProductLink('${s.id}','photoStrip',${i})">
+        ${p.image ? `<img src="${p.image}" alt="${p.alt||""}" loading="lazy">` : "Foto em breve"}
+      </div>`).join("");
+  } else {
+    $("storePhotoStripSec").style.display = "none";
+  }
+}
+
+/* clic em um produto/foto de destaque → abre o link direto do produto
+   (ou a página da loja, se ainda não houver link específico) */
+function openProductLink(storeId, listKey, idx){
+  const s = storeById[storeId];
+  const item = STORE_PRODUCT_HIGHLIGHTS[storeId][listKey][idx];
+  if (!item || !item.url){ goStore(storeId); return; }
+  if (window.gtag) gtag("event", "product_highlight_click", { store: storeId, subid: getSubId() });
+  window.open(buildAffiliateUrl(s, { url: item.url }), "_blank", "noopener");
 }
 
 /* ---------- página de lojas ---------- */
@@ -1454,22 +1495,44 @@ function submitQuoteLead(e, whatsappNumber, fields, intro){
   f.style.display = "none";
   return false;
 }
-let heroRotationTimer = null;
-function setHeroSlide(n){
-  const slides = [$("heroSlide0"), $("heroSlide1")];
-  slides.forEach((el, i) => { if (el) el.style.display = i === n ? "block" : "none"; });
-  document.querySelectorAll(".hero-dot").forEach((el, i) => el.classList.toggle("active", i === n));
+/* carrossel de hero reutilizável — home usa slide0 fixo (boas-vindas),
+   pagina de loja usa slide0 fixo (logo+titulo); ambos recebem slides
+   extras dinamicos por cupom sazonal com heroImage definido */
+function heroSlideHtml(c){
+  return `<div class="hero-slide">
+    <img class="hero-bg-video" src="${c.heroImage}" alt="${c.heroTitle||""}">
+    <div class="hero-scrim"></div>
+    <div class="wrap">
+      <div class="hero-text">
+        <p style="color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px">Oferta especial</p>
+        <h1 style="color:#fff">${c.heroTitle||""}</h1>
+        <p style="color:rgba(255,255,255,.85)">${c.heroSub||""}</p>
+        <div class="hero-cta"><button class="btn-primary" onclick="goStore('${c.storeId}')">Conseguir oferta →</button></div>
+      </div>
+    </div>
+  </div>`;
 }
-function startHeroRotation(){
-  stopHeroRotation();
-  heroRotationTimer = setInterval(() => {
-    const current = $("heroSlide0").style.display !== "none" ? 0 : 1;
-    setHeroSlide(current === 0 ? 1 : 0);
-  }, 6000);
-}
-function stopHeroRotation(){
-  if (heroRotationTimer) clearInterval(heroRotationTimer);
-  heroRotationTimer = null;
+function setupHeroCarousel(sectionEl, extraEl, dotsEl, extraSlides){
+  if (sectionEl._heroTimer) clearInterval(sectionEl._heroTimer);
+  extraEl.innerHTML = extraSlides.map(heroSlideHtml).join("");
+  const slides = Array.from(sectionEl.querySelectorAll(".hero-slide"));
+  const total = slides.length;
+  function show(n){
+    slides.forEach((el,i) => el.style.display = i === n ? "block" : "none");
+    dotsEl.querySelectorAll(".hero-dot").forEach((el,i) => el.classList.toggle("active", i === n));
+  }
+  if (total > 1){
+    dotsEl.innerHTML = slides.map((_,i) => `<button class="hero-dot${i===0?" active":""}" aria-label="Slide ${i+1}"></button>`).join("");
+    dotsEl.querySelectorAll(".hero-dot").forEach((el,i) => el.onclick = () => show(i));
+    dotsEl.style.display = "flex";
+    show(0);
+    let current = 0;
+    sectionEl._heroTimer = setInterval(() => { current = (current+1) % total; show(current); }, 7000);
+  } else {
+    dotsEl.style.display = "none";
+    dotsEl.innerHTML = "";
+    show(0);
+  }
 }
 function submitSearch(){
   const val = (($("heroSearchInput") && $("heroSearchInput").value) || $("searchInput").value || "").trim();
