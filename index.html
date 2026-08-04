@@ -308,7 +308,7 @@
   .cf-success p{color:var(--gray);font-size:13.5px;margin-top:4px}
 
   /* ---------- franja de confiança ---------- */
-  .trust-strip{background:linear-gradient(rgba(255,255,255,.82),rgba(255,255,255,.82)),url('img/banner-inferior-home.jpg') center/cover no-repeat;border-radius:20px;padding:30px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:32px 0 60px}
+  .trust-strip{background:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1)),linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),url('img/banner-inferior-home.jpg') center/cover no-repeat;border-radius:20px;padding:30px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:32px 0 60px}
   @media(max-width:760px){.trust-strip{grid-template-columns:1fr 1fr}}
   @media(max-width:460px){.trust-strip{grid-template-columns:1fr}}
   .trust-item{display:flex;flex-direction:column;gap:8px}
@@ -346,6 +346,8 @@
   .photo-strip .ps-item{flex:0 0 auto;width:150px;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:var(--card-2);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-light);font-size:11px;text-align:center;padding:8px}
   .photo-strip .ps-item img{width:100%;height:100%;object-fit:cover;display:block}
   @media(max-width:900px){.store-layout{grid-template-columns:1fr}}
+  #storeCta{min-height:360px}
+  @media(max-width:700px){#storeCta{min-height:220px}}
   .side-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px}
   .side-card h3{font-size:15.5px;font-weight:700;margin-bottom:14px}
   .stars{display:flex;align-items:center;gap:8px}
@@ -605,7 +607,7 @@
   </div>
 
   <div class="wrap" style="padding-bottom:60px">
-    <div class="side-card" id="storeCta" style="position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;min-height:200px">
+    <div class="side-card" id="storeCta" style="position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px">
       <img id="storeCtaBg" class="sh-bg" style="display:none" alt="">
       <div class="sh-scrim" id="storeCtaScrim"></div>
       <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:flex-start">
