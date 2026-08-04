@@ -564,6 +564,10 @@
         <h3 id="aboutTitle"></h3>
         <div class="about" id="aboutText"></div>
       </div>
+      <div class="side-card" id="storeFaqCard" style="display:none">
+        <h3>Perguntas frequentes</h3>
+        <div id="storeFaqList"></div>
+      </div>
     </aside>
   </div>
 
@@ -1004,6 +1008,7 @@ const CAT_FALLBACK_COLORS = ["#EC4899","#2ED573","#A64DFF","#A855F7","#FF8A3D","
 function catColor(c){ return CAT_FALLBACK_COLORS[CATS.indexOf(c) % CAT_FALLBACK_COLORS.length]; }
 
 function renderHome(){
+  setFaqSchema(null);
   $("heroTitle").textContent = SITE.tagline;
   $("heroSub").textContent = SITE.subtitle;
 
@@ -1199,6 +1204,40 @@ function renderStore(id){
   } else {
     $("storePhotoStripSec").style.display = "none";
   }
+
+  /* FAQ (opcional, por loja) — visível + dados estruturados FAQPage p/ SEO */
+  const faq = (typeof STORE_FAQ !== "undefined") ? STORE_FAQ[s.id] : null;
+  if (faq && faq.length){
+    $("storeFaqCard").style.display = "block";
+    $("storeFaqList").innerHTML = faq.map(f => `
+      <p style="font-size:13.5px;color:var(--gray);margin-bottom:10px">
+        <b style="color:var(--ink)">${f.q}</b><br>${f.a}
+      </p>`).join("");
+    setFaqSchema(faq);
+  } else {
+    $("storeFaqCard").style.display = "none";
+    setFaqSchema(null);
+  }
+}
+
+/* injeta/remove o schema.org FAQPage da loja atual (rich snippet no Google) */
+function setFaqSchema(faq){
+  const old = document.getElementById("faqSchema");
+  if (old) old.remove();
+  if (!faq || !faq.length) return;
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.id = "faqSchema";
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map(f => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a }
+    }))
+  });
+  document.head.appendChild(script);
 }
 
 /* clic em um produto/foto de destaque → abre o link direto do produto

@@ -70,6 +70,21 @@ const STORE_PRODUCT_HIGHLIGHTS = {
 };
 
 /* ------------------------------------------------------------
+   FAQ POR LOJA (opcional) — perguntas frequentes reais, ajudam
+   no SEO (rich snippet) e nas buscas. Preencha só para lojas com
+   volume suficiente de tráfego/dúvidas pra justificar.
+   ------------------------------------------------------------ */
+const STORE_FAQ = {
+  natura: [
+    { q: "O link do Dizconta leva para o site oficial da Natura?", a: "Sim. Você é direcionado para minhaloja.natura.com, a loja oficial da Natura vinculada à nossa consultoria — mesmos preços, formas de pagamento e garantias do site principal." },
+    { q: "Preciso pagar algo para usar o cupom?", a: "Não. O desconto é aplicado direto no carrinho da Natura, sem nenhum custo adicional pelo Dizconta." },
+    { q: "O cupom não aplicou automaticamente, o que eu faço?", a: "Alguns cupons, como o MLDATADUPLA da campanha 8.8, precisam ser digitados manualmente no campo de cupom do carrinho antes de finalizar a compra. Sempre teste o código antes de pagar." },
+    { q: "Posso trocar ou devolver o produto?", a: "Sim, seguindo a política de trocas da própria Natura — incluindo o direito de arrependimento de 7 dias previsto no Código de Defesa do Consumidor para compras online." },
+    { q: "Com que frequência os cupons são atualizados?", a: "Verificamos e atualizamos as ofertas da Natura semanalmente. A validade de cada cupom aparece na própria oferta." }
+  ]
+};
+
+/* ------------------------------------------------------------
    PÁGINAS INSTITUCIONAIS — rodapié (LGPD, confiança)
    slug → define la URL: tudominio.com/pagina/sobre-nos
    Edita el texto libremente, son solo HTML simple.
