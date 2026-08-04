@@ -69,10 +69,12 @@ const STORE_PRODUCT_HIGHLIGHTS = {
 
 /* ------------------------------------------------------------
    BANNER INFERIOR POR LOJA (opcional) — imagem diferente da do
-   topo, usada só no CTA final da página da loja.
+   topo, usada só no CTA final da página da loja. "bg" é a cor de
+   fundo atrás da imagem (object-fit:contain) — use uma cor extraída
+   da própria imagem para não ficar destoando nas laterais.
    ------------------------------------------------------------ */
 const STORE_CTA_IMG = {
-  natura: "img/banner-inferior-natura.jpg"
+  natura: { image: "img/banner-inferior-natura.jpg", bg: "#e6663f" }
 };
 
 /* ------------------------------------------------------------

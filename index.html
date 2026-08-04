@@ -1138,7 +1138,9 @@ function renderStore(id){
   document.title = `Cupom ${s.name} · ${SITE.brand}`;
   $("crumbStore").textContent = s.name;
   const heroImg = STORE_HERO_IMG[s.id];
-  const ctaImg = (typeof STORE_CTA_IMG !== "undefined" && STORE_CTA_IMG[s.id]) || heroImg;
+  const ctaData = (typeof STORE_CTA_IMG !== "undefined" && STORE_CTA_IMG[s.id]) || null;
+  const ctaImg = (ctaData && ctaData.image) || heroImg;
+  const ctaBg = (ctaData && ctaData.bg) || s.color;
   if (heroImg){
     $("sHeroBg").src = heroImg;
     $("sHeroBg").alt = s.name;
@@ -1149,7 +1151,7 @@ function renderStore(id){
     $("storeHeroSection").style.background = `linear-gradient(120deg, ${s.color} 0%, var(--ink) 100%)`;
   }
   if (ctaImg){
-    $("storeCta").style.background = s.color;
+    $("storeCta").style.background = ctaBg;
     $("storeCtaBg").src = ctaImg;
     $("storeCtaBg").alt = s.name;
     $("storeCtaBg").style.display = "block";
