@@ -347,6 +347,7 @@
   .photo-strip .ps-item img{width:100%;height:100%;object-fit:cover;display:block}
   @media(max-width:900px){.store-layout{grid-template-columns:1fr}}
   #storeCta{min-height:360px}
+  #storeCtaBg{object-fit:contain}
   @media(max-width:700px){#storeCta{min-height:220px}}
   .side-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px}
   .side-card h3{font-size:15.5px;font-weight:700;margin-bottom:14px}
@@ -1148,6 +1149,7 @@ function renderStore(id){
     $("storeHeroSection").style.background = `linear-gradient(120deg, ${s.color} 0%, var(--ink) 100%)`;
   }
   if (ctaImg){
+    $("storeCta").style.background = s.color;
     $("storeCtaBg").src = ctaImg;
     $("storeCtaBg").alt = s.name;
     $("storeCtaBg").style.display = "block";
