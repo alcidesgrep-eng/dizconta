@@ -79,19 +79,22 @@
   .hero-media .hstat b{color:#fff}
   .hero-text h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;color:#fff}
   .hero-text p{color:rgba(255,255,255,.85);margin-top:16px;font-size:17.5px;max-width:480px;line-height:1.6}
-  .hero-tier-slide{display:flex;gap:48px;align-items:center;flex-wrap:wrap}
-  .hero-tier-left{display:flex;flex-direction:column;color:#fff}
+  .hero-text-center{margin:0 auto;text-align:center}
+  .hero-text-center p{margin-left:auto;margin-right:auto}
+  .hero-text-center .hero-cta{justify-content:center}
+  .hero-tier-slide{display:flex;justify-content:center;gap:48px;align-items:center;flex-wrap:wrap;text-align:center}
+  .hero-tier-left{display:flex;flex-direction:column;align-items:center;color:#fff}
   .hero-tier-big{font-size:clamp(64px,9vw,110px);font-weight:800;line-height:.9;letter-spacing:-2px}
   .hero-tier-bigsub{font-size:20px;font-weight:600;opacity:.85;margin-top:2px}
-  .hero-tier-divider{width:56px;height:1px;background:rgba(255,255,255,.4);margin:16px 0}
+  .hero-tier-divider{width:56px;height:1px;background:rgba(255,255,255,.4);margin:16px auto}
   .hero-tier-eyebrow{font-size:15px;font-weight:800;letter-spacing:1px}
   .hero-tier-campaign{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-top:2px}
-  .hero-tier-right{color:#fff;max-width:420px}
+  .hero-tier-right{display:flex;flex-direction:column;align-items:center;color:#fff;max-width:420px}
   .hero-tier-headline{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.5px;line-height:1.15}
   .hero-tier-headline b{font-size:1.55em}
-  .hero-tier-code{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px}
+  .hero-tier-code{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:14px}
   .hero-tier-code-chip{background:#fff;color:var(--ink);font-weight:800;letter-spacing:.5px;padding:8px 16px;border-radius:8px}
-  .hero-tier-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .hero-tier-row{display:flex;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap}
   .hero-tier-chip{border:1px dashed rgba(255,255,255,.5);border-radius:12px;padding:10px 14px;text-align:center;min-width:82px}
   .hero-tier-chip b{display:block;font-size:17px;font-weight:800}
   .hero-tier-chip span{display:block;font-size:11px;opacity:.8;margin-top:2px}
@@ -305,7 +308,7 @@
   .cf-success p{color:var(--gray);font-size:13.5px;margin-top:4px}
 
   /* ---------- franja de confiança ---------- */
-  .trust-strip{background:var(--accent-bg);border-radius:20px;padding:30px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:32px 0 60px}
+  .trust-strip{background:linear-gradient(rgba(255,255,255,.82),rgba(255,255,255,.82)),url('img/banner-inferior-home.jpg') center/cover no-repeat;border-radius:20px;padding:30px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:32px 0 60px}
   @media(max-width:760px){.trust-strip{grid-template-columns:1fr 1fr}}
   @media(max-width:460px){.trust-strip{grid-template-columns:1fr}}
   .trust-item{display:flex;flex-direction:column;gap:8px}
@@ -520,8 +523,7 @@
     </div>
     <p style="color:var(--gray);font-size:13.5px;margin-bottom:18px">Selecionamos as ofertas de maior valor da semana.</p>
     <div class="grid" id="grid"></div>
-    <img src="img/dizconta-wordmark.png" alt="Dizconta" style="display:block;height:26px;width:auto;margin:32px auto 0">
-    <div class="trust-strip" id="comoFunciona" style="margin-top:18px">
+    <div class="trust-strip" id="comoFunciona">
       <div class="trust-item">
         <span class="trust-icon"><svg width="19" height="19" fill="none" stroke="#170D26" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 10a2 2 0 012-2h12a2 2 0 012 2v1.5a2 2 0 000 5V17a2 2 0 01-2 2H6a2 2 0 01-2-2v-1.5a2 2 0 000-5V10z"/></svg></span>
         <b>Cupons testados</b>
@@ -1597,7 +1599,7 @@ function heroSlideHtml(c){
     ${bg}
     <div class="hero-scrim"></div>
     <div class="wrap">
-      <div class="hero-text">
+      <div class="hero-text hero-text-center">
         <p style="color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px">Oferta especial</p>
         <h1>${c.heroTitle||""}</h1>
         <p>${c.heroSub||""}</p>
