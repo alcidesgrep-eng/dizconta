@@ -63,10 +63,16 @@ const STORE_PRODUCT_HIGHLIGHTS = {
       { image: "img/produto-natura-exclusivo.jpg", discount: "43%", name: "Presente Natura Essencial Exclusivo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-exclusivo-3-produtos/NATBRA-245358?position=4&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=alcidesgabriel&marca=natura" },
       { image: "img/produto-natura-palo-santo.jpg", discount: "", name: "Presente Natura Essencial Palo Santo (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-palo-santo-2-produtos/NATBRA-245362?position=5&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=alcidesgabriel&marca=natura" }
     ],
-    photoStrip: [
-      { image: "img/produto-natura-categoria.jpg", alt: "Presentes Dia dos Pais Natura", url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=alcidesgabriel&marca=natura" }
-    ]
+    photoStrip: []
   }
+};
+
+/* ------------------------------------------------------------
+   BANNER INFERIOR POR LOJA (opcional) — imagem diferente da do
+   topo, usada só no CTA final da página da loja.
+   ------------------------------------------------------------ */
+const STORE_CTA_IMG = {
+  natura: "img/banner-inferior-natura.jpg"
 };
 
 /* ------------------------------------------------------------
@@ -657,9 +663,12 @@ const COUPONS = [
   { oid: 1002, storeId: "natura", value: "Exclusivas", label: "PROMOÇÃO DA CONSULTORA", title: "Ofertas exclusivas do espaço da consultora",
     url: "https://www.minhaloja.natura.com/c/promocao-exclusiva?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Promoções exclusivas disponíveis apenas no espaço digital da consultora.", expires: null, top: false, exclusive: true },
-  { oid: 1003, storeId: "natura", value: "1ª compra", label: "CONDIÇÃO ESPECIAL", title: "Especial primeira compra: comece economizando",
+  { oid: 1003, storeId: "natura", value: "10% OFF", label: "PRIMEIRA COMPRA", title: "10% OFF na primeira compra com a consultora",
     url: "https://www.minhaloja.natura.com/c/especial-primeira-compra?consultoria=alcidesgabriel&marca=natura",
-    code: null, rules: "Condições especiais para a primeira compra no espaço da consultora.", expires: null, top: false, exclusive: false },
+    code: "PRIMEIRAML", rules: "10% de desconto para clientes na primeira compra no espaço digital da consultora. Consulte condições no carrinho.", expires: null, top: false, exclusive: false },
+  { oid: 1012, storeId: "natura", value: "Brinde", label: "BRINDE PERFUMARIA", title: "Ganhe um mini Kriska em compras acima de R$150 em Perfumaria",
+    url: "https://www.minhaloja.natura.com/c/perfumaria?consultoria=alcidesgabriel&marca=natura",
+    code: "MLMAISPERF", rules: "Ganhe um mini Kriska em compras acima de R$150 em itens de Perfumaria, enquanto durarem os estoques. Teste o cupom no carrinho.", expires: null, top: false, exclusive: false },
   { oid: 1004, storeId: "natura", value: "Até 50%", label: "DIA DOS PAIS", title: "Mais de 30 presentes com até 50% de desconto",
     url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Seleção de mais de 30 presentes para o Dia dos Pais, enquanto durarem os estoques.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais",
@@ -676,7 +685,7 @@ const COUPONS = [
       { off: "R$38", threshold: "R$240" },
       { off: "R$88", threshold: "R$400" }
     ],
-    heroCtaText: "Comprar →" },
+    heroCtaText: "Ativar oferta →" },
   { oid: 1005, storeId: "natura", value: "Ofertas", label: "TODAS AS PROMOÇÕES", title: "Central de promoções da loja oficial Natura",
     url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=alcidesgabriel&marca=natura",
     code: null, rules: "Todas as promoções vigentes da semana na loja oficial.", expires: null, top: false, exclusive: false },

@@ -520,7 +520,8 @@
     </div>
     <p style="color:var(--gray);font-size:13.5px;margin-bottom:18px">Selecionamos as ofertas de maior valor da semana.</p>
     <div class="grid" id="grid"></div>
-    <div class="trust-strip" id="comoFunciona">
+    <img src="img/dizconta-wordmark.png" alt="Dizconta" style="display:block;height:26px;width:auto;margin:32px auto 0">
+    <div class="trust-strip" id="comoFunciona" style="margin-top:18px">
       <div class="trust-item">
         <span class="trust-icon"><svg width="19" height="19" fill="none" stroke="#170D26" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 10a2 2 0 012-2h12a2 2 0 012 2v1.5a2 2 0 000 5V17a2 2 0 01-2 2H6a2 2 0 01-2-2v-1.5a2 2 0 000-5V10z"/></svg></span>
         <b>Cupons testados</b>
@@ -566,6 +567,16 @@
     <div id="storeHeroExtraSlides"></div>
     <div class="hero-dots" id="storeHeroDots" style="display:none"></div>
   </section>
+  <section class="wrap" id="storeProductsSec" style="display:none;padding:32px 0 0">
+    <h2 id="storeProductsTitle" style="margin-bottom:4px"></h2>
+    <p id="storeProductsSub" style="color:var(--gray);font-size:13.5px;margin-bottom:18px"></p>
+    <div class="product-grid" id="storeProductsGrid"></div>
+  </section>
+
+  <section class="wrap" id="storePhotoStripSec" style="display:none;padding:32px 0 0">
+    <div class="photo-strip" id="storePhotoStrip"></div>
+  </section>
+
   <div class="wrap store-layout">
     <div>
       <div class="grid" id="storeGrid"></div>
@@ -590,16 +601,6 @@
       </div>
     </aside>
   </div>
-
-  <section class="wrap" id="storeProductsSec" style="display:none;padding:10px 0 0">
-    <h2 id="storeProductsTitle" style="margin-bottom:4px"></h2>
-    <p id="storeProductsSub" style="color:var(--gray);font-size:13.5px;margin-bottom:18px"></p>
-    <div class="product-grid" id="storeProductsGrid"></div>
-  </section>
-
-  <section class="wrap" id="storePhotoStripSec" style="display:none;padding:32px 0 0">
-    <div class="photo-strip" id="storePhotoStrip"></div>
-  </section>
 
   <div class="wrap" style="padding-bottom:60px">
     <div class="side-card" id="storeCta" style="position:relative;overflow:hidden;border:none;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;min-height:200px">
@@ -1126,18 +1127,22 @@ function renderStore(id){
   document.title = `Cupom ${s.name} · ${SITE.brand}`;
   $("crumbStore").textContent = s.name;
   const heroImg = STORE_HERO_IMG[s.id];
+  const ctaImg = (typeof STORE_CTA_IMG !== "undefined" && STORE_CTA_IMG[s.id]) || heroImg;
   if (heroImg){
     $("sHeroBg").src = heroImg;
     $("sHeroBg").alt = s.name;
     $("sHeroBg").style.display = "block";
     $("storeHeroSection").style.background = "";
-    $("storeCtaBg").src = heroImg;
+  } else {
+    $("sHeroBg").style.display = "none";
+    $("storeHeroSection").style.background = `linear-gradient(120deg, ${s.color} 0%, var(--ink) 100%)`;
+  }
+  if (ctaImg){
+    $("storeCtaBg").src = ctaImg;
     $("storeCtaBg").alt = s.name;
     $("storeCtaBg").style.display = "block";
     $("storeCtaScrim").style.background = "linear-gradient(100deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.5) 45%,rgba(0,0,0,.22) 100%)";
   } else {
-    $("sHeroBg").style.display = "none";
-    $("storeHeroSection").style.background = `linear-gradient(120deg, ${s.color} 0%, var(--ink) 100%)`;
     $("storeCtaBg").style.display = "none";
     $("storeCta").style.background = `linear-gradient(120deg, ${s.color} 0%, var(--ink) 100%)`;
     $("storeCtaScrim").style.background = "transparent";
