@@ -31,7 +31,7 @@ const SITE = {
    Usa 3 a 5 oids. Elegí siempre el cupom de mayor valor por tienda.
    Los demás cupones siguen apareciendo normalmente en /loja y /lojas.
    ------------------------------------------------------------ */
-const HOME_FEATURED = [1001, 2002, 2004, 2005, 3001];
+const HOME_FEATURED = [1011, 2002, 2001];
 
 /* ------------------------------------------------------------
    CAMPANHAS SAZONAIS — banners de época (Dia dos Pais, Black
@@ -41,7 +41,12 @@ const HOME_FEATURED = [1001, 2002, 2004, 2005, 3001];
    dessa tag ainda não vencido.
    ------------------------------------------------------------ */
 const SEASONAL_CAMPAIGNS = [
-  { tag: "dia-dos-pais", emoji: "🎁", label: "Ofertas Dia dos Pais", sub: "Presentes com desconto especial — só até acabar o estoque." }
+  { tag: "dia-dos-pais", emoji: "🎁", label: "Ofertas Dia dos Pais", sub: "Presentes com desconto especial — só até acabar o estoque.",
+    heroEyebrow: "Oferta especial",
+    heroTitle: "Dia dos Pais Natura",
+    heroSub: "Mais de 30 presentes com até 50% de desconto.",
+    heroImage: "img/banner-dia-dos-pais.jpg",
+    heroStoreId: "natura" }
 ];
 
 /* ------------------------------------------------------------
@@ -387,7 +392,7 @@ const STORES = [
     affiliateUrl: "https://www.olympikus.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 68 },
     description: "O tênis oficial de quem corre no Brasil. Tecnologia de amortecimento premiada e preço justo — os modelos Corre já bateram recordes em maratonas. Ative a oferta e corra na frente.",
-    top: false
+    top: true
   },
   {
     id: "vaidepromo", name: "Vai de Promo", category: "Viagens", color: "#03A5CA", logoText: "Vai de Promo",
@@ -395,7 +400,7 @@ const STORES = [
     affiliateUrl: "https://www.vaidepromo.com.br/passagens-aereas/?utm_medium=afiliado&pcrid=14162&utm_source=site-blog&pcrtt=dsa",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 54 },
     description: "Passagens aéreas nacionais e internacionais pelo menor preço, com busca em dezenas de companhias ao mesmo tempo. Parcele sua viagem e voe pagando menos do que quem comprou do lado.",
-    top: true
+    top: false
   },
   {
     id: "segurospromo", name: "Seguros Promo", category: "Viagens", color: "#FFFFFF", logoText: "Seguros Promo",
@@ -403,7 +408,7 @@ const STORES = [
     affiliateUrl: "https://www.segurospromo.com.br/?utm_medium=afiliado&pcrid=14162&utm_source=site-blog",
     subidParam: null, cashback: null, rating: { score: 4.8, count: 71 },
     description: "O comparador de seguro viagem nº 1 do Brasil: cote as principais seguradoras em segundos e viaje protegido para Europa, EUA ou qualquer destino — pagando bem menos que no balcão.",
-    top: true
+    top: false
   },
   {
     id: "rentcars", name: "Rentcars", category: "Viagens", color: "#11100D", logoText: "rentcars",
@@ -623,6 +628,9 @@ const COUPONS = [
   { oid: 1004, storeId: "natura", value: "Até 50%", label: "DIA DOS PAIS", title: "Mais de 30 presentes com até 50% de desconto",
     url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=valeskavalentina&marca=natura",
     code: null, rules: "Seleção de mais de 30 presentes para o Dia dos Pais, enquanto durarem os estoques.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais" },
+  { oid: 1011, storeId: "natura", value: "Até R$88", label: "8.8 ESQUENTA DIA DOS PAIS", title: "Desbloqueie até R$88 OFF com o cupom — R$8 OFF em R$80, R$38 OFF em R$240, R$88 OFF em R$400",
+    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=valeskavalentina&marca=natura",
+    code: "MLDATADUPLA", rules: "Campanha 8.8 Esquenta Dia dos Pais: desconto progressivo por faixa de valor no carrinho — R$8 OFF a partir de R$80, R$38 OFF a partir de R$240, R$88 OFF a partir de R$400. Teste o cupom no carrinho antes de finalizar.", expires: "2026-08-09", top: true, exclusive: false, seasonal: "dia-dos-pais" },
   { oid: 1005, storeId: "natura", value: "Ofertas", label: "TODAS AS PROMOÇÕES", title: "Central de promoções da loja oficial Natura",
     url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=valeskavalentina&marca=natura",
     code: null, rules: "Todas as promoções vigentes da semana na loja oficial.", expires: null, top: false, exclusive: false },

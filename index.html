@@ -76,6 +76,9 @@
   .hero-media .btn-ghost .play{border-color:rgba(255,255,255,.4)}
   .hero-media .hstat span{color:rgba(255,255,255,.7)}
   .hero-media .hstat b{color:#fff}
+  .hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4}
+  .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:all .2s}
+  .hero-dot.active{background:#fff;width:22px;border-radius:4px}
   @media(max-width:700px){.hero.hero-media{padding:70px 0 60px}}
   .hero-cta{display:flex;gap:16px;margin-top:26px;align-items:center;flex-wrap:wrap}
   .btn-primary{padding:14px 28px;border-radius:999px;background:var(--accent);color:var(--dark);font-weight:700;font-size:14.5px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 10px 24px rgba(212,255,0,.28)}
@@ -292,7 +295,7 @@
   /* ---------- página de tienda ---------- */
   .sh-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
   .sh-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(23,13,38,.85) 0%,rgba(23,13,38,.55) 50%,rgba(23,13,38,.22) 100%)}
-  .store-hero{position:relative;overflow:hidden;padding:78px 0;border-bottom:1px solid var(--line);background:var(--ink)}
+  .store-hero{position:relative;overflow:hidden;padding:110px 0;border-bottom:1px solid var(--line);background:var(--ink)}
   .store-hero .wrap{position:relative;z-index:2}
   .store-hero .crumb,.store-hero .crumb a{color:rgba(255,255,255,.75)}
   .store-hero .store-head h1{color:#fff}
@@ -381,43 +384,57 @@
 
 <!-- ==================== HOME ==================== -->
 <div id="homeView">
-  <section class="hero hero-media">
-    <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
-      <source src="img/Video/hero-bg-v2.mp4" type="video/mp4">
-    </video>
-    <div class="hero-scrim"></div>
-    <div class="wrap">
-      <div class="hero-text">
-        <h1 id="heroTitle"></h1>
-        <p id="heroSub"></p>
-        <div class="hero-search">
-          <svg width="17" height="17" fill="none" stroke="#170D26" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-          <input id="heroSearchInput" type="text" placeholder="Pesquisar lojas ou cupons...">
-          <button class="hero-search-btn" onclick="submitSearch()" aria-label="Buscar">
-            <svg width="16" height="16" fill="none" stroke="#170D26" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
-          </button>
-        </div>
-        <div class="hero-cta">
-          <button class="btn-primary" onclick="scrollToId('cupons')">Ver cupons</button>
-          <button class="btn-ghost" onclick="scrollToId('comoFunciona')">
-            <span class="play"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-            Como funciona
-          </button>
-        </div>
-        <div class="hero-stats">
-          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 10a2 2 0 012-2h12a2 2 0 012 2v1.5a2 2 0 000 5V17a2 2 0 01-2 2H6a2 2 0 01-2-2v-1.5a2 2 0 000-5V10z"/></svg><span>Cupons ativos</span><b>50+</b></div>
-          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 10l1.5-6h15L21 10M4 10h16v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9z"/><path d="M9 20v-6h6v6"/></svg><span>Lojas parceiras</span><b>30+</b></div>
-          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#2ED573" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg><span>Ofertas verificadas</span><b>100%</b></div>
-          <div class="hstat"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Atualização</span><b>Semanal</b></div>
+  <section class="hero hero-media" id="heroCarousel">
+    <div class="hero-slide active" id="heroSlide0">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="img/Video/hero-bg-v2.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim"></div>
+      <div class="wrap">
+        <div class="hero-text">
+          <h1 id="heroTitle"></h1>
+          <p id="heroSub"></p>
+          <div class="hero-search">
+            <svg width="17" height="17" fill="none" stroke="#170D26" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input id="heroSearchInput" type="text" placeholder="Pesquisar lojas ou cupons...">
+            <button class="hero-search-btn" onclick="submitSearch()" aria-label="Buscar">
+              <svg width="16" height="16" fill="none" stroke="#170D26" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            </button>
+          </div>
+          <div class="hero-cta">
+            <button class="btn-primary" onclick="scrollToId('cupons')">Ver cupons</button>
+            <button class="btn-ghost" onclick="scrollToId('comoFunciona')">
+              <span class="play"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+              Como funciona
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="hstat"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 10a2 2 0 012-2h12a2 2 0 012 2v1.5a2 2 0 000 5V17a2 2 0 01-2 2H6a2 2 0 01-2-2v-1.5a2 2 0 000-5V10z"/></svg><span>Cupons ativos</span><b>50+</b></div>
+            <div class="hstat"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 10l1.5-6h15L21 10M4 10h16v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9z"/><path d="M9 20v-6h6v6"/></svg><span>Lojas parceiras</span><b>30+</b></div>
+            <div class="hstat"><svg width="18" height="18" fill="none" stroke="#2ED573" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg><span>Ofertas verificadas</span><b>100%</b></div>
+            <div class="hstat"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Atualização</span><b>Semanal</b></div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section wrap" id="sazonalSec" style="display:none">
-    <h2 id="sazonalTitle" style="margin-bottom:4px"></h2>
-    <p id="sazonalSub" style="color:var(--gray);font-size:13.5px;margin-bottom:18px"></p>
-    <div class="grid" id="sazonalGrid"></div>
+    <div class="hero-slide" id="heroSlide1" style="display:none">
+      <img class="hero-bg-video" id="heroSlide1Bg" alt="">
+      <div class="hero-scrim"></div>
+      <div class="wrap">
+        <div class="hero-text">
+          <p id="heroSlide1Eyebrow" style="color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px"></p>
+          <h1 id="heroSlide1Title"></h1>
+          <p id="heroSlide1Sub"></p>
+          <div class="hero-cta">
+            <button class="btn-primary" id="heroSlide1Cta">Ativar oferta →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-dots" id="heroDots" style="display:none">
+      <button class="hero-dot active" onclick="setHeroSlide(0)" aria-label="Slide 1"></button>
+      <button class="hero-dot" onclick="setHeroSlide(1)" aria-label="Slide 2"></button>
+    </div>
   </section>
 
   <section class="section wrap" id="bannersSec" style="display:none">
@@ -931,7 +948,7 @@ function featuredCoupons(){
   });
 }
 
-function couponCard(c, i, _arr, big){
+function couponCard(c, i, _arr, big, hideLogo){
   const s = storeById[c.storeId];
   const idx = COUPONS.indexOf(c);
   const position = (i || 0) + 1;
@@ -941,7 +958,7 @@ function couponCard(c, i, _arr, big){
     ${badge}
     ${big ? `<div class="hero-store-name">${s.name}</div>` : ""}
     ${c.image ? `<img class="c-img" src="${c.image}" alt="${c.title}">` : ""}
-    ${logoHtml(s, "store-logo")}
+    ${hideLogo ? "" : logoHtml(s, "store-logo")}
     <div class="value ${!big && c.value.length > 6 ? "small" : ""}">${c.value}</div>
     <div class="label">${c.label || "DE DESCONTO"}</div>
     <div class="title">${c.title}</div>
@@ -986,13 +1003,21 @@ function renderHome(){
     camp,
     coupons: COUPONS.filter(c => c.seasonal === camp.tag && storeById[c.storeId] && (!c.expires || c.expires >= today0))
   })).find(x => x.coupons.length);
-  if (activeCampaign){
-    $("sazonalSec").style.display = "block";
-    $("sazonalTitle").textContent = `${activeCampaign.camp.emoji||""} ${activeCampaign.camp.label}`.trim();
-    $("sazonalSub").textContent = activeCampaign.camp.sub || "";
-    $("sazonalGrid").innerHTML = activeCampaign.coupons.map((c,i) => couponCard(c, i, null, i === 0)).join("");
+  stopHeroRotation();
+  if (activeCampaign && activeCampaign.camp.heroImage){
+    const camp = activeCampaign.camp;
+    $("heroSlide1Bg").src = camp.heroImage;
+    $("heroSlide1Bg").alt = camp.heroTitle || "";
+    $("heroSlide1Eyebrow").textContent = camp.heroEyebrow || "";
+    $("heroSlide1Title").textContent = camp.heroTitle || "";
+    $("heroSlide1Sub").textContent = camp.heroSub || "";
+    $("heroSlide1Cta").onclick = () => goStore(camp.heroStoreId || activeCampaign.coupons[0].storeId);
+    $("heroDots").style.display = "flex";
+    setHeroSlide(0);
+    startHeroRotation();
   } else {
-    $("sazonalSec").style.display = "none";
+    $("heroSlide1").style.display = "none";
+    $("heroDots").style.display = "none";
   }
 
   /* banners (solo si hay definidos en stores.js) */
@@ -1096,18 +1121,18 @@ function renderStore(id){
   }
   $("storeCtaTitle").textContent = `Pronto para aproveitar as ofertas da ${s.name}?`;
   const sSrc = logoSrc(s);
-  if (sSrc){ $("sLogo").style.background = "#fff"; $("sLogo").innerHTML = `<img src="${sSrc}" alt="${s.name}" onerror="logoFail(this,'${s.color}','${s.logoText}')">`; }
-  else { $("sLogo").style.background = s.color; $("sLogo").textContent = s.logoText; }
+  $("sLogo").style.background = s.color;
+  if (sSrc){ $("sLogo").innerHTML = `<img src="${sSrc}" alt="${s.name}" onerror="logoFail(this,'${s.color}','${s.logoText}')">`; }
+  else { $("sLogo").textContent = s.logoText; }
   $("sTitle").textContent = `Cupom de desconto ${s.name}`;
   $("sSub").textContent = `Todos os cupons e ofertas ${s.name} verificados hoje.`;
   $("sCb").textContent = s.cashback ? `+ ${s.cashback}% de cashback` : "";
   const list = activeCoupons(id);
   /* red de seguridad: tienda sin cupones → oferta genérica persuasiva
      que abre el link de afiliado igual */
-  $("storeGrid").innerHTML = list.length ? list.map(couponCard).join("") : `
+  $("storeGrid").innerHTML = list.length ? list.map((c,i) => couponCard(c, i, null, false, true)).join("") : `
     <article class="card" style="cursor:pointer" onclick="openStoreOffer('${s.id}')">
       <span class="badge top">HOJE</span>
-      ${logoHtml(s, "store-logo")}
       <div class="value small">Ofertas ativas</div>
       <div class="label">EXCLUSIVAS PELO LINK</div>
       <div class="title">Descontos e promoções de ${s.name} ativados na hora — sem precisar de código.</div>
@@ -1428,6 +1453,23 @@ function submitQuoteLead(e, whatsappNumber, fields, intro){
   if (successEl) successEl.style.display = "block";
   f.style.display = "none";
   return false;
+}
+let heroRotationTimer = null;
+function setHeroSlide(n){
+  const slides = [$("heroSlide0"), $("heroSlide1")];
+  slides.forEach((el, i) => { if (el) el.style.display = i === n ? "block" : "none"; });
+  document.querySelectorAll(".hero-dot").forEach((el, i) => el.classList.toggle("active", i === n));
+}
+function startHeroRotation(){
+  stopHeroRotation();
+  heroRotationTimer = setInterval(() => {
+    const current = $("heroSlide0").style.display !== "none" ? 0 : 1;
+    setHeroSlide(current === 0 ? 1 : 0);
+  }, 6000);
+}
+function stopHeroRotation(){
+  if (heroRotationTimer) clearInterval(heroRotationTimer);
+  heroRotationTimer = null;
 }
 function submitSearch(){
   const val = (($("heroSearchInput") && $("heroSearchInput").value) || $("searchInput").value || "").trim();
