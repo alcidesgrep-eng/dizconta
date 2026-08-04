@@ -77,6 +77,26 @@
   .hero-media .btn-ghost .play{border-color:rgba(255,255,255,.4)}
   .hero-media .hstat span{color:rgba(255,255,255,.7)}
   .hero-media .hstat b{color:#fff}
+  .hero-text h1{font-size:clamp(32px,4.8vw,56px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;color:#fff}
+  .hero-text p{color:rgba(255,255,255,.85);margin-top:16px;font-size:17.5px;max-width:480px;line-height:1.6}
+  .hero-tier-slide{display:flex;gap:48px;align-items:center;flex-wrap:wrap}
+  .hero-tier-left{display:flex;flex-direction:column;color:#fff}
+  .hero-tier-big{font-size:clamp(64px,9vw,110px);font-weight:800;line-height:.9;letter-spacing:-2px}
+  .hero-tier-bigsub{font-size:20px;font-weight:600;opacity:.85;margin-top:2px}
+  .hero-tier-divider{width:56px;height:1px;background:rgba(255,255,255,.4);margin:16px 0}
+  .hero-tier-eyebrow{font-size:15px;font-weight:800;letter-spacing:1px}
+  .hero-tier-campaign{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-top:2px}
+  .hero-tier-right{color:#fff;max-width:420px}
+  .hero-tier-headline{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.5px;line-height:1.15}
+  .hero-tier-headline b{font-size:1.55em}
+  .hero-tier-code{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px}
+  .hero-tier-code-chip{background:#fff;color:var(--ink);font-weight:800;letter-spacing:.5px;padding:8px 16px;border-radius:8px}
+  .hero-tier-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .hero-tier-chip{border:1px dashed rgba(255,255,255,.5);border-radius:12px;padding:10px 14px;text-align:center;min-width:82px}
+  .hero-tier-chip b{display:block;font-size:17px;font-weight:800}
+  .hero-tier-chip span{display:block;font-size:11px;opacity:.8;margin-top:2px}
+  .hero-tier-cta{margin-top:22px;background:var(--ink);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-weight:700;font-size:14.5px;cursor:pointer}
+  @media(max-width:700px){.hero-tier-slide{gap:24px}.hero-tier-big{font-size:56px}}
   .hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:4}
   .hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;padding:0;transition:all .2s}
   .hero-dot.active{background:#fff;width:22px;border-radius:4px}
@@ -306,7 +326,7 @@
   .crumb a{color:var(--primary);cursor:pointer}
   .store-head{display:flex;align-items:center;gap:20px}
   .store-head .big-logo{width:76px;height:76px;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;flex-shrink:0}
-  .store-head h1{font-size:clamp(24px,3.5vw,36px);font-weight:800;letter-spacing:-1px}
+  .store-head h1{font-size:clamp(26px,4.2vw,44px);font-weight:800;letter-spacing:-1px}
   .store-head .sub{color:var(--gray);font-size:14px;margin-top:4px}
   .store-head .cb{color:var(--green);font-weight:700;font-size:14px;margin-top:4px}
   .store-layout{display:grid;grid-template-columns:1fr 300px;gap:26px;align-items:start;padding:34px 0 60px}
@@ -1538,18 +1558,56 @@ function submitQuoteLead(e, whatsappNumber, fields, intro){
    pagina de loja usa slide0 fixo (logo+titulo); ambos recebem slides
    extras dinamicos por cupom sazonal com heroImage definido */
 function heroSlideHtml(c){
+  const bg = `<img class="hero-bg-video" src="${c.heroImage}" alt="${c.heroTitle||""}" style="object-position:${c.heroPos||"center center"}">`;
+  const cta = `<button class="${c.heroTiers ? "hero-tier-cta" : "btn-primary"}" onclick="heroCtaClick(${c.oid})">${c.heroCtaText || "Conseguir oferta →"}</button>`;
+  if (c.heroTiers && c.heroTiers.length){
+    return `<div class="hero-slide">
+      ${bg}
+      <div class="hero-scrim" style="background:linear-gradient(100deg,rgba(120,45,0,.55) 0%,rgba(120,45,0,.3) 45%,rgba(120,45,0,.12) 100%)"></div>
+      <div class="wrap">
+        <div class="hero-tier-slide">
+          <div class="hero-tier-left">
+            <div class="hero-tier-big">${c.heroBig||""}</div>
+            <div class="hero-tier-bigsub">${c.heroBigSub||""}</div>
+            <div class="hero-tier-divider"></div>
+            <div class="hero-tier-eyebrow">${c.heroEyebrow2||""}</div>
+            <div class="hero-tier-campaign">${c.heroCampaign||""}</div>
+          </div>
+          <div class="hero-tier-right">
+            <div class="hero-tier-headline">${c.heroHeadline||""} <b>${c.heroHeadlineAmount||""}</b> ${c.heroHeadlineSuffix||""}</div>
+            <div class="hero-tier-code">
+              <span>${c.heroCodeLabel||""}</span>
+              <span class="hero-tier-code-chip">${c.code||""}</span>
+            </div>
+            <div class="hero-tier-row">
+              ${c.heroTiers.map(t => `<div class="hero-tier-chip"><b>${t.off} OFF</b><span>em ${t.threshold}</span></div>`).join("")}
+            </div>
+            ${cta}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
   return `<div class="hero-slide">
-    <img class="hero-bg-video" src="${c.heroImage}" alt="${c.heroTitle||""}">
+    ${bg}
     <div class="hero-scrim"></div>
     <div class="wrap">
       <div class="hero-text">
         <p style="color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px">Oferta especial</p>
-        <h1 style="color:#fff">${c.heroTitle||""}</h1>
-        <p style="color:rgba(255,255,255,.85)">${c.heroSub||""}</p>
-        <div class="hero-cta"><button class="btn-primary" onclick="goStore('${c.storeId}')">Conseguir oferta →</button></div>
+        <h1>${c.heroTitle||""}</h1>
+        <p>${c.heroSub||""}</p>
+        <div class="hero-cta">${cta}</div>
       </div>
     </div>
   </div>`;
+}
+function heroCtaClick(oid){
+  const c = COUPONS.find(x => x.oid === oid);
+  if (!c){ return; }
+  const s = storeById[c.storeId];
+  if (!s){ goStore(c.storeId); return; }
+  trackCouponClick(s, c, 1);
+  window.open(buildAffiliateUrl(s, c), "_blank", "noopener");
 }
 function setupHeroCarousel(sectionEl, extraEl, dotsEl, extraSlides){
   if (sectionEl._heroTimer) clearInterval(sectionEl._heroTimer);
