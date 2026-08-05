@@ -655,7 +655,7 @@ const STORES = [
     affiliateUrl: "https://www.mercadolivre.com.br/ofertas?matt_word=teva5875899&matt_tool=61014070",
     subidParam: null, cashback: null, rating: { score: 4.7, count: 41 },
     description: "O maior marketplace do Brasil, com milhões de produtos de milhares de vendedores. Ofertas relâmpago, frete grátis e parcelamento sem juros todos os dias.",
-    top: false
+    top: true
   }
 ];
 
