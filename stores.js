@@ -645,6 +645,17 @@ const STORES = [
     subidParam: null, cashback: null, rating: { score: 4.5, count: 30 },
     description: "Os achadinhos virais que todo mundo procura: utilidades, organização e gadgets para casa com preço de importado — sem esperar 60 dias pelo frete.",
     top: false
+  },
+  {
+    id: "mercadolivre", name: "Mercado Livre", category: "Marketplace", color: "#FFE600", logoText: "Mercado Livre",
+    logoUrl: "img/logos/mercadolivre.png",
+    /* matt_word/matt_tool são os parâmetros do programa de Afiliados Mercado Livre —
+       podem ser anexados a qualquer URL mercadolivre.com.br (loja, categoria, produto)
+       pra rastrear a comissão, mesmo sem gerar um link individual pra cada um. */
+    affiliateUrl: "https://www.mercadolivre.com.br/ofertas?matt_word=teva5875899&matt_tool=61014070",
+    subidParam: null, cashback: null, rating: { score: 4.7, count: 41 },
+    description: "O maior marketplace do Brasil, com milhões de produtos de milhares de vendedores. Ofertas relâmpago, frete grátis e parcelamento sem juros todos os dias.",
+    top: false
   }
 ];
 
@@ -813,7 +824,20 @@ const COUPONS = [
   { oid: 3003, storeId: "rentcars", value: "Sem IOF", label: "PAGUE EM REAIS", title: "Alugue seu carro comparando as maiores locadoras",
     code: null, rules: "Pagamento em reais sem IOF e parcelamento disponível, conforme condições da reserva.", expires: null, top: false, exclusive: false },
   { oid: 3004, storeId: "travelbds", value: "Ofertas", label: "EXPERIÊNCIAS DE VIAGEM", title: "Passeios e serviços selecionados para sua próxima trip",
-    code: null, rules: "Ofertas vigentes conforme destino e disponibilidade.", expires: null, top: false, exclusive: false }
+    code: null, rules: "Ofertas vigentes conforme destino e disponibilidade.", expires: null, top: false, exclusive: false },
+
+  /* --- Mercado Livre: não tem cupom com código pra copiar (é desconto
+     automático no preço). Os links abaixo já vão pras páginas reais de
+     ofertas ao vivo do site, com o rastreamento de afiliado. --- */
+  { oid: 4001, storeId: "mercadolivre", value: "Ofertas", label: "RELÂMPAGO E DO DIA", title: "Central de ofertas: relâmpago, do dia e preços imbatíveis",
+    url: "https://www.mercadolivre.com.br/ofertas?matt_word=teva5875899&matt_tool=61014070",
+    code: null, rules: "Ofertas ao vivo, atualizadas o tempo todo pelo próprio Mercado Livre. Descontos já aplicados no preço, sem necessidade de cupom.", expires: null, top: true, exclusive: false },
+  { oid: 4002, storeId: "mercadolivre", value: "Ofertas", label: "SUPERMERCADO", title: "Itens de supermercado com desconto e frete rápido",
+    url: "https://www.mercadolivre.com.br/ofertas/supermercado?matt_word=teva5875899&matt_tool=61014070",
+    code: null, rules: "Seleção de ofertas de supermercado, atualizada ao vivo pelo Mercado Livre.", expires: null, top: false, exclusive: false },
+  { oid: 4003, storeId: "mercadolivre", value: "Loja oficial", label: "GROWTH SUPPLEMENTS", title: "Suplementos da Growth com preço de loja oficial",
+    url: "https://www.mercadolivre.com.br/loja/growth-supplements?matt_word=teva5875899&matt_tool=61014070",
+    code: null, rules: "Loja oficial verificada dentro do Mercado Livre. Preços e frete conforme anúncio.", expires: null, top: false, exclusive: false }
 ];
 
 /* ------------------------------------------------------------
