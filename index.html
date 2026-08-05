@@ -913,12 +913,14 @@ function goStore(id){
   location.href = "/" + id;
 }
 /* clic en cualquier parte de la card de cupón → página de la tienda,
-   excepto en el botón Ver cupom / Regras (que tienen su propia acción) */
+   excepto en el botón Ver cupom / Regras (que tienen su propia acción).
+   Solo se usa fuera de la página de la propia tienda (home, categorías,
+   listado de lojas) — dentro de la página de la tienda sería redundante. */
 function cardClick(e, storeId){
   if (e.target.closest("a,button")) return;
   goStore(storeId);
 }
-/* oferta genérica de tienda (sin cupón cargado): abre el link de afiliado */
+/* oferta genérica de tienda (sin cupón cargado): abre o link de afiliado */
 function openStoreOffer(id){
   const s = storeById[id];
   trackCouponClick(s, { code: null, oid: 0 }, 1);
@@ -1008,7 +1010,8 @@ function couponCard(c, i, _arr, big, hideLogo){
   const position = (i || 0) + 1;
   const hint = c.code ? "•••" + c.code.slice(-3) : `<span style="color:var(--green)">✓ Desconto direto</span>`;
   const badge = c.exclusive ? '<span class="badge exclusive">EXCLUSIVO</span>' : (c.top ? '<span class="badge top">TOP</span>' : "");
-  return `<article class="card ${big ? "card-hero" : ""}" onclick="cardClick(event, '${s.id}')" style="cursor:pointer" title="Ver todos os cupons ${s.name}">
+  const cardClickAttrs = hideLogo ? "" : `onclick="cardClick(event, '${s.id}')" style="cursor:pointer" title="Ver todos os cupons ${s.name}"`;
+  return `<article class="card ${big ? "card-hero" : ""}" ${cardClickAttrs}>
     ${badge}
     ${big ? `<div class="hero-store-name">${s.name}</div>` : ""}
     ${c.image ? `<img class="c-img" src="${c.image}" alt="${c.title}">` : ""}
