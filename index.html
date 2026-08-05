@@ -1511,7 +1511,11 @@ function openCoupon(idx, pos, autoOpen){
   const s = storeById[c.storeId];
   trackCouponClick(s, c, pos);
   const url = buildAffiliateUrl(s, c);
-  if (autoOpen !== false) window.open(url, "_blank", "noopener");   /* cookie de atribución */
+  /* si o cupom tem código mas nenhuma URL própria, o clique não deve
+     abrir automaticamente a home genérica da loja — só mostra o código
+     no modal; o botão "ir para a loja" ali continua funcionando. */
+  const shouldAutoOpen = autoOpen !== false && !(c.code && !c.url);
+  if (shouldAutoOpen) window.open(url, "_blank", "noopener");   /* cookie de atribución */
   try{
     if (!location.pathname.startsWith("/desconto") && location.protocol !== "file:"){
       prevPath = location.pathname + location.search;
