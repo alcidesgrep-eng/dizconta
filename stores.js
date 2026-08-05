@@ -31,7 +31,7 @@ const SITE = {
    Usa 3 a 5 oids. Elegí siempre el cupom de mayor valor por tienda.
    Los demás cupones siguen apareciendo normalmente en /loja y /lojas.
    ------------------------------------------------------------ */
-const HOME_FEATURED = [1011, 2002, 2001];
+const HOME_FEATURED = [1011, 2002, 4001, 4002];
 
 /* ------------------------------------------------------------
    CAMPANHAS SAZONAIS — banners de época (Dia dos Pais, Black
@@ -858,10 +858,10 @@ const BANNERS = [
     href: "/pagina/seguro-auto"
   },
   {
-    image: "img/banner-tenis.jpg",
-    title: "Tênis de marca pagando menos",
-    subtitle: "Olympikus, Mizuno e Under Armour com oferta ativa",
-    storeId: "olympikus"
+    image: "img/banner-mercadolivre.jpg",
+    title: "Milhões de ofertas no Mercado Livre",
+    subtitle: "Relâmpago, do dia e frete grátis todos os dias",
+    storeId: "mercadolivre"
   },
   {
     image: "img/banner-electrodomesticos.jpg",
