@@ -981,6 +981,7 @@ function activeCoupons(storeId){
   return COUPONS.filter(c => {
     const s = storeById[c.storeId];
     if (!s) return false;
+    if (!storeId && s.hidden) return false;
     if (c.expires && c.expires < today) return false;
     if (storeId && c.storeId !== storeId) return false;
     if (!storeId && query){
@@ -998,7 +999,7 @@ function featuredCoupons(){
   const ids = (typeof HOME_FEATURED !== "undefined") ? HOME_FEATURED : [];
   return ids.map(oid => COUPONS.find(c => c.oid === oid)).filter(c => {
     if (!c) return false;
-    if (!storeById[c.storeId]) return false;
+    if (!storeById[c.storeId] || storeById[c.storeId].hidden) return false;
     if (c.expires && c.expires < today) return false;
     return true;
   });
@@ -1078,7 +1079,7 @@ function renderHome(){
   if (CATS.length >= 2){
     $("categorias").style.display = "block";
     $("catRow").innerHTML = CATS.map(c => {
-      const n = COUPONS.filter(x => storeById[x.storeId] && storeById[x.storeId].category === c && (!x.expires || x.expires >= new Date().toISOString().slice(0,10))).length;
+      const n = COUPONS.filter(x => storeById[x.storeId] && !storeById[x.storeId].hidden && storeById[x.storeId].category === c && (!x.expires || x.expires >= new Date().toISOString().slice(0,10))).length;
       const media = CAT_MEDIA[c];
       const bg = media
         ? `<img class="cc-img" src="${media.img}" alt="${c}" loading="lazy" onerror="this.remove()">`
@@ -1103,7 +1104,7 @@ function renderHome(){
   }
 
   /* home: solo tiendas destacadas (top:true) o primeras 8 */
-  const featured = STORES.filter(s => s.top).length ? STORES.filter(s => s.top) : STORES.slice(0, 8);
+  const featured = STORES.filter(s => s.top && !s.hidden).length ? STORES.filter(s => s.top && !s.hidden) : STORES.filter(s => !s.hidden).slice(0, 8);
   $("storeRow").innerHTML = featured.map(s => {
     const media = s.logoUrl
       ? `<img class="st-img" src="${s.logoUrl}" alt="${s.name}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;st-placeholder&quot;>${s.name}</div>'">`
@@ -1146,6 +1147,8 @@ function renderHome(){
 }
 
 const STORE_HERO_IMG = Object.fromEntries(BANNERS_DATA.filter(b => b.storeId && b.image).map(b => [b.storeId, b.image]));
+/* página oculta natura-yenifer usa a mesma hero image da natura (não tem banner próprio na home, de propósito) */
+if (STORE_HERO_IMG.natura) STORE_HERO_IMG["natura-yenifer"] = STORE_HERO_IMG.natura;
 function renderStore(id){
   const s = storeById[id];
   $("homeView").style.display = "none";
@@ -1312,7 +1315,7 @@ function renderLojas(){
   document.title = `Todas as lojas · ${SITE.brand}`;
   $("lojasFilter").innerHTML = `<button class="${!lojasCat?"active":""}" onclick="setLojasCat(null)">Todas</button>` +
     CATS.map(c => `<button class="${lojasCat===c?"active":""}" onclick="setLojasCat('${c}')">${c}</button>`).join("");
-  const list = STORES.filter(s => !lojasCat || s.category === lojasCat);
+  const list = STORES.filter(s => !s.hidden && (!lojasCat || s.category === lojasCat));
   let lojasBigLeft = 2;
   $("lojasGrid").innerHTML = list.map(s => {
     const score = s.rating ? s.rating.score : null;
@@ -1377,7 +1380,7 @@ function renderCategoria(cat){
   const today = new Date().toISOString().slice(0,10);
   const list = COUPONS.filter(c => {
     const s = storeById[c.storeId];
-    return s && s.category === cat && (!c.expires || c.expires >= today);
+    return s && !s.hidden && s.category === cat && (!c.expires || c.expires >= today);
   }).sort((a,b) => (b.top?1:0) - (a.top?1:0));
   $("ctGrid").innerHTML = list.length
     ? list.map((c,i) => couponCard(c, i, null, i === 0)).join("")

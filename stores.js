@@ -64,6 +64,19 @@ const STORE_PRODUCT_HIGHLIGHTS = {
       { image: "img/produto-natura-palo-santo.jpg", discount: "", name: "Presente Natura Essencial Palo Santo (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-palo-santo-2-produtos/NATBRA-245362?position=5&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=alcidesgabriel&marca=natura" }
     ],
     photoStrip: []
+  },
+  "natura-yenifer": {
+    title: "Presentes Dia dos Pais",
+    sub: "Escolha o presente ideal com desconto especial — estoque limitado.",
+    ctaText: "Conseguir oferta →",
+    items: [
+      { image: "img/produto-natura-completo.jpg", discount: "42%", name: "Presente Natura Essencial Completo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-completo-3-produtos/NATBRA-245353?position=1&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&marca=natura&consultoria=yenifercamacaro" },
+      { image: "img/produto-natura-sagaz.jpg", discount: "37%", name: "Presente Natura Homem Sagaz", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-sagaz-3-produtos/NATBRA-245371?position=2&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" },
+      { image: "img/produto-natura-coragio.jpg", discount: "32%", name: "Presente Natura Homem Cor.agio (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-coragio-2-produtos/NATBRA-245382?position=3&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" },
+      { image: "img/produto-natura-exclusivo.jpg", discount: "43%", name: "Presente Natura Essencial Exclusivo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-exclusivo-3-produtos/NATBRA-245358?position=4&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" },
+      { image: "img/produto-natura-palo-santo.jpg", discount: "", name: "Presente Natura Essencial Palo Santo (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-palo-santo-2-produtos/NATBRA-245362?position=5&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" }
+    ],
+    photoStrip: []
   }
 };
 
@@ -74,7 +87,8 @@ const STORE_PRODUCT_HIGHLIGHTS = {
    da própria imagem para não ficar destoando nas laterais.
    ------------------------------------------------------------ */
 const STORE_CTA_IMG = {
-  natura: { image: "img/banner-inferior-natura.jpg", bg: "#e6663f" }
+  natura: { image: "img/banner-inferior-natura.jpg", bg: "#e6663f" },
+  "natura-yenifer": { image: "img/banner-inferior-natura.jpg", bg: "#e6663f" }
 };
 
 /* ------------------------------------------------------------
@@ -84,6 +98,13 @@ const STORE_CTA_IMG = {
    ------------------------------------------------------------ */
 const STORE_FAQ = {
   natura: [
+    { q: "O link do Dizconta leva para o site oficial da Natura?", a: "Sim. Você é direcionado para minhaloja.natura.com, a loja oficial da Natura vinculada à nossa consultoria — mesmos preços, formas de pagamento e garantias do site principal." },
+    { q: "Preciso pagar algo para usar o cupom?", a: "Não. O desconto é aplicado direto no carrinho da Natura, sem nenhum custo adicional pelo Dizconta." },
+    { q: "O cupom não aplicou automaticamente, o que eu faço?", a: "Alguns cupons, como o MLDATADUPLA da campanha 8.8, precisam ser digitados manualmente no campo de cupom do carrinho antes de finalizar a compra. Sempre teste o código antes de pagar." },
+    { q: "Posso trocar ou devolver o produto?", a: "Sim, seguindo a política de trocas da própria Natura — incluindo o direito de arrependimento de 7 dias previsto no Código de Defesa do Consumidor para compras online." },
+    { q: "Com que frequência os cupons são atualizados?", a: "Verificamos e atualizamos as ofertas da Natura semanalmente. A validade de cada cupom aparece na própria oferta." }
+  ],
+  "natura-yenifer": [
     { q: "O link do Dizconta leva para o site oficial da Natura?", a: "Sim. Você é direcionado para minhaloja.natura.com, a loja oficial da Natura vinculada à nossa consultoria — mesmos preços, formas de pagamento e garantias do site principal." },
     { q: "Preciso pagar algo para usar o cupom?", a: "Não. O desconto é aplicado direto no carrinho da Natura, sem nenhum custo adicional pelo Dizconta." },
     { q: "O cupom não aplicou automaticamente, o que eu faço?", a: "Alguns cupons, como o MLDATADUPLA da campanha 8.8, precisam ser digitados manualmente no campo de cupom do carrinho antes de finalizar a compra. Sempre teste o código antes de pagar." },
@@ -430,6 +451,20 @@ const STORES = [
     top: true
   },
   {
+    /* página paralela da Natura para a divulgação via Instagram (@daianaaa.cn),
+       redirecionando para a consultoria da Yenifer. Mesmo conteúdo da página
+       "natura" acima — hidden:true tira ela da home, /lojas, /categorias e
+       da busca. Só é acessível pela URL direta /natura-yenifer. */
+    id: "natura-yenifer", name: "Natura", category: "Beleza", color: "#FF5800", logoText: "natura",
+    logoUrl: "img/logos/natura.png",
+    affiliateUrl: "https://www.minhaloja.natura.com/consultoria/yenifercamacaro?marca=natura",
+    logoDomain: "natura.com.br",
+    subidParam: null, cashback: null, rating: { score: 4.8, count: 93 },
+    description: "A maior marca brasileira de cosméticos e perfumaria. Ekos, Kaiak, Tododia e Essencial com promoções semanais — e frete grátis em compras selecionadas. Quem compra pelo link ativa as melhores condições da semana.",
+    top: false,
+    hidden: true
+  },
+  {
     id: "olympikus", name: "Olympikus", category: "Esportes", color: "#FFFFFF", logoText: "OLK",
     logoUrl: "img/logos/olympikus.png",
     affiliateUrl: "https://www.olympikus.com.br?utm_source=mais&utm_medium=maisplataforma&utm_campaign=alcidesgrep",
@@ -713,6 +748,52 @@ const COUPONS = [
   { oid: 1009, storeId: "natura", value: "Brinde", label: "TODODIA NUVEM", title: "Ganhe o hidratante em compras acima de R$229,90",
     code: "AFINUVEM", rules: "Brinde adicionado ao carrinho com o cupom em compras acima de R$229,90, enquanto durarem os estoques.", expires: null, top: false, exclusive: false },
   { oid: 1010, storeId: "natura", value: "Brinde", label: "EKOS PÉS CASTANHA", title: "Ganhe o creme para pés usando o cupom",
+    code: "AFICAS", rules: "Brinde adicionado ao carrinho com o cupom, conforme condições da campanha e enquanto durarem os estoques.", expires: null, top: false, exclusive: false },
+
+  /* --- Natura Yenifer (página paralela oculta — mesmas ofertas da Natura,
+     com atribuição para a consultoria da Yenifer) --- */
+  { oid: 9001, storeId: "natura-yenifer", value: "Relâmpago", label: "POR TEMPO LIMITADO", title: "Corra: promoções relâmpago de hoje na loja oficial",
+    url: "https://www.minhaloja.natura.com/c/relampago?consultoria=yenifercamacaro&marca=natura",
+    code: null, rules: "Ofertas relâmpago por tempo limitado, enquanto durarem os estoques.", expires: null, top: true, exclusive: false },
+  { oid: 9002, storeId: "natura-yenifer", value: "Exclusivas", label: "PROMOÇÃO DA CONSULTORA", title: "Ofertas exclusivas do espaço da consultora",
+    url: "https://www.minhaloja.natura.com/c/promocao-exclusiva?consultoria=yenifercamacaro&marca=natura",
+    code: null, rules: "Promoções exclusivas disponíveis apenas no espaço digital da consultora.", expires: null, top: false, exclusive: true },
+  { oid: 9003, storeId: "natura-yenifer", value: "10% OFF", label: "PRIMEIRA COMPRA", title: "10% OFF na primeira compra com a consultora",
+    url: "https://www.minhaloja.natura.com/c/especial-primeira-compra?consultoria=yenifercamacaro&marca=natura",
+    code: "PRIMEIRAML", rules: "10% de desconto para clientes na primeira compra no espaço digital da consultora. Consulte condições no carrinho.", expires: null, top: false, exclusive: false },
+  { oid: 9004, storeId: "natura-yenifer", value: "Brinde", label: "BRINDE PERFUMARIA", title: "Ganhe um mini Kriska em compras acima de R$150 em Perfumaria",
+    url: "https://www.minhaloja.natura.com/c/perfumaria?consultoria=yenifercamacaro&marca=natura",
+    code: "MLMAISPERF", rules: "Ganhe um mini Kriska em compras acima de R$150 em itens de Perfumaria, enquanto durarem os estoques. Teste o cupom no carrinho.", expires: null, top: false, exclusive: false },
+  { oid: 9005, storeId: "natura-yenifer", value: "Até 50%", label: "DIA DOS PAIS", title: "Mais de 30 presentes com até 50% de desconto",
+    url: "https://www.minhaloja.natura.com/c/presentes-de-dia-dos-pais?consultoria=yenifercamacaro&marca=natura",
+    code: null, rules: "Seleção de mais de 30 presentes para o Dia dos Pais, enquanto durarem os estoques.", expires: "2026-08-09", top: true, exclusive: false,
+    heroImage: "img/banner-dia-dos-pais.jpg", heroPos: "68% 74%", heroTitle: "Dia dos Pais Natura", heroSub: "Mais de 30 presentes com até 50% de desconto." },
+  { oid: 9006, storeId: "natura-yenifer", value: "Até R$88", label: "8.8 ESQUENTA DIA DOS PAIS", title: "Desbloqueie até R$88 OFF com o cupom — R$8 OFF em R$80, R$38 OFF em R$240, R$88 OFF em R$400",
+    url: "https://www.minhaloja.natura.com/c/data-dupla?consultoria=yenifercamacaro&marca=natura",
+    code: "MLDATADUPLA", rules: "Campanha 8.8 Esquenta Dia dos Pais: desconto progressivo por faixa de valor no carrinho — R$8 OFF a partir de R$80, R$38 OFF a partir de R$240, R$88 OFF a partir de R$400. Teste o cupom no carrinho antes de finalizar.", expires: "2026-08-09", top: true, exclusive: false,
+    heroImage: "img/banner-88.jpg", heroTitle: "8.8 Natura", heroSub: "Esquenta Dia dos Pais: desbloqueie até R$88 OFF usando o cupom no carrinho.",
+    heroBig: "8.8", heroBigSub: "Natura", heroEyebrow2: "ESQUENTA", heroCampaign: "Dia dos Pais",
+    heroHeadline: "Desbloqueie até", heroHeadlineAmount: "R$88", heroHeadlineSuffix: "OFF",
+    heroCodeLabel: "usando o cupom",
+    heroTiers: [
+      { off: "R$8", threshold: "R$80" },
+      { off: "R$38", threshold: "R$240" },
+      { off: "R$88", threshold: "R$400" }
+    ],
+    heroCtaText: "Ativar oferta →" },
+  { oid: 9007, storeId: "natura-yenifer", value: "Ofertas", label: "TODAS AS PROMOÇÕES", title: "Central de promoções da loja oficial Natura",
+    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=yenifercamacaro&marca=natura",
+    code: null, rules: "Todas as promoções vigentes da semana na loja oficial.", expires: null, top: false, exclusive: false },
+  { oid: 9008, storeId: "natura-yenifer", value: "15%", label: "OFF COM CUPOM", title: "Seleção de autocuidado com cupom + frete grátis",
+    code: "Happy15", rules: "Válido em seleção de produtos. Teste o cupom no carrinho antes de finalizar. Não cumulativo com outras promoções.", expires: null, top: false, exclusive: false },
+  { oid: 9009, storeId: "natura-yenifer", value: "15%", label: "ESQUENTA 7.7", title: "Campanha 7.7: desconto em quase todo o site",
+    url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=yenifercamacaro&marca=natura",
+    code: null, rules: "Campanha Esquenta 7.7 por tempo limitado. Exceto linhas Biome, Bothânica, Alta Perfumaria e sabonetes em barra promocionados.", expires: "2026-07-08", top: false, exclusive: false },
+  { oid: 9010, storeId: "natura-yenifer", value: "Brinde", label: "ÓLEO EKOS TUKUMÃ", title: "Ganhe o óleo em compras acima de R$266,90",
+    code: "AFITUKUMA", rules: "Brinde adicionado ao carrinho com o cupom em compras acima de R$266,90, enquanto durarem os estoques. Teste no carrinho.", expires: null, top: false, exclusive: false },
+  { oid: 9011, storeId: "natura-yenifer", value: "Brinde", label: "TODODIA NUVEM", title: "Ganhe o hidratante em compras acima de R$229,90",
+    code: "AFINUVEM", rules: "Brinde adicionado ao carrinho com o cupom em compras acima de R$229,90, enquanto durarem os estoques.", expires: null, top: false, exclusive: false },
+  { oid: 9012, storeId: "natura-yenifer", value: "Brinde", label: "EKOS PÉS CASTANHA", title: "Ganhe o creme para pés usando o cupom",
     code: "AFICAS", rules: "Brinde adicionado ao carrinho com o cupom, conforme condições da campanha e enquanto durarem os estoques.", expires: null, top: false, exclusive: false },
 
   /* --- Ofertas activables (sin código) — copy persuasivo por tienda.
