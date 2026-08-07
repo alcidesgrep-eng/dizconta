@@ -13,4 +13,4 @@ Sitio estático (SPA) de cupones, deploy automático en Vercel al hacer push a `
 - `index.html`: toda la lógica de renderizado/routing (SPA, sin build step).
 - `stores.js`: única fuente de datos — tiendas, cupones, páginas institucionales, banners. Comentado en portugués para el usuario.
 - Rutas por tienda: `id` de STORES → URL `/​<id>`. Rewrites en `vercel.json` y `_redirects` mandan todo a `index.html`.
-- Página oculta: un store con `hidden: true` no aparece en home/`/lojas`/`/categorias`/búsqueda pero sigue siendo accesible por URL directa (usado para landing pages de afiliados/redes específicas, ej. `natura-yenifer`).
+- Página oculta: un store con `hidden: true` no aparece en home/`/lojas`/`/categorias`/búsqueda pero sigue siendo accesible por URL directa (usado para landing pages de afiliados/redes específicas, ej. `natura-daianaaa.cn`).
