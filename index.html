@@ -1148,8 +1148,8 @@ function renderHome(){
 }
 
 const STORE_HERO_IMG = Object.fromEntries(BANNERS_DATA.filter(b => b.storeId && b.image).map(b => [b.storeId, b.image]));
-/* página oculta natura-daianaaa.cn usa a mesma hero image da natura (não tem banner próprio na home, de propósito) */
-if (STORE_HERO_IMG.natura) STORE_HERO_IMG["natura-daianaaa.cn"] = STORE_HERO_IMG.natura;
+/* página oculta natura-daianaaa.cn usa a mesma hero image da consultoriadebellezanatura (não tem banner próprio na home, de propósito) */
+if (STORE_HERO_IMG.consultoriadebellezanatura) STORE_HERO_IMG["natura-daianaaa.cn"] = STORE_HERO_IMG.consultoriadebellezanatura;
 function renderStore(id){
   const s = storeById[id];
   $("homeView").style.display = "none";
@@ -1702,6 +1702,14 @@ if (SITE.social){
 }
 if (SITE.cashbackEnabled) $("loginBtn").style.display = "block";
 initNewsletter();
+/* redirect de slugs antigos (ex: links/ads salvos com a URL anterior) */
+const LEGACY_SLUGS = { natura: "consultoriadebellezanatura" };
+(function redirectLegacySlug(){
+  const seg = location.pathname.split("/").filter(Boolean)[0];
+  if (seg && LEGACY_SLUGS[seg]){
+    location.replace("/" + LEGACY_SLUGS[seg] + location.search + location.hash);
+  }
+})();
 const blogRoute = currentBlogRoute();
 const pageRoute = currentPageRoute();
 const routeCoupon = currentCouponRoute();
