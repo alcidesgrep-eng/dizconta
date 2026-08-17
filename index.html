@@ -1702,8 +1702,12 @@ if (SITE.social){
 }
 if (SITE.cashbackEnabled) $("loginBtn").style.display = "block";
 initNewsletter();
-/* redirect de slugs antigos (ex: links/ads salvos com a URL anterior) */
-const LEGACY_SLUGS = { natura: "consultoriadebellezanatura", "natura-daianaaa.cn": "consultoriadebellezanatura-daianaaa.cn" };
+/* redirect de slugs antigos + aliases curtos (ex: link do bio do Instagram) */
+const LEGACY_SLUGS = {
+  natura: "consultoriadebellezanatura",
+  "natura-daianaaa.cn": "consultoriadebellezanatura-daianaaa.cn",
+  "daianaaa.cn": "consultoriadebellezanatura-daianaaa.cn"
+};
 (function redirectLegacySlug(){
   const seg = location.pathname.split("/").filter(Boolean)[0];
   if (seg && LEGACY_SLUGS[seg]){
