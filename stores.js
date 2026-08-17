@@ -715,7 +715,10 @@ const COUPONS = [
     code: "Happy15", rules: "Válido em seleção de produtos. Teste o cupom no carrinho antes de finalizar. Não cumulativo com outras promoções.", expires: null, top: false, exclusive: false },
   { oid: 1007, storeId: "consultoriadebellezanatura", value: "Até 60%", label: "NATURA WEEK", title: "Descontos imperdíveis com até 60% OFF em perfumaria e presentes",
     url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=valeskavalentina&marca=natura",
-    code: null, rules: "Campanha Natura Week: até 60% de desconto em itens selecionados, enquanto durarem os estoques.", expires: null, top: true, exclusive: false },
+    code: null, rules: "Campanha Natura Week: até 60% de desconto em itens selecionados, enquanto durarem os estoques.", expires: null, top: true, exclusive: false,
+    heroImage: "img/natura/banner-loja-natura-week-60.jpeg", heroTitle: "Natura Week",
+    heroSub: "Aproveite ofertas especiais, desconto progressivo, cupons e muito mais — você será redirecionado(a) para a loja da minha consultoria de beleza Natura.",
+    heroCtaText: "Eu quero →" },
   /* --- Natura: brindes com cupom --- */
   { oid: 1008, storeId: "consultoriadebellezanatura", value: "Brinde", label: "ÓLEO EKOS TUKUMÃ", title: "Ganhe o óleo em compras acima de R$266,90",
     code: "AFITUKUMA", rules: "Brinde adicionado ao carrinho com o cupom em compras acima de R$266,90, enquanto durarem os estoques. Teste no carrinho.", expires: null, top: false, exclusive: false },
@@ -745,7 +748,10 @@ const COUPONS = [
     code: "Happy15", rules: "Válido em seleção de produtos. Teste o cupom no carrinho antes de finalizar. Não cumulativo com outras promoções.", expires: null, top: false, exclusive: false },
   { oid: 9009, storeId: "natura-daianaaa.cn", value: "Até 60%", label: "NATURA WEEK", title: "Descontos imperdíveis com até 60% OFF em perfumaria e presentes",
     url: "https://www.minhaloja.natura.com/c/promocoes?consultoria=yenifercamacaro&marca=natura",
-    code: null, rules: "Campanha Natura Week: até 60% de desconto em itens selecionados, enquanto durarem os estoques.", expires: null, top: true, exclusive: false },
+    code: null, rules: "Campanha Natura Week: até 60% de desconto em itens selecionados, enquanto durarem os estoques.", expires: null, top: true, exclusive: false,
+    heroImage: "img/natura/banner-loja-natura-week-60.jpeg", heroTitle: "Natura Week",
+    heroSub: "Aproveite ofertas especiais, desconto progressivo, cupons e muito mais — você será redirecionado(a) para a loja da minha consultoria de beleza Natura.",
+    heroCtaText: "Eu quero →" },
   { oid: 9010, storeId: "natura-daianaaa.cn", value: "Brinde", label: "ÓLEO EKOS TUKUMÃ", title: "Ganhe o óleo em compras acima de R$266,90",
     code: "AFITUKUMA", rules: "Brinde adicionado ao carrinho com o cupom em compras acima de R$266,90, enquanto durarem os estoques. Teste no carrinho.", expires: null, top: false, exclusive: false },
   { oid: 9011, storeId: "natura-daianaaa.cn", value: "Brinde", label: "TODODIA NUVEM", title: "Ganhe o hidratante em compras acima de R$229,90",
@@ -884,9 +890,9 @@ const COUPONS = [
    ------------------------------------------------------------ */
 const BANNERS = [
   {
-    image: "img/banner-natura.jpg",
-    title: "Cupom Natura com até 20% OFF",
-    subtitle: "Perfumaria, presentes e muito mais",
+    image: "img/natura/banner-home-natura-week.jpeg",
+    title: "Natura Week",
+    subtitle: "Descontos imperdíveis com até 60% OFF",
     storeId: "consultoriadebellezanatura"
   },
   {
