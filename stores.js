@@ -53,26 +53,20 @@ const STORE_PRODUCT_HIGHLIGHTS = {
     title: "Natura Week",
     sub: "Descontos imperdíveis com até 60% OFF — só até acabar o estoque.",
     ctaText: "Conseguir oferta →",
-    items: [
-      { image: "img/produto-natura-completo.jpg", discount: "42%", name: "Presente Natura Essencial Completo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-completo-3-produtos/NATBRA-245353?position=1&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&marca=natura&consultoria=valeskavalentina" },
-      { image: "img/produto-natura-sagaz.jpg", discount: "37%", name: "Presente Natura Homem Sagaz", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-sagaz-3-produtos/NATBRA-245371?position=2&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=valeskavalentina&marca=natura" },
-      { image: "img/produto-natura-coragio.jpg", discount: "32%", name: "Presente Natura Homem Cor.agio (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-coragio-2-produtos/NATBRA-245382?position=3&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=valeskavalentina&marca=natura" },
-      { image: "img/produto-natura-exclusivo.jpg", discount: "43%", name: "Presente Natura Essencial Exclusivo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-exclusivo-3-produtos/NATBRA-245358?position=4&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=valeskavalentina&marca=natura" },
-      { image: "img/produto-natura-palo-santo.jpg", discount: "", name: "Presente Natura Essencial Palo Santo (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-palo-santo-2-produtos/NATBRA-245362?position=5&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=valeskavalentina&marca=natura" }
-    ],
+    /* itens desativados: os produtos do Dia dos Pais (NATBRA-2453xx) saíram
+       do catálogo da Natura e os links davam 404. Preencher de novo quando
+       tivermos os produtos/URLs reais da campanha Natura Week. */
+    items: [],
     photoStrip: []
   },
   "natura-daianaaa.cn": {
     title: "Natura Week",
     sub: "Descontos imperdíveis com até 60% OFF — só até acabar o estoque.",
     ctaText: "Conseguir oferta →",
-    items: [
-      { image: "img/produto-natura-completo.jpg", discount: "42%", name: "Presente Natura Essencial Completo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-completo-3-produtos/NATBRA-245353?position=1&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&marca=natura&consultoria=yenifercamacaro" },
-      { image: "img/produto-natura-sagaz.jpg", discount: "37%", name: "Presente Natura Homem Sagaz", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-sagaz-3-produtos/NATBRA-245371?position=2&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" },
-      { image: "img/produto-natura-coragio.jpg", discount: "32%", name: "Presente Natura Homem Cor.agio (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-homem-coragio-2-produtos/NATBRA-245382?position=3&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" },
-      { image: "img/produto-natura-exclusivo.jpg", discount: "43%", name: "Presente Natura Essencial Exclusivo (3 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-exclusivo-3-produtos/NATBRA-245358?position=4&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" },
-      { image: "img/produto-natura-palo-santo.jpg", discount: "", name: "Presente Natura Essencial Palo Santo (2 produtos)", url: "https://www.minhaloja.natura.com/p/presente-natura-essencial-palo-santo-2-produtos/NATBRA-245362?position=5&listTitle=tab+showcase+-+escolha+seu+presente+por+faixa+de+pre%C3%A7o&consultoria=yenifercamacaro&marca=natura" }
-    ],
+    /* itens desativados: os produtos do Dia dos Pais (NATBRA-2453xx) saíram
+       do catálogo da Natura e os links davam 404. Preencher de novo quando
+       tivermos os produtos/URLs reais da campanha Natura Week. */
+    items: [],
     photoStrip: []
   }
 };
